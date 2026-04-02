@@ -1,166 +1,153 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { cn } from "../../lib/utils";
+import React from "react";
 
 // Asset Imports
-import bridalImage from "../../assets/bridal_makeup.png";
-import hairImage from "../../assets/hair_styling.png";
-import skinImage from "../../assets/skin_care.png";
-import spaImage from "../../assets/spa_treatment.png";
-import makeupImage from "../../assets/makeup_artist.png";
-import nailImage from "../../assets/nail_art.png";
-import interiorImage from "../../assets/salon_interior_luxury.png";
-import logoImage from "../../assets/zentonsz.png";
+import interiorImg  from "../../assets/salon_interior_luxury.png";
+import heroImg      from "../../assets/hero_salon.png";
+import hairImg      from "../../assets/hair_styling.png";
+import makeupImg    from "../../assets/makeup_artist.png";
+import bridalImg    from "../../assets/bridal_makeup.png";
+import bridal2Img   from "../../assets/bridal makeup2.png";
+import skinImg      from "../../assets/skin_care.png";
+import spaImg       from "../../assets/spa_treatment.png";
+import nailImg      from "../../assets/nail_art.png";
+import vesselImg    from "../../assets/luxury_salon_vessel.png";
+import logoImg      from "../../assets/zentonsz.png";
 
 const BookGallery: React.FC = () => {
-  const [openPage, setOpenPage] = useState<number | null>(null);
-
-  const flippingPages = [
-    { id: 1, front: interiorImage, back: bridalImage },
-    { id: 2, front: hairImage, back: skinImage },
-    { id: 3, front: spaImage, back: makeupImage },
-    { id: 4, front: nailImage, back: logoImage },
+  const pages = [
+    { front: heroImg,     back: interiorImg },
+    { front: hairImg,     back: makeupImg },
+    { front: bridalImg,   back: bridal2Img },
+    { front: skinImg,     back: spaImg },
+    { front: nailImg,     back: vesselImg },
+    { front: heroImg,     back: logoImg } // Final branded page
   ];
 
-  const handlePageClick = (index: number) => {
-    if (openPage === index) {
-      setOpenPage(index - 1 >= 0 ? index - 1 : null);
-    } else {
-      setOpenPage(index);
-    }
-  };
-
-  const handleBackgroundClick = () => {
-    setOpenPage(null);
-  };
-
-  const handleReset = async () => {
-    if (openPage === null) return;
-    let current: number | null = openPage;
-    while (current !== null) {
-      const next: number | null = current === 0 ? null : current - 1;
-      setOpenPage(next);
-      current = next;
-      await new Promise(r => setTimeout(r, 450));
-    }
-  };
-
-  const isAnyPageOpen = openPage !== null;
-  const text = "BOOK GALLERY";
-
   return (
-    <div 
-      className="relative w-full h-full flex items-center justify-center bg-white overflow-hidden"
-      onClick={handleBackgroundClick}
-    >
-      {/* Background Typography */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-10">
-        <h1 className="text-[10vw] font-black text-black leading-none whitespace-nowrap uppercase tracking-tighter mix-blend-multiply flex gap-2">
-          {text.split("").map((char, i) => (
-            <motion.span 
-              key={i}
-              whileHover={char === "A" ? { scale: 1.2, color: "#735c00" } : {}}
-              onClick={(e) => {
-                if (char === "A") {
-                  e.stopPropagation();
-                  handleReset();
-                }
-              }}
-              className={char === "A" ? "cursor-pointer pointer-events-auto" : ""}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </h1>
-      </div>
-
-      {/* 3D Book Container */}
-      <motion.div 
-        layout
-        className="relative perspective-2000 preserve-3d z-30"
-        style={{ height: "280px" }}
-        animate={{ 
-          width: isAnyPageOpen ? "400px" : "200px",
-          x: isAnyPageOpen ? 0 : 100 
-        }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="relative w-full h-full preserve-3d shadow-2xl">
-          
-          {/* Static Back Plate (Right side endpoint) */}
-          <div className="absolute top-0 right-0 w-[200px] h-full bg-linear-to-r from-surface to-surface-dim border-r border-black/5 shadow-inner overflow-hidden flex flex-col items-center justify-center p-8 text-center bg-white">
-             <div className="absolute inset-0 opacity-5" 
-                  style={{ backgroundImage: `url(${interiorImage})`, backgroundSize: 'cover' }} />
-             <div className="relative z-10">
-               <div className="w-10 h-0.5 bg-primary/20 mb-4 mx-auto" />
-               <p className="text-[8px] font-bold tracking-[0.3em] text-primary uppercase mb-1">Finest Reflections</p>
-               <p className="text-[6px] italic text-slate-400">By Zentonsz</p>
-             </div>
-             <div className="absolute inset-0 bg-linear-to-l from-black/10 to-transparent pointer-events-none" />
-          </div>
-
-          {/* Flipping Pages */}
-          {flippingPages.map((page, index) => {
-            const isFlipped = openPage !== null && index <= openPage;
-            const zIndex = isFlipped ? index + 1 : flippingPages.length - index + 1;
-
-            return (
-              <motion.div
-                key={page.id}
-                className="absolute top-0 right-0 w-[200px] h-full origin-left preserve-3d cursor-pointer"
-                style={{ zIndex }}
-                initial={false}
-                animate={{
-                  rotateY: isFlipped ? -180 : 0,
-                }}
-                transition={{
-                  duration: 0.8,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                onClick={() => handlePageClick(index)}
-              >
-                {/* Front of Page */}
-                <div 
-                  className="absolute inset-0 backface-hidden bg-white border-l border-black/5 shadow-[5px_0_15px_rgba(0,0,0,0.1)] overflow-hidden bg-cover bg-center"
-                  style={{ backgroundImage: `url(${page.front})` }}
-                >
-                  <div className="absolute inset-0 bg-linear-to-r from-black/20 to-transparent pointer-events-none" />
-                </div>
-
-                {/* Back of Page */}
-                <div 
-                  className={cn(
-                    "absolute inset-0 backface-hidden bg-white border-r border-black/5 shadow-[-5px_0_15px_rgba(0,0,0,0.1)] overflow-hidden",
-                    page.id === 4 ? "bg-contain bg-center bg-no-repeat p-8 bg-white" : "bg-cover bg-center"
-                  )}
-                  style={{ 
-                    transform: "rotateY(180deg)",
-                    backgroundImage: `url(${page.back})`
-                  }}
-                >
-                  <div className="absolute inset-0 bg-linear-to-l from-black/20 to-transparent pointer-events-none" />
-                </div>
-              </motion.div>
-            );
-          })}
-
-          {/* Book Spine Shadow */}
-          {isAnyPageOpen && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="absolute top-0 left-0 w-4 h-full bg-linear-to-r from-black/10 via-transparent to-black/10 -translate-x-1/2 z-50 pointer-events-none" 
-            />
-          )}
-        </div>
-      </motion.div>
-
+    <div className="book-gallery-container w-full h-full min-h-svh relative flex items-center justify-center overflow-hidden bg-white">
       <style>{`
-        .perspective-2000 { perspective: 2000px; }
-        .preserve-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; }
+        @property --page-rotate {
+          syntax: "<angle>";
+          inherits: true;
+          initial-value: 0deg;
+        }
+        @property --spine-shift {
+          syntax: "<length>";
+          inherits: true;
+          initial-value: 0px;
+        }
+
+        .scene {
+          width: 100%;
+          height: 100%;
+          perspective: 1200px;
+          transform-style: preserve-3d;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+        }
+
+        .bg-typography {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          text-align: center;
+          font-size: clamp(3rem, 12vw, 12rem);
+          font-weight: 800;
+          line-height: 0.8;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 5vw;
+          pointer-events: none;
+          z-index: 0;
+          mix-blend-mode: exclusion;
+          color: white;
+          text-transform: uppercase;
+        }
+
+        .galeria-book-3d {
+          position: relative;
+          width: 280px;
+          height: 400px;
+          perspective: 1200px;
+          transform-style: preserve-3d;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 10;
+          transform: translateX(var(--spine-shift, 0px)) scale(var(--book-scale, 1));
+          /* No transition on spine-shift/scale to let GSAP handle it */
+        }
+
+        .book-page {
+          position: absolute;
+          width: 280px;
+          height: 400px;
+          perspective: 1200px;
+          transform-style: preserve-3d;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform-origin: left center;
+          --page-rotate: 0deg;
+          transform: rotateY(var(--page-rotate));
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+          /* No transition here, let GSAP control it */
+        }
+
+        .book-page img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: #fdfcfb;
+          backface-visibility: hidden;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .book-page img:nth-child(2) {
+          transform: rotateY(180deg) translateZ(1px);
+          z-index: 1;
+        }
+
+        /* Adjustments for mobile */
+        @media (max-width: 768px) {
+           .galeria-book-3d, .book-page {
+             width: 180px;
+             height: 260px;
+           }
+        }
       `}</style>
+
+      <div className="scene w-full h-full flex items-center justify-center">
+        <div className="bg-typography">
+          <span>Book</span>
+          <span>Gallery</span>
+        </div>
+
+        <div className="galeria-book-3d">
+          {pages.map((page, index) => (
+            <div 
+              key={index} 
+              className="book-page"
+              data-index={index}
+              style={{ 
+                "--i": index,
+                zIndex: 10 - index 
+              } as React.CSSProperties}
+            >
+              <img src={page.front} alt={`Front ${index + 1}`} />
+              <img src={page.back} alt={`Back ${index + 1}`} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
