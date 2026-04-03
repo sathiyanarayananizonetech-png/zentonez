@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CustomEase } from "gsap/CustomEase";
-import Lenis from "lenis";
 
 // Assets
 import bridalImage    from "../assets/bridal_makeup.png";
@@ -69,15 +68,6 @@ const Services: React.FC = () => {
   useEffect(() => {
     const bgColors = ["#fff8f0","#e1d9cc","#fff8f0","#e1d9cc","#fff8f0","#e1d9cc"];
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    function raf(time: number) { lenis.raf(time); ScrollTrigger.update(); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-
     const ctx = gsap.context(() => {
       const imgs = gsap.utils.toArray<HTMLImageElement>(".img-wrapper img");
 
@@ -89,12 +79,15 @@ const Services: React.FC = () => {
               start: "top top",
               end: "bottom bottom",
               pin: ".arch__right",
-              scrub: true,
+              scrub: 1,
               anticipatePin: 1,
+              fastScrollEnd: true,
+              preventOverlaps: true,
             },
           });
 
-          gsap.set(imgs, { clipPath: "inset(0% 0% 0% 0%)", objectPosition: "0px 0%" });
+          gsap.set(imgs, { opacity: 0, scale: 1.1, objectPosition: "0px 0%" });
+          gsap.set(imgs[0], { opacity: 1, scale: 1 });
 
           imgs.forEach((img, index) => {
             const currentImage = img;
@@ -103,9 +96,9 @@ const Services: React.FC = () => {
 
             if (nextImage) {
               sectionTimeline
-                .to("body", { backgroundColor: bgColors[index % bgColors.length], duration: 1.5, ease: "power2.inOut" }, 0)
-                .to(currentImage, { clipPath: "inset(0px 0px 100% 0px)", objectPosition: "0px 60%", duration: 1.5, ease: "none", force3D: true }, 0)
-                .to(nextImage,    { objectPosition: "0px 40%", duration: 1.5, ease: "none", force3D: true }, 0);
+                .to("body", { backgroundColor: bgColors[index % bgColors.length], duration: 1.2, ease: "power1.inOut" }, 0)
+                .to(currentImage, { opacity: 0, scale: 0.9, objectPosition: "0px 60%", duration: 1.5, ease: "power1.inOut", force3D: true }, 0)
+                .to(nextImage,    { opacity: 1, scale: 1, objectPosition: "0px 40%", duration: 1.5, ease: "power1.inOut", force3D: true }, 0);
             }
             mainTimeline.add(sectionTimeline);
           });
@@ -140,7 +133,7 @@ const Services: React.FC = () => {
       return () => window.removeEventListener("resize", handleMobileLayout);
     }, containerRef);
 
-    return () => { lenis.destroy(); ctx.revert(); };
+    return () => { ctx.revert(); };
   }, []);
 
   return (
@@ -148,9 +141,7 @@ const Services: React.FC = () => {
       ref={containerRef}
       className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container transition-colors duration-1000"
     >
-      {/* Dust overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-15 mix-blend-overlay z-9999"
-        style={{ backgroundImage: 'url("https://img.freepik.com/premium-photo/white-dust-scratches-black-background_279525-2.jpg?w=640")', backgroundRepeat: "repeat" }} />
+      {/* Optimized Performance: Removed high-cost dust overlay and mix-blend-mode */}
 
       <style>{`
         @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;800&display=swap");
@@ -207,7 +198,7 @@ const Services: React.FC = () => {
           height: 100%;
           object-fit: cover;
           object-position: center;
-          will-change: clip-path, transform;
+          will-change: opacity, transform;
         }
 
         .img-wrapper:hover img { transform: scale(1.05); transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
@@ -241,20 +232,20 @@ const Services: React.FC = () => {
 
       {/* ─── HERO ─── */}
       <section className="relative min-h-[85vh] flex items-center bg-linear-to-r from-surface to-surface-dim overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 grid lg:grid-cols-2 gap-10 sm:gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 grid lg:grid-cols-2 gap-10 sm:gap-16 items-center relative z-10">
 
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-start"
+            className="flex flex-col items-start transform-gpu backface-hidden"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-container/20 text-primary border border-primary-container shadow-sm mb-5"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-container/20 text-primary border border-primary-container shadow-sm mb-5 backface-hidden"
             >
               <Sparkles size={14} />
               <span className="font-bold uppercase tracking-widest text-[9px] sm:text-[10px]">Our Services</span>
@@ -311,20 +302,22 @@ const Services: React.FC = () => {
           </motion.div>
 
           {/* Right – image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 40 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="relative"
-          >
-            <div className="relative rounded-4xl sm:rounded-5xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white/50 aspect-4/5 sm:aspect-square">
-              <img src={beautyHeroImage} alt="Luxury Beauty Treatment" className="w-full h-full object-cover" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, x: 40 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="relative will-change-transform transform-gpu backface-hidden"
+            >
+            <div className="relative rounded-4xl sm:rounded-5xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white/50 aspect-4/5 sm:aspect-square transform-gpu backface-hidden">
+              <img 
+                src={beautyHeroImage} 
+                alt="Luxury Beauty Treatment" 
+                className="w-full h-full object-cover" 
+                fetchPriority="high"
+              />
               <div className="absolute inset-0 bg-linear-to-t from-primary/10 to-transparent pointer-events-none" />
             </div>
-            <motion.div animate={{ y: [0, 20, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-container/20 rounded-full blur-3xl opacity-60 mix-blend-multiply" />
-            <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-8 -right-8 w-32 h-32 bg-surface-dim rounded-full blur-3xl opacity-60 mix-blend-multiply" />
+            {/* Optimized: Removed high-cost floating blurs */}
           </motion.div>
         </div>
       </section>
@@ -372,7 +365,7 @@ const Services: React.FC = () => {
         <div className="arch__right" ref={rightColRef}>
           {services.map((service, i) => (
             <div key={service.id} className="img-wrapper" style={{ zIndex: services.length - i }}>
-              <img src={service.image} alt={service.title} loading="lazy" />
+              <img src={service.image} alt={service.title} loading={i < 2 ? "eager" : "lazy"} />
             </div>
           ))}
         </div>

@@ -36,7 +36,7 @@ const ScrollReveal = ({
   delay?: number;
 }) => {
   const ref      = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-20px" });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const ScrollReveal = ({
       ref={ref}
       variants={{
         hidden:  { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay, ease: "easeOut" } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay, ease: "easeOut" } },
       }}
       initial="hidden"
       animate={controls}
@@ -132,7 +132,7 @@ const Home: React.FC = () => {
         </motion.div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-28 sm:py-32 lg:py-0 min-h-screen">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-20 sm:py-24 lg:py-0 min-h-screen">
 
           {/* Left: Text */}
           <motion.div
@@ -141,19 +141,9 @@ const Home: React.FC = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             className="text-center lg:text-left"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full bg-surface-dim backdrop-blur-md border border-primary-container/30 shadow-sm mb-4 sm:mb-6"
-            >
-              <Sparkles size={14} className="text-primary" />
-              <span className="text-primary font-bold uppercase tracking-widest text-[9px] sm:text-[10px]">
-                Premium Parlour & Spa
-              </span>
-            </motion.div>
 
-            <h1 className="text-display font-black text-on-surface mb-4 sm:mb-6 uppercase tracking-tighter italic font-serif glow-text mt-12 sm:mt-16">
+
+            <h1 className="text-display font-black text-on-surface mb-4 sm:mb-6 uppercase tracking-tighter italic font-serif glow-text mt-4 sm:mt-8">
               <SparkleHeading text="Discover Your" className="text-on-surface" />
               <div className="h-4 sm:h-6" /> 
               <SparkleHeading 
@@ -242,7 +232,7 @@ const Home: React.FC = () => {
             <VoyageSlider slides={services} />
           </div>
 
-          <ScrollReveal delay={0.6}>
+          <ScrollReveal delay={0.2}>
             <div className="mt-10 sm:mt-16 lg:mt-20 text-center">
               <Link to="/services">
                 <motion.button
@@ -401,7 +391,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <ScrollReveal delay={0.6}>
+          <ScrollReveal delay={0.2}>
             <div className="mt-10 sm:mt-16 text-center">
               <Link to="/services">
                 <motion.button

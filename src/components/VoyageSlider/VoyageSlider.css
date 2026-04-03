@@ -3,7 +3,7 @@
 .voyage-slider-root {
   --slide-width: min(60vw, 280px);
   --slide-aspect: 2 / 3;
-  --slide-transition-duration: 800ms;
+  --slide-transition-duration: 600ms;
   --slide-transition-easing: ease;
   --font-archivo: "Archivo", sans-serif;
   --font-clash-display: "Clash Display", sans-serif;
@@ -56,20 +56,39 @@
 
 .voyage-slider--btn {
   --size: 32px;
+  position: absolute;
+  bottom: 2rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.7;
-  transition: opacity 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  z-index: 999;
-  min-width: 44px;
-  min-height: 44px;
+  opacity: 0.5;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50%;
+  transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: 1001;
+  width: 50px;
+  height: 50px;
+}
+
+.voyage-slider--btn__prev {
+  right: 6.5rem;
+}
+
+.voyage-slider--btn__next {
+  right: 2.5rem;
 }
 
 @media (min-width: 768px) {
   .voyage-slider--btn {
-    --size: 40px;
+    --size: 24px;
+    width: 60px;
+    height: 60px;
+    bottom: 3rem;
   }
+  .voyage-slider--btn__prev { right: 8rem; }
+  .voyage-slider--btn__next { right: 3rem; }
 }
 
 .voyage-slider--btn svg {
@@ -80,6 +99,9 @@
 
 .voyage-slider--btn:hover {
   opacity: 1;
+  background: var(--color-primary, #735c00);
+  border-color: transparent !important;
+  transform: translateY(-5px);
 }
 
 .voyage-slides__wrapper {
@@ -123,9 +145,9 @@
   transition: transform var(--slide-transition-duration) var(--slide-transition-easing);
 }
 
-.voyage-slide[data-current]  { --slide-scale: 1.15; --slide-tz: 0px; --slide-tx: 0px; --slide-rotY: 0; pointer-events: auto; }
-.voyage-slide[data-next]     { --slide-tx: calc(1 * var(--slide-width) * 1.07); --slide-rotY: -45deg; }
-.voyage-slide[data-previous] { --slide-tx: calc(-1 * var(--slide-width) * 1.07); --slide-rotY: 45deg; }
+.voyage-slide[data-current]  { --slide-scale: 1.15; --slide-tz: 0px; --slide-tx: 0px; --slide-rotY: 0; z-index: 50 !important; pointer-events: auto; }
+.voyage-slide[data-next]     { --slide-tx: calc(1 * var(--slide-width) * 1.02); --slide-rotY: -45deg; z-index: 20; }
+.voyage-slide[data-previous] { --slide-tx: calc(-1 * var(--slide-width) * 1.02); --slide-rotY: 45deg; z-index: 20; }
 .voyage-slide:not([data-current]) { --slide-scale: 1; --slide-tz: 0; pointer-events: none; }
 
 @media (min-width: 768px) {
@@ -236,19 +258,19 @@
   --z-offset: 45px;
   position: absolute;
   height: fit-content;
-  left: -20%;
-  bottom: 12%;
+  left: 0%;
+  bottom: 10%;
   transform: translateZ(var(--z-offset));
-  z-index: 2;
+  z-index: 100;
   pointer-events: none;
   text-align: left;
 }
 
 @media (max-width: 480px) {
   .voyage-slide-info--text__wrapper {
-    left: -10%;
-    bottom: 8%;
-  }
+  left: 5%;
+  bottom: 10%;
+}
 }
 
 .voyage-slide-info--icon {
@@ -271,13 +293,13 @@
 
 .voyage-slide-info--text span {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
   transition: var(--slide-transition-duration) var(--slide-transition-easing);
   transition-property: opacity, transform;
 }
 
 .voyage-slide-info--text[data-title] {
-  font-size: clamp(1.2rem, 3cqw, 3rem);
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -300,7 +322,7 @@
   font-family: var(--font-archivo);
   font-weight: 400;
   color: rgba(255,255,255,0.7);
-  max-width: 200px;
+  max-width: min(80vw, 350px);
   white-space: normal;
 }
 

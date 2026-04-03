@@ -1,26 +1,26 @@
 import React from "react";
 
 // Asset Imports
-import interiorImg  from "../../assets/salon_interior_luxury.png";
-import heroImg      from "../../assets/hero_salon.png";
-import hairImg      from "../../assets/hair_styling.png";
-import makeupImg    from "../../assets/makeup_artist.png";
-import bridalImg    from "../../assets/bridal_makeup.png";
-import bridal2Img   from "../../assets/bridal makeup2.png";
-import skinImg      from "../../assets/skin_care.png";
-import spaImg       from "../../assets/spa_treatment.png";
-import nailImg      from "../../assets/nail_art.png";
-import vesselImg    from "../../assets/luxury_salon_vessel.png";
-import logoImg      from "../../assets/zentonsz.png";
+import interiorImg from "../../assets/salon_interior_luxury.png";
+import heroImg from "../../assets/hero_salon.png";
+import hairImg from "../../assets/hair_styling.png";
+import makeupImg from "../../assets/makeup_artist.png";
+import bridalImg from "../../assets/bridal_makeup.png";
+import bridal2Img from "../../assets/bridal makeup2.png";
+import skinImg from "../../assets/skin_care.png";
+import spaImg from "../../assets/spa_treatment.png";
+import nailImg from "../../assets/nail_art.png";
+import vesselImg from "../../assets/luxury_salon_vessel.png";
+import logoImg from "../../assets/zentonsz.png";
 
 const BookGallery: React.FC = () => {
   const pages = [
-    { front: heroImg,     back: interiorImg },
-    { front: hairImg,     back: makeupImg },
-    { front: bridalImg,   back: bridal2Img },
-    { front: skinImg,     back: spaImg },
-    { front: nailImg,     back: vesselImg },
-    { front: heroImg,     back: logoImg } // Final branded page
+    { front: heroImg, back: interiorImg },
+    { front: hairImg, back: makeupImg },
+    { front: bridalImg, back: bridal2Img },
+    { front: skinImg, back: spaImg },
+    { front: nailImg, back: vesselImg },
+    { front: heroImg, back: logoImg }, // Final branded page
   ];
 
   return (
@@ -133,14 +133,16 @@ const BookGallery: React.FC = () => {
 
         <div className="galeria-book-3d">
           {pages.map((page, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="book-page"
               data-index={index}
-              style={{ 
-                "--i": index,
-                zIndex: 10 - index 
-              } as React.CSSProperties}
+              style={
+                {
+                  "--i": index,
+                  zIndex: 10 - index,
+                } as React.CSSProperties
+              }
             >
               <img src={page.front} alt={`Front ${index + 1}`} />
               <img src={page.back} alt={`Back ${index + 1}`} />

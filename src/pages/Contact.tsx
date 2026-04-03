@@ -4,7 +4,6 @@ import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, Send, Clock, Sparkle
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CustomEase } from "gsap/CustomEase";
-import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 
@@ -18,27 +17,29 @@ const ContactInfoCard: React.FC<{ info: ContactInfo; idx: number }> = ({ info, i
     const { left, top, width, height } = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - left) / width  - 0.5;
     const y = (e.clientY - top)  / height - 0.5;
-    gsap.to(cardRef.current, { rotateY: x * 12, rotateX: -y * 12, scale: 1.04, duration: 0.4, ease: "power2.out" });
+    gsap.to(cardRef.current, { rotateY: x * 12, rotateX: -y * 12, scale: 1.04, duration: 0.4, ease: "power2.out", force3D: true });
   };
 
   const handleMouseLeave = () => {
     if (!cardRef.current) return;
-    gsap.to(cardRef.current, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.6, ease: "power2.out" });
+    gsap.to(cardRef.current, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.6, ease: "power2.out", force3D: true });
   };
 
   return (
     <motion.div
       initial={{ opacity: 0, x: -30 }}
       whileInView={{ opacity: 1, x: 0 }}
+      whileHover={{ borderColor: "rgba(115, 92, 0, 0.4)", boxShadow: "0 0 20px rgba(115, 92, 0, 0.1)" }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: idx * 0.1 }}
       style={{ perspective: "1000px" }}
+      className="rounded-3xl sm:rounded-5xl border border-transparent transition-colors duration-500"
     >
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="flex items-start gap-3 sm:gap-4 p-5 sm:p-8 bg-white/40 backdrop-blur-md rounded-3xl sm:rounded-5xl border border-slate-900/5 shadow-sm cursor-pointer"
+        className="flex items-start gap-3 sm:gap-4 p-5 sm:p-8 bg-white/40 backdrop-blur-sm rounded-3xl sm:rounded-5xl border border-slate-900/5 shadow-sm cursor-pointer will-change-transform backface-hidden"
       >
         <div className="p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm text-primary shrink-0">
           {info.icon}
@@ -61,18 +62,7 @@ const Contact: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.8,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-
     return () => {
-      lenis.destroy();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -92,9 +82,7 @@ const Contact: React.FC = () => {
   return (
     <div className="overflow-x-hidden bg-white text-slate-900 font-sans selection:bg-primary-container relative min-h-screen">
 
-      {/* Dust overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-10 mix-blend-overlay z-9999"
-        style={{ backgroundImage: 'url("https://img.freepik.com/premium-photo/white-dust-scratches-black-background_279525-2.jpg?w=640")', backgroundRepeat: "repeat" }} />
+      {/* Optimized Performance: Removed high-cost dust overlay */}
 
       {/* ─── HERO ─── */}
       <section className="relative pt-28 sm:pt-36 pb-10 sm:pb-16 overflow-hidden bg-linear-to-b from-surface-dim to-white">
@@ -172,9 +160,18 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-2"
+              className="lg:col-span-2 relative group"
             >
-              <div className="bg-white/50 backdrop-blur-xl p-7 sm:p-12 md:p-16 rounded-4xl sm:rounded-[3.5rem] shadow-2xl border border-white/50 relative overflow-hidden">
+              {/* Rotating Border Beam (Framer Motion) */}
+              <div className="absolute inset-0 p-[2px] rounded-4xl sm:rounded-[3.5rem] overflow-hidden">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                  className="-inset-full bg-[conic-gradient(from_0deg,transparent_0,var(--color-primary)_40deg,transparent_100deg)] opacity-30 blur-[2px]"
+                />
+              </div>
+
+              <div className="bg-white/60 backdrop-blur-xl p-7 sm:p-12 md:p-16 rounded-4xl sm:rounded-[3.5rem] shadow-2xl border border-white/40 relative z-10 overflow-hidden transform-gpu">
                 {isSubmitted && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

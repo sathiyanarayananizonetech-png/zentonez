@@ -24,7 +24,7 @@ const App: React.FC = () => {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <main className="grow pt-20">
+        <main className="grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Heart,
   Sparkles,
@@ -135,7 +135,18 @@ const TIMELINE_DATA = [
   },
 ];
 
+const archImages = [interiorImage, hairImage, skinImage, spaImage];
+
 const About: React.FC = () => {
+  const [currentArchIndex, setCurrentArchIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentArchIndex((prev) => (prev + 1) % archImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   React.useEffect(() => {
     const items = document.querySelectorAll(".timeline li");
     const observer = new IntersectionObserver(
@@ -382,34 +393,33 @@ const About: React.FC = () => {
 
       {/* ─── HERO ─── */}
       <section className="relative w-full min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10 -mt-20 sm:-mt-32 lg:-mt-44">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            
             {/* Left Column: Narrative */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="space-y-6 sm:space-y-10 text-center lg:text-left"
             >
               <div>
-                <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-primary/10 rounded-full mb-6 max-sm:mx-auto">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] text-primary">
-                    Premium Excellence
-                  </span>
-                </div>
-                
                 <h1 className="text-display font-black text-on-surface mb-6 italic font-serif glow-text leading-[1.1]">
-                  <SparkleHeading text="Where Beauty" className="text-on-surface" />
+                  <SparkleHeading
+                    text="Where Beauty"
+                    className="text-on-surface"
+                  />
                   <br className="max-lg:hidden" />
-                  <SparkleHeading text="Meets Artistry" className="text-primary" sparkleScale={1.4} />
+                  <SparkleHeading
+                    text="Meets Artistry"
+                    className="text-primary"
+                    sparkleScale={1.4}
+                  />
                 </h1>
-                
+
                 <p className="text-base sm:text-lg md:text-xl text-on-surface/70 font-sans leading-relaxed max-w-xl max-lg:mx-auto italic mb-10">
-                  Step into a sanctuary of refined elegance, where every treatment
-                  is a personalized ritual crafted to celebrate your unique
-                  essence.
+                  Step into a sanctuary of refined elegance, where every
+                  treatment is a personalized ritual crafted to celebrate your
+                  unique essence.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 max-lg:justify-center">
@@ -445,34 +455,30 @@ const About: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative flex items-center justify-center lg:justify-end"
             >
-
-
               {/* The Arch Shape */}
               <div className="relative w-full max-w-[450px] aspect-4/5 rounded-t-full border-8 border-primary/5 p-4 sm:p-6 shadow-2xl bg-surface/95 overflow-visible">
-                <div className="w-full h-full rounded-t-full overflow-hidden shadow-inner border border-primary/20">
-                  <img 
-                    src={interiorImage}
-                    alt="Salon Interior"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-full h-full rounded-t-full overflow-hidden shadow-inner border border-primary/20 relative">
+                  <AnimatePresence initial={false}>
+                    <motion.img
+                      key={currentArchIndex}
+                      src={archImages[currentArchIndex]}
+                      alt="Salon Luxury"
+                      initial={{ opacity: 0, scale: 1.1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 1, ease: "easeInOut" }}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </AnimatePresence>
                 </div>
-
 
                 {/* Floating Elements (Optimized with Pure CSS) */}
-                <div className="absolute -top-6 -right-6 sm:-top-8 sm:-right-8 bg-surface border-2 border-primary p-4 sm:p-6 rounded-2xl shadow-2xl luxury-float z-20 max-w-[140px] sm:max-w-[180px]">
-                  <p className="text-xl sm:text-3xl font-serif italic text-primary mb-1 text-center font-bold">10+</p>
-                  <p className="text-[8px] sm:text-[10px] font-bold text-on-surface/60 uppercase tracking-widest text-center">Years of Luxury Service</p>
-                </div>
-
-
-
 
                 {/* Decorative Dots (Simplified) */}
                 <div className="absolute top-1/4 -right-4 w-2 h-2 rounded-full bg-primary/40" />
                 <div className="absolute bottom-1/3 -left-4 w-3 h-3 rounded-full border border-primary/40" />
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -491,16 +497,7 @@ const About: React.FC = () => {
               </div>
               <div className="absolute -top-8 -left-8 w-32 h-32 bg-primary-container/20 rounded-full blur-3xl opacity-60" />
               <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-surface-dim rounded-full blur-3xl opacity-60" />
-              <div className="absolute top-1/2 -right-4 sm:-right-10 lg:-right-16 translate-y-[-50%] hidden md:block z-20">
-                <div className="bg-surface/90 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl rotate-6 max-w-[180px] sm:max-w-[220px] transition-transform hover:rotate-0 duration-500">
-                  <p className="text-2xl sm:text-3xl font-serif italic text-primary mb-2 text-center leading-tight">
-                    "Beauty is an art form."
-                  </p>
-                  <p className="text-[10px] sm:text-xs font-bold text-on-surface/60 uppercase tracking-[0.2em] text-center">
-                    — Our Founder
-                  </p>
-                </div>
-              </div>
+
             </div>
 
             <div className="space-y-6 sm:space-y-8">

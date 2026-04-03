@@ -7,12 +7,11 @@ import { SparkleHeading } from "../components/ui/SparkleHeading";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CustomEase } from "gsap/CustomEase";
-import Lenis from "lenis";
 
 import bridalImage from "../assets/bridal_makeup.png";
-import hairImage   from "../assets/hair_styling.png";
-import skinImage   from "../assets/skin_care.png";
-import spaImage    from "../assets/spa_treatment.png";
+import hairImage from "../assets/hair_styling.png";
+import skinImage from "../assets/skin_care.png";
+import spaImage from "../assets/spa_treatment.png";
 import makeupImage from "../assets/makeup_artist.png";
 
 gsap.registerPlugin(ScrollTrigger, CustomEase);
@@ -21,24 +20,44 @@ const Gallery: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const chapters = [
-    { id: "bridal",  title: "Bridal Art",    subtitle: "The First Impression", img: bridalImage,  text: "Every transformation begins with silence. We craft the perfect base, ensuring your beauty radiates from within." },
-    { id: "hair",    title: "Hair Mastery",   subtitle: "Sculpting Elegance",   img: hairImage,    text: "Movement and form collide. Our stylists treat every strand as a thread in a larger, elegant tapestry." },
-    { id: "skin",    title: "Skin Revival",   subtitle: "The Radiant Ritual",   img: skinImage,    text: "Nourishment transcends the surface. We use precise rituals to reveal your skin's most authentic glow." },
-    { id: "spa",     title: "Spa Sanctuary",  subtitle: "Stillness in Movement", img: spaImage,    text: "Step into a world where time stops. Our spa rituals are designed to nourish the soul through moments of care." },
-    { id: "masters", title: "The Masters",    subtitle: "Creative Reflection",  img: makeupImage,  text: "Meet the visionaries. Every look is a collaboration between our expertise and your unique expression." },
+    {
+      id: "bridal",
+      title: "Bridal Art",
+      subtitle: "The First Impression",
+      img: bridalImage,
+      text: "Every transformation begins with silence. We craft the perfect base, ensuring your beauty radiates from within.",
+    },
+    {
+      id: "hair",
+      title: "Hair Mastery",
+      subtitle: "Sculpting Elegance",
+      img: hairImage,
+      text: "Movement and form collide. Our stylists treat every strand as a thread in a larger, elegant tapestry.",
+    },
+    {
+      id: "skin",
+      title: "Skin Revival",
+      subtitle: "The Radiant Ritual",
+      img: skinImage,
+      text: "Nourishment transcends the surface. We use precise rituals to reveal your skin's most authentic glow.",
+    },
+    {
+      id: "spa",
+      title: "Spa Sanctuary",
+      subtitle: "Stillness in Movement",
+      img: spaImage,
+      text: "Step into a world where time stops. Our spa rituals are designed to nourish the soul through moments of care.",
+    },
+    {
+      id: "masters",
+      title: "The Masters",
+      subtitle: "Creative Reflection",
+      img: makeupImage,
+      text: "Meet the visionaries. Every look is a collaboration between our expertise and your unique expression.",
+    },
   ];
 
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.8,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-
     /* Sequential snapping for chapters removed in favor of free scroll/book focus */
 
     const bookHero = document.querySelector(".book-hero-section");
@@ -54,7 +73,7 @@ const Gallery: React.FC = () => {
           scrub: 1,
           pin: true,
           anticipatePin: 1,
-        }
+        },
       });
 
       // Step 1: Scale up the book, shift spine, and fade out text
@@ -62,29 +81,37 @@ const Gallery: React.FC = () => {
         "--book-scale": 1.2,
         "--spine-shift": "140px",
         duration: 2,
-        ease: "power2.inOut"
+        ease: "power2.inOut",
       });
 
-      tl.to(".book-text-overlay", {
-        opacity: 0,
-        y: -30,
-        duration: 1.5,
-        ease: "power2.inOut"
-      }, 0); // Concurrent with scaling up
+      tl.to(
+        ".book-text-overlay",
+        {
+          opacity: 0,
+          y: -30,
+          duration: 1.5,
+          ease: "power2.inOut",
+        },
+        0,
+      ); // Concurrent with scaling up
 
       // Step 2: Flip pages sequentially
       pages.forEach((page, i) => {
-        tl.to(page, {
-          "--page-rotate": "-180deg",
-          duration: 1.5,
-          ease: "power1.inOut",
-          onStart: () => {
-            gsap.set(page, { zIndex: 20 + i });
+        tl.to(
+          page,
+          {
+            "--page-rotate": "-180deg",
+            duration: 1.5,
+            ease: "power1.inOut",
+            onStart: () => {
+              gsap.set(page, { zIndex: 20 + i });
+            },
+            onReverseComplete: () => {
+              gsap.set(page, { zIndex: 10 - i });
+            },
           },
-          onReverseComplete: () => {
-             gsap.set(page, { zIndex: 10 - i });
-          }
-        }, "-=0.2"); // Slight overlap for natural flow
+          "-=0.2",
+        ); // Slight overlap for natural flow
       });
 
       // Final pause at the end
@@ -92,17 +119,24 @@ const Gallery: React.FC = () => {
     }
 
     return () => {
-      lenis.destroy();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
   return (
-    <div ref={containerRef} className="overflow-x-hidden bg-white text-slate-900 font-sans relative min-h-screen">
-
+    <div
+      ref={containerRef}
+      className="overflow-x-hidden bg-white text-slate-900 font-sans relative min-h-screen"
+    >
       {/* Dust overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-10 mix-blend-overlay z-9999"
-        style={{ backgroundImage: 'url("https://img.freepik.com/premium-photo/white-dust-scratches-black-background_279525-2.jpg?w=640")', backgroundRepeat: "repeat" }} />
+      <div
+        className="fixed inset-0 pointer-events-none opacity-10 mix-blend-overlay z-9999"
+        style={{
+          backgroundImage:
+            'url("https://img.freepik.com/premium-photo/white-dust-scratches-black-background_279525-2.jpg?w=640")',
+          backgroundRepeat: "repeat",
+        }}
+      />
 
       <style>{`
         /* ─── Snap sections ─── */
@@ -195,12 +229,17 @@ const Gallery: React.FC = () => {
             className="glow-text"
           >
             <h1 className="text-display font-black text-slate-900 mb-4 sm:mb-6 uppercase tracking-tighter italic font-serif glow-text mt-8 sm:mt-12">
-               <SparkleHeading text="The Signature" className="text-slate-900" />
-               <br />
-               <SparkleHeading text="Lookbook" className="text-primary" sparkleScale={1.3} />
+              <SparkleHeading text="The Signature" className="text-slate-900" />
+              <br />
+              <SparkleHeading
+                text="Lookbook"
+                className="text-primary"
+                sparkleScale={1.3}
+              />
             </h1>
             <p className="text-base sm:text-xl md:text-2xl text-slate-600/80 italic leading-relaxed max-w-2xl mx-auto">
-              "A curated journey through the art of transformation, from our master stylists to your personal reflection."
+              "A curated journey through the art of transformation, from our
+              master stylists to your personal reflection."
             </p>
           </motion.div>
         </div>
@@ -212,25 +251,36 @@ const Gallery: React.FC = () => {
         <ShuffleHero />
       </section>
 
-
-
       {/* ─── CHAPTERS ─── */}
       <main className="w-full relative z-10">
         <div className="portfolio-label">Signature Chapters</div>
         {chapters.map((chapter) => (
-          <section key={chapter.id} id={chapter.id} className="snap-section chapter-snap-section">
+          <section
+            key={chapter.id}
+            id={chapter.id}
+            className="snap-section chapter-snap-section"
+          >
             <div className="content-outer">
               <div className="image-wrapper">
-                <img src={chapter.img} alt={chapter.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 opacity-10 pointer-events-none"
+                <img
+                  src={chapter.img}
+                  alt={chapter.title}
+                  className="w-full h-full object-cover"
+                />
+                <div
+                  className="absolute inset-0 opacity-10 pointer-events-none"
                   style={{
-                    backgroundImage: "linear-gradient(to right, var(--color-primary-container) 1px, transparent 1px), linear-gradient(to bottom, var(--color-primary-container) 1px, transparent 1px)",
+                    backgroundImage:
+                      "linear-gradient(to right, var(--color-primary-container) 1px, transparent 1px), linear-gradient(to bottom, var(--color-primary-container) 1px, transparent 1px)",
                     backgroundSize: "40px 40px",
-                  }} />
+                  }}
+                />
                 <div className="absolute top-6 sm:top-12 left-6 sm:left-12">
                   <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary-container/20 text-primary border border-primary-container/30 shadow-sm">
                     <Sparkles size={12} />
-                    <span className="font-bold uppercase tracking-widest text-[8px] sm:text-[10px]">The Lookbook</span>
+                    <span className="font-bold uppercase tracking-widest text-[8px] sm:text-[10px]">
+                      The Lookbook
+                    </span>
                   </div>
                 </div>
               </div>
@@ -254,8 +304,14 @@ const Gallery: React.FC = () => {
 
       {/* ─── FOOTER ─── */}
       <footer className="snap-section flex flex-col items-center justify-center p-6 sm:p-8 bg-white/30">
-        <Heart size={48} className="sm:hidden text-primary mb-6 animate-pulse" />
-        <Heart size={64} className="hidden sm:block text-primary mb-8 animate-pulse" />
+        <Heart
+          size={48}
+          className="sm:hidden text-primary mb-6 animate-pulse"
+        />
+        <Heart
+          size={64}
+          className="hidden sm:block text-primary mb-8 animate-pulse"
+        />
         <h2 className="text-display font-black italic uppercase font-serif mb-8 sm:mb-12 text-center text-slate-900">
           End of <br /> Reflections
         </h2>

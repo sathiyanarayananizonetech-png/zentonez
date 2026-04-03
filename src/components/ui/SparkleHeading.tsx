@@ -31,7 +31,7 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
       renderConfig: {
         clearCanvas: true,
         backgroundAlpha: 0,
-        devicePixelRatio: Math.min(2, window.devicePixelRatio || 1),
+        devicePixelRatio: Math.min(1.5, window.devicePixelRatio || 1),
       },
     });
 
@@ -40,8 +40,25 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
     };
   }, []);
 
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   // ─── Auto-Pulse Heartbeat ───
   useEffect(() => {
+    if (!isInView) {
+      playerRef.current?.pause();
+      return;
+    }
+
     const pulseHero = () => {
       if (isHovered) return; // Don't interrupt manual interaction
 
@@ -55,7 +72,7 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
       }, 1000); // 1.0s pulse duration (optimized)
     };
 
-    const interval = setInterval(pulseHero, 8000); // 8 seconds (Extreme Optimization)
+    const interval = setInterval(pulseHero, 12000); // 12 seconds (Aggressive Optimization)
     
     // Initial pulse after 2s for immediate impact
     const initialDelay = setTimeout(pulseHero, 2000);
@@ -64,7 +81,7 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
       clearInterval(interval);
       clearTimeout(initialDelay);
     };
-  }, [isHovered]);
+  }, [isHovered, isInView]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
