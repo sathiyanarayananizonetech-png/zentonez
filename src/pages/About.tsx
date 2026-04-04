@@ -69,16 +69,16 @@ const ServiceCard: React.FC<{
   desc: string;
   icon: React.ReactNode;
 }> = ({ title, desc, icon }) => (
-  <div className="group relative bg-primary-container/20 p-5 sm:p-6 pt-10 sm:pt-12 rounded-2xl text-center shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-lg">
-    <div className="absolute -top-7 sm:-top-8 left-1/2 -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 bg-surface border-2 border-primary-container rounded-full flex items-center justify-center shadow-md transition-all duration-500 group-hover:scale-105 group-hover:border-primary">
-      <div className="text-secondary transition-colors duration-500 group-hover:text-primary flex items-center justify-center">
+  <div className="group relative bg-secondary/10 p-5 sm:p-6 pt-10 sm:pt-12 rounded-3xl text-center shadow-luxury-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-luxury-deep border border-secondary/20">
+    <div className="absolute -top-7 sm:-top-8 left-1/2 -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 bg-surface border-2 border-primary/30 rounded-full flex items-center justify-center shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-primary">
+      <div className="text-primary/60 transition-colors duration-500 group-hover:text-primary flex items-center justify-center">
         {icon}
       </div>
     </div>
-    <h3 className="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3">
+    <h3 className="text-lg sm:text-xl font-bold text-on-surface mb-2 sm:mb-3">
       {title}
     </h3>
-    <p className="text-on-surface/60 text-xs sm:text-sm leading-relaxed">
+    <p className="text-on-surface/80 text-xs sm:text-sm leading-relaxed font-medium">
       {desc}
     </p>
   </div>
@@ -227,9 +227,9 @@ const About: React.FC = () => {
           width: 44%;
           min-width: 320px;
           background: var(--color-surface);
-          border: 1px solid rgba(115, 92, 0, 0.15);
-          border-radius: 24px;
-          box-shadow: 0 20px 50px -15px rgba(115, 92, 0, 0.08);
+          border: 1px solid rgba(201, 162, 74, 0.15);
+          border-radius: 32px;
+          box-shadow: var(--shadow-luxury-soft);
           overflow: hidden;
           display: flex;
           flex-direction: row; /* Split view */
@@ -279,24 +279,24 @@ const About: React.FC = () => {
 
         /* Feature Side (Discovery) */
         .timeline .discovery {
-          background: var(--color-primary-container);
-          color: white;
+          background: var(--color-secondary);
+          color: var(--color-on-surface);
           text-align: center;
-          border-right: 1px solid rgba(255,255,255,0.1);
+          border-right: 1px solid rgba(0,0,0,0.05);
         }
 
         .timeline .discovery h1 {
-          font-size: 1rem;
+          font-size: clamp(1rem, 1.25rem, 1.5rem);
           text-transform: uppercase;
           letter-spacing: 2px;
           margin-bottom: 12px;
-          color: white;
-          line-height: 1.2;
+          color: var(--color-on-surface);
+          line-height: 1.1;
+          font-weight: 900;
         }
 
         .timeline .discovery .text-primary {
-          color: white;
-          opacity: 0.9;
+          color: var(--color-primary);
         }
 
         /* Benefit Side (Scientist) */
@@ -306,20 +306,20 @@ const About: React.FC = () => {
         }
 
         .timeline .scientist h1 {
-          font-size: 0.75rem;
+          font-size: 0.875rem;
           text-transform: uppercase;
-          letter-spacing: 1.5px;
+          letter-spacing: 2px;
           color: var(--color-primary);
           margin-bottom: 8px;
-          font-weight: 800;
+          font-weight: 900;
         }
 
         .timeline .scientist span {
-          font-size: 0.9rem;
+          font-size: clamp(0.9rem, 1rem, 1.1rem);
           color: var(--color-on-surface);
           line-height: 1.5;
-          opacity: 0.8;
-          font-weight: 500;
+          opacity: 1;
+          font-weight: 700;
         }
 
         /* ─── TABLET RESPONSIVENESS (768px - 1024px) ─── */
@@ -403,7 +403,7 @@ const About: React.FC = () => {
               className="space-y-6 sm:space-y-10 text-center lg:text-left"
             >
               <div>
-                <h1 className="text-display font-black text-on-surface mb-6 italic font-serif glow-text leading-[1.1]">
+                <h1 className="text-display font-pacifico text-on-surface mb-6 glow-text leading-[1.1] normal-case">
                   <SparkleHeading
                     text="Where Beauty"
                     className="text-on-surface"
@@ -416,7 +416,7 @@ const About: React.FC = () => {
                   />
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-on-surface/70 font-sans leading-relaxed max-w-xl max-lg:mx-auto italic mb-10">
+                <p className="text-base sm:text-lg md:text-xl text-on-surface/90 leading-relaxed max-w-xl max-lg:mx-auto mb-10 font-medium">
                   Step into a sanctuary of refined elegance, where every
                   treatment is a personalized ritual crafted to celebrate your
                   unique essence.
@@ -488,20 +488,19 @@ const About: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
             <div className="relative">
-              <div className="relative z-10 rounded-4xl sm:rounded-5xl overflow-hidden shadow-2xl aspect-4/5">
+              <div className="relative z-10 rounded-3xl sm:rounded-4xl overflow-hidden shadow-luxury-deep aspect-4/5">
                 <img
                   src={spaImage}
                   alt="Our Sanctuary"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-primary-container/20 rounded-full blur-3xl opacity-60" />
-              <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-surface-dim rounded-full blur-3xl opacity-60" />
-
+              <div className="absolute -top-8 -left-8 w-32 h-32 bg-secondary/20 rounded-full blur-3xl opacity-60" />
+              <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-60" />
             </div>
 
             <div className="space-y-6 sm:space-y-8">
-              <div className="inline-block px-4 py-2 bg-primary-container/20 text-primary rounded-full text-xs font-bold uppercase tracking-widest">
+              <div className="inline-block px-4 py-2 bg-secondary/20 text-primary rounded-full text-xs font-bold uppercase tracking-widest border border-secondary/30">
                 Our Legacy
               </div>
               <h2 className="text-hero italic text-on-surface leading-none">
@@ -519,7 +518,7 @@ const About: React.FC = () => {
                   <h4 className="text-lg sm:text-xl font-serif italic text-on-surface mb-2">
                     Our Vision
                   </h4>
-                  <p className="text-sm text-on-surface/60 leading-relaxed">
+                  <p className="text-sm text-on-surface/80 leading-relaxed font-medium">
                     To become the global standard for personalized luxury beauty
                     experiences.
                   </p>
@@ -528,7 +527,7 @@ const About: React.FC = () => {
                   <h4 className="text-lg sm:text-xl font-serif italic text-on-surface mb-2">
                     Our Mission
                   </h4>
-                  <p className="text-sm text-on-surface/60 leading-relaxed">
+                  <p className="text-sm text-on-surface/80 leading-relaxed font-medium">
                     Enhancing natural beauty through innovative techniques and
                     artisanal care.
                   </p>
@@ -651,7 +650,7 @@ const About: React.FC = () => {
                 <h3 className="text-xl sm:text-2xl font-serif italic text-on-surface mb-3 sm:mb-4">
                   {value.title}
                 </h3>
-                <p className="text-on-surface/60 font-sans leading-relaxed text-sm sm:text-base">
+                <p className="text-on-surface/80 font-sans leading-relaxed text-sm sm:text-base font-medium">
                   {value.desc}
                 </p>
               </motion.div>
@@ -666,7 +665,7 @@ const About: React.FC = () => {
                   <h4 className="text-2xl sm:text-3xl font-serif italic text-on-surface mb-4 sm:mb-6 underline decoration-primary-container underline-offset-8">
                     Why Trust Zentonsz?
                   </h4>
-                  <p className="text-on-surface/60 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base italic font-serif">
+                  <p className="text-on-surface/80 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base italic font-serif font-medium">
                     "Trust isn't given; it's earned through consistent quality,
                     unwavering discipline, and a genuine passion for beauty."
                   </p>

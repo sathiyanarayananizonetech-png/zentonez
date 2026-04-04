@@ -14,20 +14,32 @@ const NAV_LINKS = [
 
 const Navbar: React.FC = () => {
   const [isScrolled,       setIsScrolled]       = useState(false);
+  const [isVisible,        setIsVisible]        = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [lastScrollY,      setLastScrollY]      = useState(0);
   const location = useLocation();
 
   /* ── Scroll detection ── */
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show navbar if scrolling up or at the top
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        setIsVisible(true);
+      } 
+      // Hide navbar if scrolling down
+      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      }
+
+      setIsScrolled(currentScrollY > 50);
+      setLastScrollY(currentScrollY);
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  /* ── Close menu on route change ── */
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  }, [lastScrollY]);
 
   /* ── Lock body scroll when mobile menu is open ── */
   useEffect(() => {
@@ -38,10 +50,12 @@ const Navbar: React.FC = () => {
   return (
     <nav
       id="navbar"
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 transform-gpu ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+      } ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-primary-container/30 py-2 md:py-3 shadow-lg shadow-primary/5 backface-hidden"
-          : "bg-transparent py-4 md:py-6 backface-hidden"
+          ? "bg-background/98 border-b border-secondary/20 py-2 md:py-3 shadow-luxury-soft"
+          : "bg-transparent py-4 md:py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -67,8 +81,8 @@ const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-[10px] xl:text-xs font-bold uppercase tracking-widest transition-all hover:text-primary relative group ${
-                location.pathname === link.path ? "text-primary" : "text-secondary"
+              className={`text-[10px] xl:text-xs font-gelasio font-bold uppercase tracking-widest transition-all hover:text-primary relative group ${
+                location.pathname === link.path ? "text-primary" : "text-on-surface/70"
               }`}
             >
               {link.name}
@@ -83,7 +97,7 @@ const Navbar: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-premium-gold text-[9px] xl:text-[10px] py-2.5 xl:py-3 px-5 xl:px-6"
+              className="btn-premium-gold text-[9px] xl:text-[10px] py-2.5 xl:py-3 px-5 xl:px-6 shadow-luxury-soft hover:shadow-luxury-deep"
             >
               Book Appointment
             </motion.button>
@@ -96,8 +110,8 @@ const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-[10px] font-bold uppercase tracking-widest transition-all hover:text-primary ${
-                location.pathname === link.path ? "text-primary" : "text-secondary"
+              className={`text-[10px] font-gelasio font-bold uppercase tracking-widest transition-all hover:text-primary ${
+                location.pathname === link.path ? "text-primary" : "text-on-surface/70"
               }`}
             >
               {link.name}
@@ -107,7 +121,7 @@ const Navbar: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-premium-gold text-[9px] py-2 px-4"
+              className="btn-premium-gold text-[9px] py-2 px-4 shadow-luxury-soft"
             >
               Book Now
             </motion.button>
@@ -192,7 +206,7 @@ const Navbar: React.FC = () => {
                     <Link
                       to={link.path}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center gap-3 py-4 text-2xl sm:text-3xl font-black uppercase tracking-tight italic font-serif border-b border-surface-dim/50 transition-colors ${
+                      className={`flex items-center gap-3 py-4 text-2xl sm:text-3xl font-gelasio font-black uppercase tracking-tight italic border-b border-surface-dim/50 transition-colors ${
                         location.pathname === link.path
                           ? "text-primary"
                           : "text-on-surface hover:text-primary"

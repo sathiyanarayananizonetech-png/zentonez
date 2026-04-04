@@ -8,12 +8,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CustomEase } from "gsap/CustomEase";
 
 // Assets
-import bridalImage    from "../assets/bridal_makeup.png";
-import hairImage      from "../assets/hair_styling.png";
-import skinImage      from "../assets/skin_care.png";
-import spaImage       from "../assets/spa_treatment.png";
-import makeupImage    from "../assets/makeup_artist.png";
-import nailImage      from "../assets/nail_art.png";
+import bridalImage from "../assets/bridal_makeup.png";
+import hairImage from "../assets/hair_styling.png";
+import skinImage from "../assets/skin_care.png";
+import spaImage from "../assets/spa_treatment.png";
+import makeupImage from "../assets/makeup_artist.png";
+import nailImage from "../assets/nail_art.png";
 import beautyHeroImage from "../assets/beauty_treatment_hero.png";
 
 gsap.registerPlugin(ScrollTrigger, CustomEase);
@@ -31,42 +31,85 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: 1, title: "Bridal Transformation", category: "Makeup",
-    description: "Our signature bridal service includes HD makeup, hairstyling, and draping. We craft the perfect base to ensure your beauty radiates from within.",
-    price: "₹5000", image: bridalImage, icon: <Sparkles size={22} />, popular: true,
+    id: 1,
+    title: "Bridal Transformation",
+    category: "Makeup",
+    description:
+      "Our signature bridal service includes HD makeup, hairstyling, and draping. We craft the perfect base to ensure your beauty radiates from within.",
+    price: "₹5000",
+    image: bridalImage,
+    icon: <Sparkles size={22} />,
+    popular: true,
   },
   {
-    id: 2, title: "Advanced Hair Styling", category: "Hair",
-    description: "Professional cuts, vibrant global coloring, and deep conditioning treatments. Our stylists treat every strand as a thread in an elegant tapestry.",
-    price: "₹1200", image: hairImage, icon: <Scissors size={22} />, popular: true,
+    id: 2,
+    title: "Advanced Hair Styling",
+    category: "Hair",
+    description:
+      "Professional cuts, vibrant global coloring, and deep conditioning treatments. Our stylists treat every strand as a thread in an elegant tapestry.",
+    price: "₹1200",
+    image: hairImage,
+    icon: <Scissors size={22} />,
+    popular: true,
   },
   {
-    id: 3, title: "Radiance Skin Therapy", category: "Skin",
-    description: "Customized facials using international products to restore your skin's health. Nurturing rituals reveal your skin's most authentic glow.",
-    price: "₹1500", image: skinImage, icon: <Heart size={22} />, popular: false,
+    id: 3,
+    title: "Radiance Skin Therapy",
+    category: "Skin",
+    description:
+      "Customized facials using international products to restore your skin's health. Nurturing rituals reveal your skin's most authentic glow.",
+    price: "₹1500",
+    image: skinImage,
+    icon: <Heart size={22} />,
+    popular: false,
   },
   {
-    id: 4, title: "Luxury Spa Rituals", category: "Spa",
-    description: "Full body rejuvenation and relaxation therapies in a serene environment. Step into a world where time stops and healing begins.",
-    price: "₹2500", image: spaImage, icon: <Droplets size={22} />, popular: false,
+    id: 4,
+    title: "Luxury Spa Rituals",
+    category: "Spa",
+    description:
+      "Full body rejuvenation and relaxation therapies in a serene environment. Step into a world where time stops and healing begins.",
+    price: "₹2500",
+    image: spaImage,
+    icon: <Droplets size={22} />,
+    popular: false,
   },
   {
-    id: 5, title: "Event HD Makeup", category: "Makeup",
-    description: "Perfect for parties. Long-lasting, flawless finish for every occasion. Every look is a collaboration between our expertise and your unique expression.",
-    price: "₹3000", image: makeupImage, icon: <Sparkles size={22} />, popular: true,
+    id: 5,
+    title: "Event HD Makeup",
+    category: "Makeup",
+    description:
+      "Perfect for parties. Long-lasting, flawless finish for every occasion. Every look is a collaboration between our expertise and your unique expression.",
+    price: "₹3000",
+    image: makeupImage,
+    icon: <Sparkles size={22} />,
+    popular: true,
   },
   {
-    id: 6, title: "Designer Nail Art", category: "Nails",
-    description: "Creative extensions and intricate nail art designs by our master artists. Small canvases, massive impact for your personal style.",
-    price: "₹1500", image: nailImage, icon: <Star size={22} />, popular: false,
+    id: 6,
+    title: "Designer Nail Art",
+    category: "Nails",
+    description:
+      "Creative extensions and intricate nail art designs by our master artists. Small canvases, massive impact for your personal style.",
+    price: "₹1500",
+    image: nailImage,
+    icon: <Star size={22} />,
+    popular: false,
   },
 ];
 
 const Services: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const rightColRef  = useRef<HTMLDivElement>(null);
+  const rightColRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const bgColors = ["#fff8f0","#e1d9cc","#fff8f0","#e1d9cc","#fff8f0","#e1d9cc"];
+    const bgColors = [
+      "#F4F1EC",
+      "#E8E4DD",
+      "#F4F1EC",
+      "#E8E4DD",
+      "#F4F1EC",
+      "#E8E4DD",
+    ];
 
     const ctx = gsap.context(() => {
       const imgs = gsap.utils.toArray<HTMLImageElement>(".img-wrapper img");
@@ -91,14 +134,46 @@ const Services: React.FC = () => {
 
           imgs.forEach((img, index) => {
             const currentImage = img;
-            const nextImage    = imgs[index + 1] ? (imgs[index + 1] as HTMLImageElement) : null;
+            const nextImage = imgs[index + 1]
+              ? (imgs[index + 1] as HTMLImageElement)
+              : null;
             const sectionTimeline = gsap.timeline();
 
             if (nextImage) {
               sectionTimeline
-                .to("body", { backgroundColor: bgColors[index % bgColors.length], duration: 1.2, ease: "power1.inOut" }, 0)
-                .to(currentImage, { opacity: 0, scale: 0.9, objectPosition: "0px 60%", duration: 1.5, ease: "power1.inOut", force3D: true }, 0)
-                .to(nextImage,    { opacity: 1, scale: 1, objectPosition: "0px 40%", duration: 1.5, ease: "power1.inOut", force3D: true }, 0);
+                .to(
+                  "body",
+                  {
+                    backgroundColor: bgColors[index % bgColors.length],
+                    duration: 1.2,
+                    ease: "power1.inOut",
+                  },
+                  0,
+                )
+                .to(
+                  currentImage,
+                  {
+                    opacity: 0,
+                    scale: 0.9,
+                    objectPosition: "0px 60%",
+                    duration: 1.5,
+                    ease: "power1.inOut",
+                    force3D: true,
+                  },
+                  0,
+                )
+                .to(
+                  nextImage,
+                  {
+                    opacity: 1,
+                    scale: 1,
+                    objectPosition: "0px 40%",
+                    duration: 1.5,
+                    ease: "power1.inOut",
+                    force3D: true,
+                  },
+                  0,
+                );
             }
             mainTimeline.add(sectionTimeline);
           });
@@ -106,24 +181,42 @@ const Services: React.FC = () => {
         "(max-width: 768px)": function () {
           gsap.set(imgs, { objectPosition: "0px 60%" });
           imgs.forEach((image, index) => {
-            gsap.timeline({
-              scrollTrigger: { trigger: image as Element, start: "top-=70% top+=50%", end: "bottom+=200% bottom", scrub: true },
-            })
-            .to(image as Element, { objectPosition: "0px 30%", duration: 5, ease: "none" })
-            .to("body", { backgroundColor: bgColors[index % bgColors.length], duration: 1.5, ease: "power2.inOut" });
+            gsap
+              .timeline({
+                scrollTrigger: {
+                  trigger: image as Element,
+                  start: "top-=70% top+=50%",
+                  end: "bottom+=200% bottom",
+                  scrub: true,
+                },
+              })
+              .to(image as Element, {
+                objectPosition: "0px 30%",
+                duration: 5,
+                ease: "none",
+              })
+              .to("body", {
+                backgroundColor: bgColors[index % bgColors.length],
+                duration: 1.5,
+                ease: "power2.inOut",
+              });
           });
         },
       });
 
       const handleMobileLayout = () => {
         const isMobile = window.matchMedia("(max-width: 768px)").matches;
-        const leftItems  = gsap.utils.toArray<HTMLElement>(".arch__info");
+        const leftItems = gsap.utils.toArray<HTMLElement>(".arch__info");
         const rightItems = gsap.utils.toArray<HTMLElement>(".img-wrapper");
         if (isMobile) {
-          leftItems.forEach((item, i)  => (item.style.order  = (i * 2).toString()));
-          rightItems.forEach((item, i) => (item.style.order  = (i * 2 + 1).toString()));
+          leftItems.forEach(
+            (item, i) => (item.style.order = (i * 2).toString()),
+          );
+          rightItems.forEach(
+            (item, i) => (item.style.order = (i * 2 + 1).toString()),
+          );
         } else {
-          leftItems.forEach((item)  => (item.style.order = ""));
+          leftItems.forEach((item) => (item.style.order = ""));
           rightItems.forEach((item) => (item.style.order = ""));
         }
       };
@@ -133,7 +226,9 @@ const Services: React.FC = () => {
       return () => window.removeEventListener("resize", handleMobileLayout);
     }, containerRef);
 
-    return () => { ctx.revert(); };
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -144,8 +239,6 @@ const Services: React.FC = () => {
       {/* Optimized Performance: Removed high-cost dust overlay and mix-blend-mode */}
 
       <style>{`
-        @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;800&display=swap");
-
         /* ─── ARCH: Desktop pinned layout ─── */
         .arch {
           display: flex;
@@ -231,9 +324,8 @@ const Services: React.FC = () => {
       `}</style>
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-[85vh] flex items-center bg-linear-to-r from-surface to-surface-dim overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center bg-background overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 grid lg:grid-cols-2 gap-10 sm:gap-16 items-center relative z-10">
-
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -245,30 +337,40 @@ const Services: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-container/20 text-primary border border-primary-container shadow-sm mb-5 backface-hidden"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 text-primary border border-secondary/30 shadow-sm mb-5 backface-hidden"
             >
               <Sparkles size={14} />
-              <span className="font-bold uppercase tracking-widest text-[9px] sm:text-[10px]">Our Services</span>
+              <span className="font-bold uppercase tracking-widest text-[9px] sm:text-[10px]">
+                Our Services
+              </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-hero font-black text-on-surface mb-6 italic font-serif glow-text"
+              className="text-hero font-pacifico text-on-surface mb-6 normal-case glow-text"
             >
-              <SparkleHeading text="Luxury Beauty Services" className="text-on-surface" />
+              <SparkleHeading
+                text="Luxury Beauty Services"
+                className="text-on-surface"
+              />
               <br />
-              <SparkleHeading text="Tailored For You" className="text-primary-container" sparkleScale={1.3} />
+              <SparkleHeading
+                text="Tailored For You"
+                className="text-primary"
+                sparkleScale={1.3}
+              />
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-slate-600 text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-12 leading-relaxed italic"
+              className="text-on-surface/90 text-lg sm:text-xl md:text-2xl max-w-xl mb-8 sm:mb-12 leading-relaxed font-medium italic"
             >
-              "From flawless makeup to rejuvenating skincare, we bring out your natural glow."
+              "From flawless makeup to rejuvenating skincare, we bring out your
+              natural glow."
             </motion.p>
 
             <motion.div
@@ -287,7 +389,11 @@ const Services: React.FC = () => {
                 </motion.button>
               </Link>
               <button
-                onClick={() => document.querySelector(".arch")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() =>
+                  document
+                    .querySelector(".arch")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="w-full sm:w-auto"
               >
                 <motion.div
@@ -302,17 +408,17 @@ const Services: React.FC = () => {
           </motion.div>
 
           {/* Right – image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, x: 40 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="relative will-change-transform transform-gpu backface-hidden"
-            >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: 40 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative will-change-transform transform-gpu backface-hidden"
+          >
             <div className="relative rounded-4xl sm:rounded-5xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white/50 aspect-4/5 sm:aspect-square transform-gpu backface-hidden">
-              <img 
-                src={beautyHeroImage} 
-                alt="Luxury Beauty Treatment" 
-                className="w-full h-full object-cover" 
+              <img
+                src={beautyHeroImage}
+                alt="Luxury Beauty Treatment"
+                className="w-full h-full object-cover"
                 fetchPriority="high"
               />
               <div className="absolute inset-0 bg-linear-to-t from-primary/10 to-transparent pointer-events-none" />
@@ -339,13 +445,17 @@ const Services: React.FC = () => {
                 <h2 className="text-section-title font-black text-on-surface leading-none mb-4 sm:mb-6 uppercase italic font-serif">
                   {service.title}
                 </h2>
-                <p className="text-slate-600 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed font-medium">
+                <p className="text-on-surface/80 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed font-semibold">
                   {service.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start sm:items-end">
                   <div className="flex flex-col">
-                    <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Starting From</span>
-                    <span className="text-2xl sm:text-3xl font-black text-on-surface italic font-serif leading-none">{service.price}</span>
+                    <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">
+                      Starting From
+                    </span>
+                    <span className="text-2xl sm:text-3xl font-black text-on-surface italic font-serif leading-none">
+                      {service.price}
+                    </span>
                   </div>
                   <Link to="/contact">
                     <motion.button
@@ -364,8 +474,17 @@ const Services: React.FC = () => {
 
         <div className="arch__right" ref={rightColRef}>
           {services.map((service, i) => (
-            <div key={service.id} className="img-wrapper" style={{ zIndex: services.length - i }}>
-              <img src={service.image} alt={service.title} loading={i < 2 ? "eager" : "lazy"} />
+            <div
+              key={service.id}
+              className="img-wrapper"
+              style={{ zIndex: services.length - i }}
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                loading={i < 2 ? "eager" : "lazy"}
+                className="opacity-95 contrast-[1.05]"
+              />
             </div>
           ))}
         </div>
@@ -378,8 +497,9 @@ const Services: React.FC = () => {
             Custom <br />
             <span className="text-primary">Your Journey</span>
           </h2>
-          <p className="text-base sm:text-xl text-slate-900/60 font-medium max-w-xl mx-auto mb-10 sm:mb-16 italic leading-relaxed">
-            "Beauty is not about being noticed, but being remembered. Let us craft a tailored package just for you."
+          <p className="text-base sm:text-xl text-on-surface/80 font-semibold max-w-xl mx-auto mb-10 sm:mb-16 italic leading-relaxed">
+            "Beauty is not about being noticed, but being remembered. Let us
+            craft a tailored package just for you."
           </p>
           <Link to="/contact">
             <motion.button

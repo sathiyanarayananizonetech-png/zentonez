@@ -228,7 +228,7 @@ const Gallery: React.FC = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="glow-text"
           >
-            <h1 className="text-display font-black text-slate-900 mb-4 sm:mb-6 uppercase tracking-tighter italic font-serif glow-text mt-8 sm:mt-12">
+            <h1 className="text-display font-pacifico text-slate-900 mb-4 sm:mb-6 normal-case glow-text mt-8 sm:mt-12">
               <SparkleHeading text="The Signature" className="text-slate-900" />
               <br />
               <SparkleHeading
@@ -237,7 +237,7 @@ const Gallery: React.FC = () => {
                 sparkleScale={1.3}
               />
             </h1>
-            <p className="text-base sm:text-xl md:text-2xl text-slate-600/80 italic leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl md:text-2xl text-slate-600/80 leading-relaxed max-w-2xl mx-auto">
               "A curated journey through the art of transformation, from our
               master stylists to your personal reflection."
             </p>

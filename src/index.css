@@ -1,106 +1,120 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&family=Poppins:wght@600;700&family=Pacifico&family=Gelasio:wght@400;500;600;700&display=swap');
 
 @theme {
-  --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "Jost", sans-serif;
+  --font-h-primary: "Poppins", sans-serif;
+  --font-h-secondary: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-pacifico: "Pacifico", cursive;
+  --font-gelasio: "Gelasio", serif;
+  --font-sans: var(--font-body);
 
-  /* Primary Branding (Gold Accent) */
+  /* Primary Branding (Premium Gold) */
   --color-primary: var(--primary);
-  --color-primary-container: var(--primary-container);
-  --color-on-primary: var(--on-primary);
+  --color-primary-container: #E5C98E;
+  --color-on-primary: #FFFFFF;
   
   /* Supporting Elements */
   --color-secondary: var(--secondary);
-  --color-on-secondary: var(--on-secondary);
+  --color-on-secondary: #2B2B2B;
   --color-tertiary: var(--tertiary);
-  --color-on-tertiary: var(--on-tertiary);
+  --color-on-tertiary: #FFFFFF;
 
   /* Surface & Background */
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-foreground: var(--on-surface);
   --color-surface: var(--surface);
-  --color-surface-dim: var(--surface-dim);
-  --color-inverse-surface: var(--inverse-surface);
+  --color-surface-dim: #E8E4DD;
+  --color-inverse-surface: #1F3A5F;
   --color-on-surface: var(--on-surface);
-  --color-on-surface-variant: var(--on-surface-variant);
+  --color-on-surface-variant: #595959;
+
+  /* Radius & Shadows */
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+  --radius-5xl: 3rem;
+  
+  --shadow-luxury-soft: 0 10px 30px -10px rgba(43, 43, 43, 0.08);
+  --shadow-luxury-deep: 0 20px 50px -12px rgba(43, 43, 43, 0.12);
 
   /* System Colors */
-  --color-error: var(--error);
-  --color-on-error: var(--on-error);
+  --color-error: #BA1A1A;
+  --color-on-error: #FFFFFF;
 
   /* Legacy Brand Mapping */
   --color-brand-gold: var(--primary);
-  --color-brand-gold-light: var(--primary-container);
+  --color-brand-gold-light: #E5C98E;
   --color-brand-cream: var(--background);
   --color-brand-charcoal: var(--on-surface);
-  --color-brand-slate: #f1f5f9;
-  --color-brand-slate-dark: var(--inverse-surface);
-  --color-brand-gray: #64748b;
+  --color-brand-slate: #F4F1EC;
+  --color-brand-slate-dark: #1F3A5F;
+  --color-brand-gray: #595959;
 
   /* ─── Fluid Type Scale (clamp) ─── */
-  --text-xs:   clamp(0.65rem,  0.6rem  + 0.25vw, 0.75rem);
-  --text-sm:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
-  --text-base: clamp(0.875rem, 0.85rem + 0.3vw,  1rem);
-  --text-lg:   clamp(1rem,     0.95rem + 0.5vw,  1.25rem);
-  --text-xl:   clamp(1.1rem,   1rem    + 0.75vw, 1.5rem);
-  --text-2xl:  clamp(1.25rem,  1.1rem  + 1vw,    2rem);
-  --text-3xl:  clamp(1.5rem,   1.2rem  + 1.5vw,  2.5rem);
-  --text-4xl:  clamp(1.75rem,  1.3rem  + 2vw,    3rem);
-  --text-5xl:  clamp(2rem,     1.4rem  + 3vw,    4rem);
-  --text-6xl:  clamp(2.5rem,   1.5rem  + 4vw,    5rem);
-  --text-7xl:  clamp(3rem,     1.6rem  + 5vw,    6rem);
-  --text-8xl:  clamp(3.5rem,   1.8rem  + 6vw,    7rem);
+  --text-xs:   clamp(0.6rem,   0.55rem + 0.2vw,  0.7rem);
+  --text-sm:   clamp(0.7rem,   0.65rem + 0.2vw,  0.8rem);
+  --text-base: clamp(0.8rem,   0.75rem + 0.25vw, 0.9rem);
+  --text-lg:   clamp(0.875rem, 0.85rem + 0.35vw, 1.05rem);
+  --text-xl:   clamp(1rem,     0.9rem  + 0.5vw,  1.2rem);
+  --text-2xl:  clamp(1.1rem,   1rem    + 0.75vw, 1.5rem);
+  --text-3xl:  clamp(1.25rem,  1.05rem + 1vw,    1.9rem);
+  --text-4xl:  clamp(1.4rem,   1.1rem  + 1.5vw,  2.25rem);
+  --text-5xl:  clamp(1.6rem,   1.2rem  + 2vw,    2.75rem);
+  --text-6xl:  clamp(1.9rem,   1.3rem  + 2.75vw, 3.5rem);
+  --text-7xl:  clamp(2.25rem,  1.4rem  + 3.5vw,  4.25rem);
+  --text-8xl:  clamp(2.6rem,   1.5rem  + 4.5vw,  5rem);
 
   /* ─── Fluid Spacing ─── */
-  --space-section-y: clamp(3rem, 5vw + 1rem, 8rem);
-  --space-content-x: clamp(1rem, 3vw + 0.5rem, 3rem);
-  --space-gap:       clamp(1rem, 2vw + 0.5rem, 2rem);
+  --space-section-y: clamp(4rem, 8vw + 2rem, 12rem);
+  --space-content-x: clamp(1.5rem, 5vw + 1rem, 6rem);
+  --space-gap:       clamp(1.5rem, 3vw + 0.5rem, 4rem);
 }
 
 @layer base {
   :root {
-    --primary: #735c00;
-    --primary-container: #d4af37;
-    --on-primary: #ffffff;
-    --secondary: #6d5d2f;
-    --on-secondary: #ffffff;
-    --tertiary: #415ba4;
-    --on-tertiary: #ffffff;
-    --background: #fff8f0;
-    --surface: #fff8f0;
-    --surface-dim: #e1d9cc;
-    --inverse-surface: #343027;
-    --on-surface: #1f1b13;
-    --on-surface-variant: #4d4635;
-    --error: #ba1a1a;
-    --on-error: #ffffff;
+    --primary: #C9A24A;
+    --background: #F4F1EC;
+    --surface: #F4F1EC;
+    --secondary: #D9C3A5;
+    --tertiary: #1F3A5F;
+    --on-surface: #2B2B2B;
     --foreground: var(--on-surface);
   }
 
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-
   body {
-    @apply bg-background text-on-surface font-sans antialiased selection:bg-primary-container overflow-x-hidden;
+    @apply bg-background text-on-surface font-[var(--font-body)] antialiased selection:bg-primary-container overflow-x-hidden;
     min-height: 100dvh;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif italic tracking-wide;
-    /* Fluid heading sizes via CSS variables */
+  h1, h2, h3 {
+    font-family: var(--font-h-primary);
+    font-weight: 700;
     line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-h-secondary);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  p {
+    font-family: var(--font-body);
+    font-weight: 400;
   }
 
   /* ─── Fluid heading helpers ─── */
-  .fluid-h1  { font-size: var(--text-8xl); }
-  .fluid-h2  { font-size: var(--text-6xl); }
-  .fluid-h3  { font-size: var(--text-5xl); }
-  .fluid-h4  { font-size: var(--text-4xl); }
-  .fluid-h5  { font-size: var(--text-3xl); }
-  .fluid-p   { font-size: var(--text-lg);  line-height: 1.75; }
+  .fluid-h1  { font-size: var(--text-7xl); }
+  .fluid-h2  { font-size: var(--text-5xl); }
+  .fluid-h3  { font-size: var(--text-4xl); }
+  .fluid-h4  { font-size: var(--text-3xl); }
+  .fluid-h5  { font-size: var(--text-2xl); }
+  .fluid-p   { font-size: var(--text-base); line-height: 1.75; }
 
   /* Prevent overflow on all elements */
   *, *::before, *::after {
@@ -230,29 +244,29 @@
 
   /* ─── Responsive Typography Utilities ─── */
   .text-display {
-    font-size: clamp(2.5rem, 6vw + 1rem, 8rem);
-    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 4.5vw + 1rem, 5.5rem);
+    font-family: var(--font-h-primary);
     font-weight: 900;
-    font-style: italic;
     line-height: 0.9;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.05em;
+    text-transform: none;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
   }
 
   .text-hero {
-    font-size: clamp(2rem, 4vw + 1rem, 6rem);
-    font-family: var(--font-serif);
-    font-weight: 900;
-    font-style: italic;
-    line-height: 1;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.5rem, 3vw + 0.75rem, 3.5rem);
+    font-family: var(--font-h-primary);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
 
   .text-section-title {
-    font-size: clamp(1.75rem, 3vw + 0.5rem, 4rem);
-    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 2.5vw + 0.5rem, 2.5rem);
+    font-family: var(--font-h-primary);
     font-weight: 700;
-    font-style: italic;
-    line-height: 1.1;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   .text-label {
@@ -260,6 +274,14 @@
     font-weight: 700;
     letter-spacing: 0.3em;
     text-transform: uppercase;
+  }
+
+  .font-pacifico {
+    font-family: var(--font-pacifico);
+  }
+
+  .font-gelasio {
+    font-family: var(--font-gelasio);
   }
 
   /* ─── Responsive Aspect Ratio Containers ─── */
@@ -317,8 +339,9 @@
   /* 3D Kinetic Hover effect for characters */
   .spark-text-container:hover .ch,
   .spark-text-container.spark-force-animate .ch {
-    transform: translateY(-4px) scale(1.05);
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-8px) scale(1.1);
+    text-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(201, 162, 74, 0.3);
+    color: var(--color-primary);
   }
 
   /* Character staggering & randomization */
