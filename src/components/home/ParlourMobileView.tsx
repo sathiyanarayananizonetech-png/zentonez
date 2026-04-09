@@ -252,8 +252,8 @@ export function ParlourMobileView() {
       </section>
 
       {/* Zen Tonez Spirit */}
-      <section className="bg-background py-6 px-6 relative overflow-hidden">
-        <div className="text-center mb-6 space-y-2">
+      <section className="bg-background py-10 px-6 relative overflow-hidden">
+        <div className="text-center mb-16 space-y-2">
           <span className="text-primary text-[10px] uppercase font-black tracking-[0.3em]">Our Philosophy</span>
           <h2 className="text-3xl font-bold text-on-surface">The Spirit of Zen</h2>
         </div>
@@ -263,7 +263,7 @@ export function ParlourMobileView() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-primary/5 backdrop-blur-md p-8 pt-16 rounded-[2.5rem] border border-primary/20 shadow-lg relative z-10 text-center"
+          className="bg-primary/5 backdrop-blur-md p-8 pt-24 rounded-[2.5rem] border border-primary/20 shadow-lg relative z-10 text-center"
         >
           <p className="text-on-surface leading-relaxed mb-10 text-[15px] italic font-medium">
             "More than a salon, Zen Tonez is a sanctuary for those who appreciate the finer details of self-care and the art of individual expression."
@@ -283,7 +283,7 @@ export function ParlourMobileView() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="absolute -top-10 left-1/2 -track-x-1/2 -ml-16 w-32 h-32 rounded-full overflow-hidden border-[6px] border-white shadow-luxury-deep z-20 luxury-float"
+            className="absolute -top-12 left-1/2 -translate-x-1/2 w-32 h-32 rounded-full overflow-hidden border-[6px] border-white shadow-luxury-deep z-20 luxury-float"
           >
             <img
               alt="Artisanal Details"

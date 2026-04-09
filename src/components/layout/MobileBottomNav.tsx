@@ -1,9 +1,9 @@
 import { 
-  Sparkles, 
+  LayoutGrid, 
   Scissors, 
-  BookOpen, 
-  Calendar,
-  Info
+  Camera, 
+  MessageSquare,
+  Flower2
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -12,16 +12,16 @@ export function MobileBottomNav() {
   const pathname = location.pathname;
 
   const navItems = [
-    { name: "Home", path: "/", icon: Sparkles },
-    { name: "About", path: "/about", icon: Info },
+    { name: "Home", path: "/", icon: LayoutGrid },
+    { name: "About", path: "/about", icon: Flower2 },
     { name: "Services", path: "/services", icon: Scissors },
-    { name: "Gallery", path: "/gallery", icon: BookOpen },
-    { name: "Contact", path: "/contact", icon: Calendar },
+    { name: "Gallery", path: "/gallery", icon: Camera },
+    { name: "Contact", path: "/contact", icon: MessageSquare },
   ];
 
   return (
     <nav className="fixed bottom-0 w-full z-50 bg-white/95 backdrop-blur-xl border-t border-primary/5 pb-safe lg:hidden">
-      <div className="flex justify-around items-center py-4 px-2">
+      <div className="flex justify-around items-center py-2 px-2">
         {navItems.map((item) => {
           const isActive = pathname === item.path;
           const Icon = item.icon;
@@ -30,22 +30,22 @@ export function MobileBottomNav() {
             <Link 
               key={item.path} 
               to={item.path}
-              className={`flex flex-col items-center gap-1 transition-colors ${
+              className={`flex flex-col items-center gap-0.5 transition-colors relative ${
                 isActive ? "text-primary" : "text-on-surface/40"
               }`}
             >
               <Icon 
-                size={24} 
+                size={18} 
                 fill={isActive ? "currentColor" : "none"} 
                 className={isActive ? "opacity-90" : ""}
               />
-              <span className={`text-[10px] uppercase tracking-widest ${
+              <span className={`text-[8px] uppercase tracking-wider ${
                 isActive ? "font-bold" : "font-medium"
               }`}>
                 {item.name}
               </span>
               {isActive && (
-                <div className="absolute top-0 w-8 h-0.5 bg-primary rounded-full transition-all" />
+                <div className="absolute -top-2 w-6 h-0.5 bg-primary rounded-full transition-all" />
               )}
             </Link>
           );
