@@ -8,8 +8,8 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
-import { MobileTopBar } from './components/layout/MobileTopBar';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
+import { FloatingLogo } from './components/layout/FloatingLogo';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -25,9 +25,7 @@ const App: React.FC = () => {
     <Router>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-background">
-        {/* Global Mobile Navigation */}
-        <MobileTopBar />
-        
+        <FloatingLogo />
         <Navbar />
         <main className="grow">
           <Routes>

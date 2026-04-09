@@ -68,9 +68,9 @@ const ContactInfoCard: React.FC<{ info: ContactInfoData; idx: number }> = ({
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="flex items-start gap-3 sm:gap-4 p-5 sm:p-8 bg-white/40 backdrop-blur-sm rounded-3xl sm:rounded-5xl border border-slate-900/5 shadow-sm cursor-pointer will-change-transform backface-hidden"
+        className="flex items-start gap-3 sm:gap-4 p-5 sm:p-8 bg-primary/5 backdrop-blur-sm rounded-3xl sm:rounded-5xl border border-primary/10 shadow-sm cursor-pointer will-change-transform backface-hidden"
       >
-        <div className="p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm text-primary shrink-0">
+        <div className="p-3 sm:p-4 bg-primary/10 rounded-xl sm:rounded-2xl shadow-sm text-primary shrink-0 border border-primary/20">
           {info.icon}
         </div>
         <div className="min-w-0">
@@ -147,7 +147,7 @@ const ContactInfo: React.FC = () => {
               whileHover={{ scale: 1.2, rotate: 10 }}
               href="#"
               aria-label={["Instagram", "Facebook", "Twitter"][idx]}
-              className="p-3 sm:p-4 bg-white/5 rounded-xl sm:rounded-2xl hover:bg-primary transition-colors duration-300 tap-target"
+              className="p-3 sm:p-4 bg-amber-50/10 rounded-xl sm:rounded-2xl hover:bg-primary transition-colors duration-300 tap-target"
             >
               <Icon size={18} />
             </motion.a>

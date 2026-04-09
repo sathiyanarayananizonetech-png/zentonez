@@ -43,7 +43,7 @@ const AboutValues: React.FC = () => {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group p-8 sm:p-10 bg-surface-dim rounded-3xl sm:rounded-4xl border border-primary-container/20 text-center hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-500 shadow-sm">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-500 shadow-sm border border-primary/20">
                 {value.icon}
               </div>
               <h3 className="text-xl sm:text-2xl font-serif italic text-on-surface mb-3 sm:mb-4">
@@ -89,7 +89,7 @@ const AboutValues: React.FC = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="relative z-10 p-2 bg-white rounded-4xl sm:rounded-5xl shadow-2xl rotate-2">
+              <div className="relative z-10 p-2 bg-primary/10 rounded-4xl sm:rounded-5xl shadow-2xl rotate-2 border border-primary/20">
                 <img
                   src={interiorImage}
                   alt="Salon Hygiene"

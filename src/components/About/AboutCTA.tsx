@@ -7,14 +7,14 @@ const AboutCTA: React.FC = () => {
   return (
     <section className="py-16 sm:py-24 bg-surface-dim/20 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="relative bg-white rounded-4xl sm:rounded-[4rem] p-8 sm:p-16 md:p-20 overflow-hidden border border-primary-container shadow-xl text-center">
+        <div className="relative bg-primary/5 rounded-4xl sm:rounded-[4rem] p-8 sm:p-16 md:p-20 overflow-hidden border border-primary/20 shadow-xl text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="relative z-10 space-y-6 sm:space-y-8"
           >
-            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-background rounded-full flex items-center justify-center mx-auto text-primary mb-6 sm:mb-8 border border-primary-container shadow-sm">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary mb-6 sm:mb-8 border border-primary/20 shadow-sm">
               <Sparkles size={32} />
             </div>
             <h2 className="text-hero italic text-on-surface">

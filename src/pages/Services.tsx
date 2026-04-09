@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ServicesHero from "../components/Services/ServicesHero";
-import ServicesArchAnimation from "../components/Services/ServicesArchAnimation";
+import ServicesShowcase from "../components/Services/ServicesShowcase";
 import ServicesCTA from "../components/Services/ServicesCTA";
 import { ServicesMobileView } from "../components/mobile/ServicesMobileView";
 
@@ -19,10 +19,9 @@ const Services: React.FC = () => {
         <ServicesMobileView />
       </div>
 
-      {/* Desktop View */}
       <div className="hidden lg:block">
         <ServicesHero />
-        <ServicesArchAnimation />
+        <ServicesShowcase />
         <ServicesCTA />
       </div>
     </div>

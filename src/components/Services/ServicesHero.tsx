@@ -82,7 +82,7 @@ const ServicesHero: React.FC = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-premium-outline w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 text-sm bg-white text-center"
+                className="btn-premium-outline w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 text-sm bg-primary/5 border-primary/30 text-primary hover:bg-primary/10 transition-all text-center"
               >
                 View Services
               </motion.div>

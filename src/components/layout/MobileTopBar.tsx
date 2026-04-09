@@ -1,17 +1,12 @@
-import { Link } from "react-router-dom";
 import logo from "../../assets/zentonsz.png";
 
 export function MobileTopBar() {
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm flex justify-between items-center px-6 py-4 lg:hidden">
-      <div className="w-8" /> {/* Spacer to keep logo centered */}
-      <Link to="/" className="text-2xl font-serif italic text-primary">
-        Zen Tonez
-      </Link>
-      <div className="h-8 w-8 rounded-full overflow-hidden border border-primary/20">
-        <img 
-          alt="Zen Tonez Logo" 
-          src={logo} 
+    <nav className="fixed top-0 w-full z-50 bg-primary/5 backdrop-blur-xl shadow-sm flex items-center px-6 lg:hidden border-b border-primary/20 h-12">
+      <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-primary/30 shadow-luxury-deep transition-transform active:scale-95 bg-white shrink-0 translate-y-2">
+        <img
+          alt="Zen Tonez Logo"
+          src={logo}
           className="w-full h-full object-cover"
         />
       </div>
