@@ -1,12 +1,10 @@
-@import url("https://api.fontshare.com/v2/css?f[]=archivo@100,200,300,400,500,600,700,800,900&f[]=clash-display@200,300,400,500,600,700&display=swap");
-
 .voyage-slider-root {
   --slide-width: min(60vw, 280px);
   --slide-aspect: 2 / 3;
   --slide-transition-duration: 600ms;
   --slide-transition-easing: ease;
-  --font-archivo: "Archivo", sans-serif;
-  --font-clash-display: "Clash Display", sans-serif;
+  --font-archivo: "Montserrat", sans-serif;
+  --font-clash-display: "Poppins", sans-serif;
 
   position: relative;
   width: 100%;

@@ -55,6 +55,7 @@ export function ContactMobileView() {
       {/* Hero Section (Parallax Overlaid Style) */}
       <section 
         ref={heroRef}
+        style={{ position: "relative" }}
         className="relative h-[110vh] w-full overflow-hidden flex flex-col items-center justify-center -mt-24 mb-12"
       >
         <motion.div 

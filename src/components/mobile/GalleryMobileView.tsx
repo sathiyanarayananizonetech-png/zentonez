@@ -404,6 +404,7 @@ export function GalleryMobileView() {
       {/* Premium Hero Section (Parallax Overlaid Style) */}
       <section 
         ref={heroRef}
+        style={{ position: "relative" }}
         className="relative h-[110vh] w-full overflow-hidden flex flex-col items-center justify-center pt-20 -mt-24"
       >
         <motion.div 

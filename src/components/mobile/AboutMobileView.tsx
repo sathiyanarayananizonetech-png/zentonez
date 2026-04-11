@@ -104,6 +104,7 @@ export function AboutMobileView() {
       {/* Immersive Mobile Hero */}
       <section 
         ref={heroRef}
+        style={{ position: "relative" }}
         className="relative h-[110vh] w-full overflow-hidden flex flex-col items-center justify-center -mt-24 mb-20 px-4"
       >
         <motion.div 

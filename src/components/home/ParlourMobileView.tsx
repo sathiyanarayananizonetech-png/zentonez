@@ -62,6 +62,7 @@ export function ParlourMobileView() {
       {/* Immersive Mobile Hero */}
       <section 
         ref={heroRef}
+        style={{ position: "relative" }}
         className="relative h-[110vh] w-full overflow-hidden flex flex-col items-center justify-center pt-20 mb-8"
       >
         <motion.div 
