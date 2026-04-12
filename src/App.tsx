@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
-import Navbar from "./components/Navbar";
+
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -33,7 +33,7 @@ const App: React.FC = () => {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-background">
         <FloatingLogo />
-        <Navbar />
+
         <main className="grow">
           <Routes>
             <Route path="/" element={<Home />} />

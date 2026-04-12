@@ -87,7 +87,7 @@ const ContactInfoCard: React.FC<{ info: ContactInfoData; idx: number }> = ({
 };
 
 const ContactInfo: React.FC = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+
   const [currentTime, setCurrentTime] = React.useState<string>("");
 
   React.useEffect(() => {
@@ -105,14 +105,13 @@ const ContactInfo: React.FC = () => {
 
       const parts = formatter.formatToParts(now);
 
-      let weekdayStr = "";
       let hour12Str = "";
       let minStr = "";
       let secStr = "";
       let ampmStr = "";
 
       parts.forEach((p) => {
-        if (p.type === "weekday") weekdayStr = p.value;
+
         if (p.type === "hour") hour12Str = p.value;
         if (p.type === "minute") minStr = p.value;
         if (p.type === "second") secStr = p.value;
@@ -122,20 +121,7 @@ const ContactInfo: React.FC = () => {
       // Set Clock String
       setCurrentTime(`${hour12Str}:${minStr}:${secStr} ${ampmStr}`);
 
-      // Open/Closed Status Logic
-      let currentHour24 = parseInt(hour12Str);
-      if (ampmStr.toLowerCase() === "pm" && currentHour24 !== 12) {
-        currentHour24 += 12;
-      } else if (ampmStr.toLowerCase() === "am" && currentHour24 === 12) {
-        currentHour24 = 0;
-      }
-      const timeNum = currentHour24 + parseInt(minStr) / 60;
 
-      if (weekdayStr === "Sun") {
-        setIsOpen(false);
-      } else {
-        setIsOpen(timeNum >= 10 && timeNum < 20.5); // 10:00 AM to 8:30 PM
-      }
     };
 
     updateTimeAndStatus();
@@ -172,40 +158,25 @@ const ContactInfo: React.FC = () => {
         viewport={{ once: true }}
         className="p-7 tb:p-10 bg-on-surface text-background rounded-3xl tb:rounded-4xl relative overflow-hidden shadow-luxury-deep"
       >
-        <div className="absolute top-6 right-5 tb:top-8 tb:right-8 flex flex-col items-end pointer-events-none">
-          <div className="flex items-center gap-1.5 text-primary/40 mb-1">
-            <Clock size={12} />
-            <span className="text-[8px] tb:text-[9px] font-black uppercase tracking-[0.2em]">
-              Live IST
-            </span>
-          </div>
-          <div className="text-right flex items-baseline justify-end gap-1 whitespace-nowrap">
-            <span className="text-xl tb:text-3xl font-black italic text-primary font-serif tracking-tight drop-shadow-lg tabular-nums">
-              {currentTime.split(" ")[0]}
-            </span>
-            <span className="text-[9px] tb:text-xs font-bold uppercase tracking-widest text-primary/70">
-              {currentTime.split(" ")[1]}
-            </span>
-          </div>
-        </div>
-        <div className="flex flex-wrap justify-between items-center gap-3 mb-6 tb:mb-8 border-b border-white/10 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 tb:mb-8 border-b border-white/10 pb-6">
           <h4 className="text-xl tb:text-2xl font-black italic uppercase font-serif m-0 shrink-0">
             Opening Hours
           </h4>
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-full border border-white/10 shrink-0">
-            <span className="relative flex h-2 w-2 shrink-0">
-              {isOpen && (
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              )}
-              <span
-                className={`relative inline-flex rounded-full h-2 w-2 ${isOpen ? "bg-green-500" : "bg-red-500"}`}
-              ></span>
-            </span>
-            <span
-              className={`text-[9px] tb:text-[10px] font-black tracking-widest uppercase whitespace-nowrap ${isOpen ? "text-green-500" : "text-red-500"}`}
-            >
-              {isOpen ? "Open Now" : "Closed"}
-            </span>
+          <div className="flex flex-col items-start sm:items-end pointer-events-none">
+            <div className="flex items-center gap-1.5 text-primary/40 mb-1">
+              <Clock size={12} />
+              <span className="text-[8px] tb:text-[9px] font-black uppercase tracking-[0.2em]">
+                Live IST
+              </span>
+            </div>
+            <div className="flex items-baseline gap-1 whitespace-nowrap">
+              <span className="text-xl tb:text-3xl font-black italic text-primary font-serif tracking-tight drop-shadow-lg tabular-nums">
+                {currentTime.split(" ")[0]}
+              </span>
+              <span className="text-[9px] tb:text-xs font-bold uppercase tracking-widest text-primary/70">
+                {currentTime.split(" ")[1]}
+              </span>
+            </div>
           </div>
         </div>
         <ul className="space-y-4 tb:space-y-6">
