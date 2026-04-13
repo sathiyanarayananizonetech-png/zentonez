@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 import { Link } from "react-router-dom";
 import {
   Sparkles,
@@ -9,11 +8,6 @@ import {
   Heart,
   Droplets,
   Star,
-  ShieldCheck,
-  Crown,
-  Users,
-  MapPin,
-  Gem,
   Clock,
   Quote,
 } from "lucide-react";
@@ -23,12 +17,7 @@ import bridalImage from "../../assets/bridal_makeup.png";
 import hairImage from "../../assets/hair_styling.png";
 import skinImage from "../../assets/skin_care.png";
 import spaImage from "../../assets/hair_spa_treatment.png";
-import makeupImage from "../../assets/makeup_artist.png";
 import nailImage from "../../assets/nail_art.png";
-import treatmentHero from "../../assets/beauty_treatment_hero.png";
-import interiorLuxury from "../../assets/salon_interior_luxury.png";
-import salonVessel from "../../assets/luxury_salon_vessel.png";
-import aboutHero from "../../assets/abouthero.png";
 
 gsap.registerPlugin(ScrollTrigger);
 

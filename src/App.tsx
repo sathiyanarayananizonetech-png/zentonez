@@ -28,6 +28,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const lenis = (window as any).lenis;
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
@@ -41,6 +42,7 @@ const ScrollToTop = () => {
 const App: React.FC = () => {
   useEffect(() => {
     // Sync ScrollTrigger with Lenis
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const lenis = (window as any).lenis;
     if (lenis) {
       lenis.on('scroll', ScrollTrigger.update);

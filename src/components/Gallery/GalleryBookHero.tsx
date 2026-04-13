@@ -156,8 +156,8 @@ const GalleryBookHero: React.FC = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="glow-text"
         >
-          <h1 className="text-display font-pacifico text-slate-900 sm:text-slate-900 text-white mb-4 tb:mb-6 normal-case glow-text mt-8 tb:mt-12">
-            <SparkleHeading text="The Artisanal" className="sm:text-slate-900 text-white" />
+          <h1 className="text-display font-pacifico text-white sm:text-slate-900 mb-4 tb:mb-6 normal-case glow-text mt-8 tb:mt-12">
+            <SparkleHeading text="The Artisanal" className="text-white sm:text-slate-900" />
             <br className="dt:block hidden" />
             <SparkleHeading
               text="Chapters"
@@ -165,7 +165,7 @@ const GalleryBookHero: React.FC = () => {
               sparkleScale={1.3}
             />
           </h1>
-          <p className="text-base tb:text-xl dt:text-2xl text-slate-600/80 sm:text-slate-600/80 text-white/90 leading-relaxed max-w-2xl mx-auto px-4 mb:px-0 font-medium sm:font-normal">
+          <p className="text-base tb:text-xl dt:text-2xl text-white/90 sm:text-slate-600/80 leading-relaxed max-w-2xl mx-auto px-4 mb:px-0 font-medium sm:font-normal">
             "A curated journey through the ethereal art of transformation. Each
             chapter reveals a new facet of bespoke beauty and soul."
           </p>
