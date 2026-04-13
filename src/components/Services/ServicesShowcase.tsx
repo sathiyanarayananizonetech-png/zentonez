@@ -8,16 +8,25 @@ import {
   Heart,
   Droplets,
   Star,
+  ShieldCheck,
+  Crown,
+  Users,
+  MapPin,
   Clock,
   Quote,
 } from "lucide-react";
 
 // Assets
-import bridalImage from "../../assets/bridal_makeup.png";
-import hairImage from "../../assets/hair_styling.png";
-import skinImage from "../../assets/skin_care.png";
-import spaImage from "../../assets/hair_spa_treatment.png";
-import nailImage from "../../assets/nail_art.png";
+import bridalImage from "../../assets/hairwebp images/butterfly cut.webp";
+import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
+import skinImage from "../../assets/facialwebpimages/facial1.webp";
+import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import makeupImage from "../../assets/facialwebpimages/facial3.webp";
+import nailImage from "../../assets/nailwebpimages/nail1.webp";
+import liceImage from "../../assets/licewebpimages/lice1.webp";
+import pedicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
+import interiorLuxury from "../../assets/hairspawebpimages/hairspa2.webp";
+import aboutHero from "../../assets/hairwebp images/caramelhaircolor.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,19 +97,98 @@ const services = [
   },
   {
     id: 5,
-    title: "Nail Art & Beauty",
-    category: "Nails",
+    title: "Designer Nail Art",
+    category: "Artistic Nails",
     description:
-      "Finish your look with flawless nails, featuring creative extensions and hand-painted designs.",
-    price: "₹1,500+",
-    duration: "60 Mins",
+      "Creative extensions and intricate hand-painted designs from our master artists.",
+    price: "₹1500",
+    duration: "75 Mins",
     review:
-      "Absolutely love the nail art here. The designs are intricate and the quality is superb.",
+      "Tiny canvases, massive impact! My nail art has been the talk of every party.",
     clientName: "Ishita D.",
     highlights: ["Acrylic Extensions", "Gel Polish", "Nail Art"],
     image: nailImage,
     icon: <Star size={24} />,
+    color: "#EBE8E0",
+  },
+  {
+    id: 6,
+    title: "Luxury Pedicure",
+    category: "Hand & Foot Care",
+    description:
+      "Soothing ritual for your hands and feet, featuring organic scrubs and massage.",
+    price: "₹1200",
+    duration: "45 Mins",
+    review:
+      "The most relaxing pedicure ever. My feet feel brand new and so soft!",
+    clientName: "Sneha G.",
+    highlights: ["Organic Scrub", "Hot Stone Massage", "Premium Polish"],
+    image: pedicureImage,
+    icon: <Droplets size={24} />,
     color: "#F8F5F0",
+  },
+  {
+    id: 7,
+    title: "Professional Lice Treatment",
+    category: "Essential Care",
+    description:
+      "Safe, effective, and chemical-free lice removal treatment in a comfortable environment.",
+    price: "₹1000",
+    duration: "60 Mins",
+    review:
+      "Very professional and thorough treatment. Highly recommend for safe removal.",
+    clientName: "Ritu M.",
+    highlights: ["Chemical-free", "Scalp Health", "Follow-up Check"],
+    image: liceImage,
+    icon: <ShieldCheck size={24} />,
+    color: "#F4F1EC",
+  },
+  {
+    id: 8,
+    title: "Event HD Makeup",
+    category: "High Definition",
+    description:
+      "Sophisticated and long-lasting looks for your most memorable social occasions.",
+    price: "₹3000",
+    duration: "90 Mins",
+    review:
+      "I received so many compliments! The HD finish is perfect for photographers.",
+    clientName: "Sanya K.",
+    highlights: ["Photo-ready Finish", "Lash Enhancement", "Brow Sculpting"],
+    image: makeupImage,
+    icon: <Crown size={24} />,
+    color: "#EBE8E0",
+  },
+  {
+    id: 9,
+    title: "Elite Master Art",
+    category: "Grand Ritual",
+    description:
+      "The pinnacle of our artisan crafts, performed by our most senior team.",
+    price: "Custom",
+    duration: "Varies",
+    review:
+      "Beyond just a service—it's genuine artistry and unmatched attention.",
+    clientName: "Dr. Aarti L.",
+    highlights: ["Master Consultation", "Legacy Techniques", "Aftercare Kit"],
+    image: aboutHero,
+    icon: <Users size={24} />,
+    color: "#F2EFE9",
+  },
+  {
+    id: 10,
+    title: "Sanctuary Boutique",
+    category: "The Ambience",
+    description:
+      "Relax within our award-winning architectural home designed for calm.",
+    price: "Tour Now",
+    duration: "Permanent",
+    review: "The design alone lowers your stress level. An absolute paradise.",
+    clientName: "Sneha G.",
+    highlights: ["Eco-friendly Air", "Soundproof Rooms", "Zen Gardens"],
+    image: interiorLuxury,
+    icon: <MapPin size={24} />,
+    color: "#E3DFD5",
   },
 ];
 
@@ -135,8 +223,8 @@ const ServicesShowcase: React.FC = () => {
 
       gsap.set(imgs, {
         clipPath: "inset(0% 0% 0% 0%)",
-        objectPosition: "0px 0%",
-        scale: 1.1,
+        objectPosition: "center",
+        scale: 1,
       });
 
       panels.forEach((panel) => {
@@ -181,18 +269,7 @@ const ServicesShowcase: React.FC = () => {
               currentImage,
               {
                 clipPath: "inset(0% 0% 100% 0%)",
-                objectPosition: "0px 60%",
-                scale: 1.2,
-                duration: 2,
-                ease: "none",
-              },
-              0,
-            )
-            .to(
-              nextImage,
-              {
-                objectPosition: "0px 0%",
-                scale: 1.1,
+                scale: 1,
                 duration: 2,
                 ease: "none",
               },
@@ -378,13 +455,13 @@ const ServicesShowcase: React.FC = () => {
           className="h-screen sticky top-0 flex items-center justify-center overflow-hidden"
           ref={rightColRef}
         >
-          <div className="relative w-full max-w-[450px] xl:max-w-[500px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-8 border-white bg-white">
+          <div className="relative w-full max-w-[500px] xl:max-w-[550px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-8 border-white bg-white">
             {services.map((service) => (
               <div key={service.id} className="absolute inset-0 z-0">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="showcase-img w-full h-full object-cover"
+                  className="showcase-img w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>

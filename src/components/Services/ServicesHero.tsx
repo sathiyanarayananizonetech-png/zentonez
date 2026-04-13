@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 import { SparkleHeading } from "../ui/SparkleHeading";
-import beautyHeroImage from "../../assets/beauty_treatment_hero.png";
+import beautyHeroImage from "../../assets/facialwebpimages/facial4.webp";
 
 const ServicesHero: React.FC = () => {
   return (
     <section className="relative min-h-[85vh] flex items-center bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 py-24 tb:py-36 grid dt:grid-cols-2 gap-10 tb:gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 py-10 tb:py-16 grid dt:grid-cols-2 gap-8 tb:gap-12 items-center relative z-10">
         {/* Left */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center dt:items-start transform-gpu backface-hidden pt-8 dt:pt-0"
+          className="flex flex-col items-center dt:items-start transform-gpu backface-hidden pt-4 dt:pt-0"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ const ServicesHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-hero font-pacifico text-on-surface mb-6 normal-case glow-text text-center dt:text-left leading-tight"
+            className="text-hero font-pacifico text-on-surface mb-4 normal-case glow-text text-center dt:text-left leading-tight"
           >
             <SparkleHeading
               text="Our Artisanal"
@@ -50,7 +50,7 @@ const ServicesHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-on-surface/90 text-lg tb:text-xl dt:text-2xl max-w-xl mb-8 tb:mb-12 leading-relaxed font-medium italic text-center dt:text-left px-4 mb:px-0"
+            className="text-on-surface/90 text-lg tb:text-xl dt:text-2xl max-w-xl mb-6 tb:mb-8 leading-relaxed font-medium italic text-center dt:text-left px-4 mb:px-0"
           >
             "Experience a symphony of high-performance beauty rituals tailored to
             your unique essence and soul."
@@ -95,7 +95,7 @@ const ServicesHero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative will-change-transform transform-gpu backface-hidden mt-10 dt:mt-0"
+          className="relative will-change-transform transform-gpu backface-hidden mt-4 dt:mt-0"
         >
           <div className="relative rounded-3xl tb:rounded-5xl overflow-hidden shadow-2xl border-4 tb:border-8 border-white/50 aspect-4/5 tb:aspect-square transform-gpu backface-hidden max-w-[280px] mb:max-w-md mx-auto">
             <img

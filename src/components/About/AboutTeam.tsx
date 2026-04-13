@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import team1 from "../../assets/makeup_artist.png";
-import hairImage from "../../assets/hair_styling.png";
-import skinImage from "../../assets/skin_care.png";
+import team1 from "../../assets/facialwebpimages/facial1.webp";
+import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
+import skinImage from "../../assets/facialwebpimages/facial2.webp";
 
 const AboutTeam: React.FC = () => {
   const team2 = hairImage;

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Award, ShieldCheck, Clock } from "lucide-react";
-import interiorImage from "../../assets/salon_interior_luxury.png";
+import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
 
 const AboutValues: React.FC = () => {
   return (

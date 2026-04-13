@@ -10,7 +10,7 @@ import {
   Facebook,
   Twitter,
 } from "lucide-react";
-import logo from "../assets/zentonez.png";
+import logo from "../assets/zentonez-logo.png";
 
 const Footer: React.FC = () => {
 

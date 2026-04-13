@@ -5,10 +5,11 @@ import { Sparkles } from "lucide-react";
 import "./Gallery.css";
 
 // Assets
-import bridalImage from "../../assets/bridal_makeup.png";
-import hairImage from "../../assets/hair_styling.png";
-import skinImage from "../../assets/skin_care.png";
-import spaImage from "../../assets/hair_spa_treatment.png";
+import bridalImage from "../../assets/hairwebp images/haircutv.webp";
+import hairImage from "../../assets/hairwebp images/straighning.webp";
+import skinImage from "../../assets/facialwebpimages/facial4.webp";
+import spaImage from "../../assets/hairspawebpimages/hairspa2.webp";
+
 
 const chapters = [
   {

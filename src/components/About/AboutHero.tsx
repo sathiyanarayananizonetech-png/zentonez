@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { SparkleHeading } from "../ui/SparkleHeading";
 
 // Assets
-import interiorImage from "../../assets/salon_interior_luxury.png";
-import hairImage from "../../assets/hair_styling.png";
-import skinImage from "../../assets/skin_care.png";
-import spaImage from "../../assets/hair_spa_treatment.png";
+import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
+import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
+import skinImage from "../../assets/facialwebpimages/facial1.webp";
+import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";
 
 const archImages = [interiorImage, hairImage, skinImage, spaImage];
 
@@ -22,15 +22,15 @@ const AboutHero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center pt-24 tb:pt-32 pb-10 tb:pb-16 overflow-hidden bg-background">
+    <section className="relative w-full min-h-screen flex items-center pt-16 tb:pt-20 pb-8 tb:pb-12 overflow-hidden bg-background">
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-12 relative z-10">
-        <div className="grid grid-cols-1 dt:grid-cols-2 gap-10 tb:gap-16 dt:gap-20 items-center">
+        <div className="grid grid-cols-1 dt:grid-cols-2 gap-8 tb:gap-12 dt:gap-16 items-center">
           {/* Left Column: Narrative */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6 tb:space-y-10 text-center dt:text-left pt-8 dt:pt-0"
+            className="space-y-4 tb:space-y-6 text-center dt:text-left pt-6 dt:pt-0"
           >
             <div>
               <h1 className="text-display font-pacifico text-on-surface mb-6 glow-text leading-[1.1] normal-case">
@@ -46,7 +46,7 @@ const AboutHero: React.FC = () => {
                 />
               </h1>
 
-              <p className="text-sm mb:text-base tb:text-lg dt:text-xl text-on-surface/90 leading-relaxed max-w-xl mx-auto dt:mx-0 mb-10 font-medium px-4 mb:px-0">
+              <p className="text-sm mb:text-base tb:text-lg dt:text-xl text-on-surface/90 leading-relaxed max-w-xl mx-auto dt:mx-0 mb-6 font-medium px-4 mb:px-0">
                 Beauty is confidence, self-love, and feeling truly seen. Zentonez
                 Parlour is a sanctuary for every woman, where luxury meets
                 personal care.
@@ -83,7 +83,7 @@ const AboutHero: React.FC = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex items-center justify-center dt:justify-end mt-8 dt:mt-0"
+            className="relative flex items-center justify-center dt:justify-end mt-4 dt:mt-0"
           >
             {/* The Arch Shape */}
             <div className="relative w-full max-w-[280px] mb:max-w-[450px] aspect-4/5 rounded-t-full border-8 border-primary/5 p-4 tb:p-6 shadow-2xl bg-surface/95 overflow-visible">

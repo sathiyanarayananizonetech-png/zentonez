@@ -1,26 +1,27 @@
 import React from "react";
 
 // Asset Imports
-import interiorImg from "../../assets/salon_interior_luxury.png";
-import heroImg from "../../assets/hero_salon.png";
-import hairImg from "../../assets/hair_styling.png";
-import makeupImg from "../../assets/makeup_artist.png";
-import bridalImg from "../../assets/bridal_makeup.png";
-import bridal2Img from "../../assets/bridal makeup2.png";
-import skinImg from "../../assets/skin_care.png";
-import spaImg from "../../assets/hair_spa_treatment.png";
-import nailImg from "../../assets/nail_art.png";
-import vesselImg from "../../assets/luxury_salon_vessel.png";
-import logoImg from "../../assets/zentonez.png";
+import interiorImg from "../../assets/hairspawebpimages/hairspa2.webp";
+import heroImg from "../../assets/hairwebp images/haircolor.webp";
+import hairImg from "../../assets/hairwebp images/caramelhaircolor.webp";
+import makeupImg from "../../assets/facialwebpimages/facial1.webp";
+import bridalImg from "../../assets/hairwebp images/haircutv.webp";
+import skinImg from "../../assets/facialwebpimages/facial3.webp";
+import spaImg from "../../assets/hairspawebpimages/hairspa2.webp";
+import nailImg from "../../assets/nailwebpimages/nail2.webp";
+import pedicureImg from "../../assets/pedicurewebpimages/manicure2.webp";
+import liceImg from "../../assets/licewebpimages/lice2.webp";
+import vesselImg from "../../assets/nailwebpimages/nail5.webp";
+import logoImg from "../../assets/zentonez-logo.png";
 
 const BookGallery: React.FC = () => {
   const pages = [
     { front: heroImg, back: interiorImg },
     { front: hairImg, back: makeupImg },
-    { front: bridalImg, back: bridal2Img },
-    { front: skinImg, back: spaImg },
-    { front: nailImg, back: vesselImg },
-    { front: heroImg, back: logoImg }, // Final branded page
+    { front: bridalImg, back: skinImg },
+    { front: spaImg, back: nailImg },
+    { front: pedicureImg, back: liceImg },
+    { front: vesselImg, back: logoImg },
   ];
 
   return (
@@ -82,6 +83,12 @@ const BookGallery: React.FC = () => {
           z-index: 1;
         }
 
+        .book-page img.is-logo {
+          object-fit: contain !important;
+          padding: 15% !important;
+          background: #fff;
+        }
+
 
         /* Responsive Breakpoints */
         @media (max-width: 640px) {
@@ -121,7 +128,11 @@ const BookGallery: React.FC = () => {
               }
             >
               <img src={page.front} alt={`Front ${index + 1}`} />
-              <img src={page.back} alt={`Back ${index + 1}`} />
+              <img 
+                src={page.back} 
+                alt={`Back ${index + 1}`} 
+                className={page.back === logoImg ? "is-logo" : ""} 
+              />
             </div>
           ))}
         </div>

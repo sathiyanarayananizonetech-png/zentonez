@@ -4,14 +4,16 @@ import { SparkleHeading } from "../ui/SparkleHeading";
 import "./Gallery.css";
 
 // Import local assets
-import bridalImage from "../../assets/bridal_makeup.png";
-import hairImage from "../../assets/hair_styling.png";
-import skinImage from "../../assets/skin_care.png";
-import spaImage from "../../assets/hair_spa_treatment.png";
-import makeupImage from "../../assets/makeup_artist.png";
-import nailImage from "../../assets/nail_art.png";
-import interiorImage from "../../assets/salon_interior_luxury.png";
-import vesselImage from "../../assets/luxury_salon_vessel.png";
+import bridalImage from "../../assets/hairwebp images/haircutv.webp";
+import hairImage from "../../assets/hairwebp images/butterflycut.webp";
+import skinImage from "../../assets/facialwebpimages/facial5.webp";
+import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import makeupImage from "../../assets/facialwebpimages/facial1.webp";
+import nailImage from "../../assets/nailwebpimages/nail4.webp";
+import liceImage from "../../assets/licewebpimages/lice3.webp";
+import pedicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
+import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
+import vesselImage from "../../assets/nailwebpimages/nail5.webp";
 
 const ImageTrackGallery: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -87,6 +89,8 @@ const ImageTrackGallery: React.FC = () => {
     { src: spaImage, alt: "Hair Spa" },
     { src: makeupImage, alt: "Makeup Artist" },
     { src: nailImage, alt: "Nail Art" },
+    { src: liceImage, alt: "Lice Treatment" },
+    { src: pedicureImage, alt: "Pedicure Care" },
     { src: interiorImage, alt: "Salon Interior" },
     { src: vesselImage, alt: "Luxury Detail" },
   ];

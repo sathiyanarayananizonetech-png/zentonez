@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Heart, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import heroImage from "../../assets/hero_salon.png";
-import bridalImage from "../../assets/bridal_makeup.png";
-import hairImage from "../../assets/hair_styling.png";
-import skinImage from "../../assets/skin_care.png";
-import spaImage from "../../assets/hair_spa_treatment.png";
-import makeupImage from "../../assets/makeup_artist.png";
-import nailImage from "../../assets/nail_art.png";
-import interiorImage from "../../assets/salon_interior_luxury.png";
+import heroImage from "../../assets/hairwebp images/haircolor.webp";
+import bridalImage from "../../assets/hairwebp images/butterfly cut.webp";
+import hairImage from "../../assets/hairwebp images/shorthaircut.webp";
+import skinImage from "../../assets/facialwebpimages/facial2.webp";
+import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import makeupImage from "../../assets/facialwebpimages/facial3.webp";
+import nailImage from "../../assets/nailwebpimages/nail3.webp";
+import liceImage from "../../assets/licewebpimages/lice4.webp";
+import pedicureImage from "../../assets/pedicurewebpimages/manicure2.webp";
+import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
 import { SparkleHeading } from "../ui/SparkleHeading";
 
 const carouselImages = [
@@ -21,6 +23,8 @@ const carouselImages = [
   spaImage,
   makeupImage,
   nailImage,
+  liceImage,
+  pedicureImage,
   interiorImage,
 ];
 
@@ -53,14 +57,7 @@ export function HeroSection() {
         <Sparkles size={48} className="hidden tb:block" />
       </motion.div>
 
-      <motion.div
-        animate={{ y: [0, 25, 0], rotate: [0, -15, 0] }}
-        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-        className="absolute bottom-32 right-[8%] tb:right-[15%] text-secondary opacity-30 hidden mb:block"
-      >
-        <Heart size={40} className="tb:hidden" />
-        <Heart size={56} className="hidden tb:block" />
-      </motion.div>
+
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 w-full grid grid-cols-1 dt:grid-cols-2 gap-8 dt:gap-12 items-center py-20 tb:py-24 dt:py-0 min-h-screen">
         <motion.div

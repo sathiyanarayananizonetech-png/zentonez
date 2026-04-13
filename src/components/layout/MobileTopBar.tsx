@@ -1,4 +1,4 @@
-import logo from "../../assets/zentonez.png";
+import logo from "../../assets/zentonez-logo.png";
 
 export function MobileTopBar() {
   return (

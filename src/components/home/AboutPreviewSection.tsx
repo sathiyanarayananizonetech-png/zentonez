@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Heart, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import interiorImage from "../../assets/salon_interior_luxury.png";
+import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
 import { ScrollReveal } from "./ScrollReveal";
 
 const heritagePoints = [
@@ -16,9 +16,9 @@ const heritagePoints = [
 
 export function AboutPreviewSection() {
   return (
-    <section className="py-10 tb:py-20 dt:py-32 relative bg-secondary/10 overflow-hidden">
+    <section className="py-8 tb:py-12 dt:py-16 relative bg-secondary/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
-        <div className="grid grid-cols-1 dt:grid-cols-2 gap-10 tb:gap-16 dt:gap-20 items-center">
+        <div className="grid grid-cols-1 dt:grid-cols-2 gap-8 tb:gap-12 dt:gap-16 items-center">
           <ScrollReveal>
             <div className="relative" style={{ perspective: "1500px" }}>
               <motion.div
@@ -59,7 +59,7 @@ export function AboutPreviewSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <div className="space-y-6 tb:space-y-8 px-4 mb:px-0 mt-8 dt:mt-0">
+            <div className="space-y-4 tb:space-y-6 px-4 mb:px-0 mt-6 dt:mt-0">
               <div className="inline-flex items-center gap-2 px-4 tb:px-6 py-2 rounded-full bg-secondary/20 text-primary border border-secondary/30 shadow-sm">
                 <Heart size={14} />
                 <span className="font-bold uppercase tracking-widest text-[9px] tb:text-[10px]">
@@ -111,7 +111,7 @@ export function AboutPreviewSection() {
                 ))}
               </div>
 
-              <div className="pt-2 tb:pt-6">
+              <div className="pt-2 tb:pt-4">
                 <Link to="/about">
                   <motion.button
                     whileHover={{ scale: 1.05, y: -5 }}

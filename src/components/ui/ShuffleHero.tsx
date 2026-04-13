@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "../../lib/utils";
 
-import bridalImage   from "../../assets/bridal_makeup.png";
-import hairImage     from "../../assets/hair_styling.png";
-import skinImage     from "../../assets/skin_care.png";
-import spaImage      from "../../assets/hair_spa_treatment.png";
-import makeupImage   from "../../assets/makeup_artist.png";
-import nailImage     from "../../assets/nail_art.png";
-import interiorImage from "../../assets/salon_interior_luxury.png";
-import vesselImage   from "../../assets/luxury_salon_vessel.png";
-import heroImage     from "../../assets/hero_salon.png";
+import bridalImage   from "../../assets/hairwebp images/haircutv.webp";
+import hairImage     from "../../assets/hairwebp images/butterfly cut.webp";
+import skinImage     from "../../assets/facialwebpimages/facial1.webp";
+import spaImage      from "../../assets/hairspawebpimages/hairspa1.webp";
+import makeupImage   from "../../assets/facialwebpimages/facial3.webp";
+import nailImage     from "../../assets/nailwebpimages/nail1.webp";
+import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
+import vesselImage   from "../../assets/nailwebpimages/nail5.webp";
+import heroImage     from "../../assets/hairwebp images/haircolor.webp";
 
 export const ShuffleHero = () => {
   return (

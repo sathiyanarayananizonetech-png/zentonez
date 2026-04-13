@@ -3,9 +3,9 @@ import { motion, type Variants } from "framer-motion";
 import { Quote } from "lucide-react";
 import { ScrollReveal } from "../home/ScrollReveal";
 
-import testimonal1 from "../../assets/testimonals/testimonal1.jpeg";
-import testimonal2 from "../../assets/testimonals/testimonal2.jpeg";
-import testimonal3 from "../../assets/testimonals/testimonal3.jpeg";
+import testimonal1 from "../../assets/facialwebpimages/facial1.webp";
+import testimonal2 from "../../assets/facialwebpimages/facial4.webp";
+import testimonal3 from "../../assets/facialwebpimages/facial5.webp";
 
 const TESTIMONIALS = [
   {
@@ -55,7 +55,7 @@ const AboutTestimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-20 sm:py-32 bg-background relative overflow-hidden">
+    <section className="py-12 sm:py-20 bg-background relative overflow-hidden">
       {/* Decorative patterns */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-30">
         <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-3xl" />
@@ -63,7 +63,7 @@ const AboutTestimonials: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 sm:mb-20">
+        <div className="text-center mb-10 sm:mb-14">
           <ScrollReveal>
             <span className="text-primary text-xs sm:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
               Voices of Radiance
@@ -86,7 +86,7 @@ const AboutTestimonials: React.FC = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="p-8 sm:p-10 bg-surface-dim/30 rounded-4xl sm:rounded-5xl border border-primary-container/20 relative group overflow-hidden hover:bg-surface-dim hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col justify-between"
+              className="p-6 sm:p-8 bg-surface-dim/30 rounded-4xl sm:rounded-5xl border border-primary-container/20 relative group overflow-hidden hover:bg-surface-dim hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col justify-between"
             >
               {/* Background Accent Image (Faded) */}
               <div className="absolute top-0 right-0 w-full h-full opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none">
@@ -101,7 +101,7 @@ const AboutTestimonials: React.FC = () => {
                 <Quote className="text-primary-container absolute top-0 right-0 w-8 h-8 opacity-40 group-hover:text-primary transition-colors duration-500" />
 
                 {/* Avatar */}
-                <div className="mb-6 relative">
+                <div className="mb-4 relative">
                   <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-primary/20 p-1 bg-white/50 backdrop-blur-sm group-hover:border-primary transition-colors duration-500">
                     <img
                       src={t.image}
@@ -111,7 +111,7 @@ const AboutTestimonials: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-base sm:text-lg font-serif italic text-on-surface/80 leading-relaxed mb-8">
+                <p className="text-base sm:text-lg font-serif italic text-on-surface/80 leading-relaxed mb-6">
                   "{t.quote}"
                 </p>
               </div>

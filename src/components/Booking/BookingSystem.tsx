@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Scissors, Droplets, Calendar as CalendarIcon, Clock, User, Phone, CheckCircle, ChevronLeft } from 'lucide-react';
+import { Sparkles, Scissors, Droplets, Calendar as CalendarIcon, Clock, User, Phone, CheckCircle, ChevronLeft, ShieldCheck } from 'lucide-react';
 
 type ServiceType = {
   id: string;
@@ -15,6 +15,7 @@ const SERVICES: ServiceType[] = [
   { id: 'nails', name: 'Designer Nails', duration: '60 Min', price: '₹1500', icon: <Sparkles size={24} /> },
   { id: 'pedicure', name: 'Luxury Pedicure', duration: '45 Min', price: '₹1200', icon: <Droplets size={24} /> },
   { id: 'haircut', name: 'Master Haircut', duration: '60 Min', price: '₹1800', icon: <Scissors size={24} /> },
+  { id: 'lice-treatment', name: 'Lice Treatment', duration: '60 Min', price: '₹1000', icon: <ShieldCheck size={24} /> },
   { id: 'coloring', name: 'Global Coloring', duration: '120 Min', price: '₹4000', icon: <Sparkles size={24} /> },
   { id: 'smoothing', name: 'Keratin Smoothing', duration: '180 Min', price: '₹5500', icon: <Droplets size={24} /> },
 ];

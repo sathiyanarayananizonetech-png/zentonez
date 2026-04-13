@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import logo from "../../assets/zentonez.png";
+import logo from "../../assets/zentonez-logo.png";
 
 export function FloatingLogo() {
   const { scrollY } = useScroll();

@@ -64,7 +64,7 @@
 .parallax-arrow path.a3 { animation-delay: 0s; }
 
 .parallax-content {
-  margin: 2vh 0 4vh;
+  margin: 0.5vh 0 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,7 +73,7 @@
 
 @media (min-width: 481px) {
   .parallax-content {
-    margin: 4vh 0 8vh;
+    margin: 1vh 0 2vh;
   }
 }
 
@@ -83,7 +83,7 @@
   width: 100%;
   max-width: 100%;
   position: relative;
-  margin-bottom: 8vh;
+  margin-bottom: 2vh;
   display: grid;
   grid-template-columns: 1fr;        /* mobile: single column */
   gap: 1.5rem;
@@ -96,13 +96,13 @@
 
 @media (min-width: 481px) {
   .parallax-content__item {
-    margin-bottom: 12vh;
+    margin-bottom: 3vh;
   }
 }
 
 @media (min-width: 769px) {
   .parallax-content__item {
-    margin-bottom: 20vh;
+    margin-bottom: 5vh;
     grid-template-columns: 50% 50%;
   }
 }

@@ -69,7 +69,7 @@
 /* Mask for horizontal scrolling if list is too long */
 .nav-scroll-mask {
   mask-image: linear-gradient(90deg, #fff, #0000),
-    linear-gradient(90deg, #fff 0 100%), 
+    linear-gradient(90deg, #fff 0 100%),
     linear-gradient(90deg, #0000, #fff);
   mask-size: 2ch 100%, 100% 100%, 2ch 100%;
   mask-repeat: no-repeat;

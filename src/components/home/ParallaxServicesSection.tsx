@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import bridalImage from "../../assets/bridal_makeup.png";
-import hairImage from "../../assets/hair_styling.png";
-import skinImage from "../../assets/skin_care.png";
-import nailImage from "../../assets/nail_art.png";
+import bridalImage from "../../assets/hairwebp images/haircutv.webp";
+import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
+import skinImage from "../../assets/facialwebpimages/facial1.webp";
+import nailImage from "../../assets/nailwebpimages/nail1.webp";
 import { ParallaxArrow } from "../ScrollParallaxCard/ParallaxArrow";
 import { ScrollParallaxCard } from "../ScrollParallaxCard/ScrollParallaxCard";
 import { ScrollReveal } from "./ScrollReveal";
@@ -43,12 +43,12 @@ const parallaxServices = [
 
 export function ParallaxServicesSection() {
   return (
-    <section className="py-10 tb:py-20 dt:py-32 relative bg-background overflow-hidden">
+    <section className="py-6 tb:py-8 dt:py-10 relative bg-background overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-10 tb:mb-16">
+          <div className="text-center mb-4 tb:mb-6">
             <div className="inline-flex items-center gap-2 px-4 tb:px-6 py-2 rounded-full bg-secondary/10 text-primary border border-secondary/20 shadow-sm mb-4">
               <Sparkles size={14} />
               <span className="font-bold uppercase tracking-widest text-[9px] tb:text-[10px]">
@@ -84,7 +84,7 @@ export function ParallaxServicesSection() {
         </div>
 
         <ScrollReveal delay={0.2}>
-          <div className="mt-10 tb:mt-16 text-center px-4 mb:px-0">
+          <div className="mt-4 tb:mt-6 text-center px-4 mb:px-0">
             <Link to="/services">
               <motion.button
                 whileHover={{ scale: 1.05 }}
