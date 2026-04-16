@@ -13,7 +13,17 @@ import { ParallaxArrow } from "../ScrollParallaxCard/ParallaxArrow";
 import { ScrollParallaxCard } from "../ScrollParallaxCard/ScrollParallaxCard";
 import { ScrollReveal } from "./ScrollReveal";
 
-const parallaxServices = [
+interface ParallaxService {
+  title: string;
+  description: string;
+  image: string;
+  price: string;
+  benefits: string[];
+  color: string;
+  backgroundPosition?: string;
+}
+
+const parallaxServices: ParallaxService[] = [
   {
     title: "Skin Care",
     description: "Maintain radiant and healthy skin with our personalized skincare solutions.",
@@ -112,7 +122,7 @@ export function ParallaxServicesSection() {
                 price={service.price}
                 benefits={service.benefits}
                 color={service.color}
-                backgroundPosition={(service as any).backgroundPosition}
+                backgroundPosition={service.backgroundPosition}
               />
             ))}
           </div>

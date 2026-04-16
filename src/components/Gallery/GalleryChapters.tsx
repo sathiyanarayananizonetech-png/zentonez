@@ -14,7 +14,16 @@ import nailImage from "../../assets/nailwebpimages/nail1.webp";
 import liceImage from "../../assets/licewebpimages/lice1.webp";
 
 
-const chapters = [
+interface Chapter {
+  id: string;
+  title: string;
+  subtitle: string;
+  img: string;
+  text: string;
+  objectPosition?: string;
+}
+
+const chapters: Chapter[] = [
   {
     id: "skin",
     title: "Skin Care",
@@ -83,7 +92,7 @@ const GalleryChapters: React.FC = () => {
                 src={chapter.img}
                 alt={chapter.title}
                 className="w-full h-full object-cover"
-                style={{ objectPosition: (chapter as any).objectPosition || "center" }}
+                style={{ objectPosition: chapter.objectPosition || "center" }}
               />
 
               <div className="absolute top-6 tb:top-12 left-6 tb:left-12">

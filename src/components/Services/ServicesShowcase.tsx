@@ -30,7 +30,27 @@ import aboutHero from "../../assets/hairwebp images/caramelhaircolor.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const services = [
+interface Service {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  price: string;
+  duration: string;
+  review: string;
+  clientName: string;
+  highlights: string[];
+  image: string;
+  icon: React.ReactNode;
+  color: string;
+  promo?: {
+    title: string;
+    subtitle: string;
+  };
+  objectPosition?: string;
+}
+
+const services: Service[] = [
   {
     id: 1,
     title: "Skin Care",
@@ -301,19 +321,19 @@ const ServicesShowcase: React.FC = () => {
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  style={{ objectPosition: (service as any).objectPosition || "center" }}
+                  style={{ objectPosition: service.objectPosition || "center" }}
                 />
               </div>
               
               {/* Promo Badge */}
-              {(service as any).promo && (
+              {service.promo && (
                 <div className="absolute top-6 right-6 z-20">
                   <div className="bg-primary text-white px-4 py-2 rounded-2xl shadow-luxury border border-white/20 animate-pulse">
                     <p className="text-[10px] font-black uppercase tracking-widest leading-none">
-                      {(service as any).promo.title}
+                      {service.promo.title}
                     </p>
                     <p className="text-[7px] font-bold uppercase tracking-tight mt-1 opacity-80">
-                      {(service as any).promo.subtitle}
+                      {service.promo.subtitle}
                     </p>
                   </div>
                 </div>
@@ -464,19 +484,19 @@ const ServicesShowcase: React.FC = () => {
                   src={service.image}
                   alt={service.title}
                   className="showcase-img w-full h-full object-cover object-center"
-                  style={{ objectPosition: (service as any).objectPosition || "center" }}
+                  style={{ objectPosition: service.objectPosition || "center" }}
                 />
                   <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Promo Badge on Image */}
-                  {(service as any).promo && (
+                  {service.promo && (
                     <div className="absolute top-10 right-10 z-20">
                       <div className="bg-primary text-white px-6 py-3 rounded-2xl shadow-luxury border border-white/20 scale-110">
                         <p className="text-xs font-black uppercase tracking-[0.2em] leading-none">
-                          {(service as any).promo.title}
+                          {service.promo.title}
                         </p>
                         <p className="text-[9px] font-bold uppercase tracking-widest mt-1 opacity-80">
-                          {(service as any).promo.subtitle}
+                          {service.promo.subtitle}
                         </p>
                       </div>
                     </div>

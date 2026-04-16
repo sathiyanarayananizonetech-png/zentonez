@@ -15,7 +15,13 @@ import pedicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
 import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
 import vesselImage from "../../assets/nailwebpimages/nail5.webp";
 
-const IMAGES_DATA = [
+interface GalleryImage {
+  src: string;
+  alt: string;
+  vPos?: string;
+}
+
+const IMAGES_DATA: GalleryImage[] = [
   { src: skinImage, alt: "Skin Care" },
   { src: makeupImage, alt: "Facial Treatment" },
   { src: pedicureImage, alt: "Manicure & Pedicure" },
@@ -70,7 +76,7 @@ const ImageTrackGallery: React.FC = () => {
         Array.from(domImages).forEach((image, index) => {
           (image as HTMLElement).animate(
             {
-              objectPosition: `${100 + nextPercentage}% ${(IMAGES_DATA[index] as any).vPos || "center"}`,
+              objectPosition: `${100 + nextPercentage}% ${IMAGES_DATA[index].vPos || "center"}`,
             },
             { duration: 1200, fill: "forwards", easing: "ease-out" }
           );

@@ -22,11 +22,11 @@ export const SmoothScroll = () => {
     requestAnimationFrame(raf);
 
     // Store lenis on window for global access if needed (e.g. for ScrollToTop)
-    (window as any).lenis = lenis;
+    window.lenisInstance = lenis;
 
     return () => {
       lenis.destroy();
-      (window as any).lenis = null;
+      window.lenisInstance = null;
     };
   }, []);
 

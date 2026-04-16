@@ -6,6 +6,13 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
+import Lenis from "lenis";
+
+declare global {
+  interface Window {
+    lenisInstance?: Lenis | null;
+  }
+}
 
 import Footer from "./components/Footer";
 import { MobileBottomNav } from "./components/layout/MobileBottomNav";
@@ -29,8 +36,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const lenis = (window as any).lenis;
+    const lenis = window.lenisInstance;
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     } else {
@@ -43,8 +49,7 @@ const ScrollToTop = () => {
 const App: React.FC = () => {
   useEffect(() => {
     // Sync ScrollTrigger with Lenis
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const lenis = (window as any).lenis;
+    const lenis = window.lenisInstance;
     if (lenis) {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => {
