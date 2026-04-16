@@ -6,7 +6,7 @@ import { ScrollReveal } from "./ScrollReveal";
 
 export function PromoQuoteSection() {
   return (
-    <section className="py-10 tb:py-20 relative overflow-hidden bg-secondary/20 px-4 mb:px-0">
+    <section className="pt-0 pb-10 tb:pb-20 relative overflow-hidden bg-secondary/20 px-4 mb:px-0">
       <div className="max-w-5xl mx-auto px-0 tb:px-6 dt:px-8 relative z-10">
         <ScrollReveal>
           <div className="bg-surface/60 backdrop-blur-2xl border border-white/50 rounded-3xl tb:rounded-4xl p-6 tb:p-16 dt:p-20 shadow-luxury-deep text-center relative overflow-hidden mx-auto max-w-4xl">

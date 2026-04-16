@@ -5,9 +5,9 @@ import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
 
 const AboutValues: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden bg-background">
+    <section className="py-10 sm:py-16 relative overflow-hidden bg-background">
       <div className="container mx-auto px-4 sm:px-6 text-center">
-        <div className="max-w-3xl mx-auto mb-12 sm:mb-20">
+        <div className="max-w-3xl mx-auto mb-8 sm:mb-12">
           <span className="text-primary font-bold uppercase tracking-[0.3em] text-[9px] sm:text-xs mb-4 block">
             Our Philosophy
           </span>

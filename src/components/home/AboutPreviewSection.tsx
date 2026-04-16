@@ -16,7 +16,7 @@ const heritagePoints = [
 
 export function AboutPreviewSection() {
   return (
-    <section className="py-8 tb:py-12 dt:py-16 relative bg-secondary/10 overflow-hidden">
+    <section className="py-6 tb:py-10 dt:py-12 relative bg-secondary/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
         <div className="grid grid-cols-1 dt:grid-cols-2 gap-8 tb:gap-12 dt:gap-16 items-center">
           <ScrollReveal>

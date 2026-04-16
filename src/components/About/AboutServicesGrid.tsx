@@ -157,9 +157,9 @@ const ServiceCard: React.FC<{
 
 const AboutServicesGrid: React.FC = () => {
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 bg-surface-dim relative overflow-hidden">
+    <section className="py-12 sm:py-20 dt:py-24 px-4 sm:px-6 bg-surface-dim relative overflow-hidden">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-20 sm:mb-28">
+        <div className="text-center mb-12 sm:mb-16">
           <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px] sm:text-xs mb-6 block">
             Experience Our Expertise
           </span>

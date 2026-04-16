@@ -11,7 +11,7 @@ const stats = [
 
 export function CommunityStatsSection() {
   return (
-    <section className="py-10 tb:py-20 dt:py-32 relative bg-background overflow-hidden border-y border-secondary/10">
+    <section className="py-8 tb:py-12 dt:py-16 relative bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-10 tb:mb-16 dt:mb-20 px-4 mb:px-0">

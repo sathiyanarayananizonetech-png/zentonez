@@ -1,17 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";
+import stylistImage from "../../assets/bridalwebpimages/stylistimg.webp";
 
 const AboutStory: React.FC = () => {
   return (
-    <section className="py-8 mb:py-10 tb:py-16 dt:py-20 bg-background overflow-hidden">
+    <section className="py-6 mb:py-8 tb:py-12 dt:py-16 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb:px-6 tb:px-8 dt:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb:gap-8 tb:gap-10 dt:gap-12 items-center">
           <div className="relative">
-            <div className="relative z-10 rounded-3xl sm:rounded-4xl overflow-hidden shadow-luxury-deep aspect-4/5">
+            <div className="relative z-10 rounded-3xl sm:rounded-4xl overflow-hidden shadow-luxury-deep aspect-4/5 max-w-sm tb:max-w-md mx-auto">
               <img
-                src={spaImage}
+                src={stylistImage}
                 alt="Our Sanctuary"
                 className="w-full h-full object-cover"
               />

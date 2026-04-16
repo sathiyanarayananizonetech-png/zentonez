@@ -14,7 +14,7 @@ const pricingData = [
 
 export function PricingSection() {
   return (
-    <section className="py-20 tb:py-32 relative bg-surface overflow-hidden">
+    <section className="py-10 tb:py-16 dt:py-20 relative bg-surface overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">

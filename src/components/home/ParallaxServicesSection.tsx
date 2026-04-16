@@ -129,7 +129,7 @@ export function ParallaxServicesSection() {
         </div>
 
         <ScrollReveal delay={0.2}>
-          <div className="mt-4 tb:mt-6 text-center px-4 mb:px-0">
+          <div className="mt-8 tb:mt-12 dt:mt-16 text-center px-4 mb:px-0">
             <Link to="/services">
               <motion.button
                 whileHover={{ scale: 1.05 }}

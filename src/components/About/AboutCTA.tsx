@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AboutCTA: React.FC = () => {
   return (
-    <section className="py-12 mb:py-16 tb:py-24 dt:py-32 bg-surface-dim/20 relative overflow-hidden">
+    <section className="py-8 mb:py-12 tb:py-16 dt:py-20 bg-surface-dim/20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb:px-6 tb:px-8">
         <div className="relative bg-primary/5 rounded-3xl mb:rounded-4xl tb:rounded-[3rem] p-6 mb:p-12 tb:p-16 dt:p-24 overflow-hidden border border-primary/20 shadow-xl text-center">
           <motion.div

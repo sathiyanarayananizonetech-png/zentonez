@@ -55,7 +55,7 @@ const AboutTestimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-12 sm:py-20 bg-background relative overflow-hidden">
+    <section className="py-10 sm:py-16 bg-background relative overflow-hidden">
       {/* Decorative patterns */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-30">
         <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-3xl" />

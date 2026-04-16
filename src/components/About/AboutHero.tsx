@@ -22,7 +22,7 @@ const AboutHero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center pt-16 tb:pt-20 pb-8 tb:pb-12 overflow-hidden bg-background">
+    <section className="relative w-full min-h-screen flex items-center pt-12 tb:pt-16 pb-6 tb:pb-10 overflow-hidden bg-background">
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-12 relative z-10">
         <div className="grid grid-cols-1 dt:grid-cols-2 gap-8 tb:gap-12 dt:gap-16 items-center">
           {/* Left Column: Narrative */}

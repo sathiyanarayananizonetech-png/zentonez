@@ -51,9 +51,9 @@ const AboutTimeline: React.FC = () => {
   }, []);
 
   return (
-    <section className="timeline-section py-16 sm:py-24 about-timeline">
+    <section className="timeline-section py-10 sm:py-16 about-timeline">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16 sm:mb-32">
+        <div className="text-center mb-10 sm:mb-16">
           <span className="text-primary font-bold uppercase tracking-[0.4em] text-[9px] sm:text-[10px] mb-4 sm:mb-6 block">
             Experience the difference today
           </span>

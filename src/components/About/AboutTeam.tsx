@@ -8,9 +8,9 @@ const AboutTeam: React.FC = () => {
   const team2 = hairImage;
 
   return (
-    <section className="py-16 sm:py-24 bg-surface-dim relative">
+    <section className="py-10 sm:py-16 bg-surface-dim relative">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 sm:mb-16 gap-6 sm:gap-8">
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-16 gap-6 sm:gap-8">
           <div className="max-w-2xl">
             <span className="text-primary font-bold uppercase tracking-[0.3em] text-[9px] sm:text-xs mb-4 block">
               The Artisans
@@ -19,13 +19,13 @@ const AboutTeam: React.FC = () => {
               Meet Our <span className="text-primary">Master Stylists</span>
             </h2>
           </div>
-          <p className="text-base sm:text-lg text-on-surface/60 font-sans max-w-xs sm:max-w-sm italic lg:text-right">
+          <p className="text-base sm:text-lg text-on-surface/60 font-sans max-w-xl italic">
             Curated experts committed to translating your inner beauty into an
             outward reality.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 dt:gap-8 max-w-5xl mx-auto">
           {[
             {
               name: "Priya Raj",
@@ -54,7 +54,7 @@ const AboutTeam: React.FC = () => {
               transition={{ duration: 0.8, delay: i * 0.2 }}
               className="group"
             >
-              <div className="relative rounded-4xl sm:rounded-5xl overflow-hidden mb-6 sm:mb-8 aspect-3/4 shadow-xl group-hover:shadow-2xl transition-all duration-700">
+            <div className="relative rounded-4xl sm:rounded-5xl overflow-hidden mb-6 sm:mb-8 aspect-3/4 shadow-xl group-hover:shadow-2xl transition-all duration-700 max-w-[280px] sm:max-w-xs mx-auto">
                 <img
                   src={member.img}
                   alt={member.name}
