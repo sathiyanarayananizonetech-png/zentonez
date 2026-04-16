@@ -107,7 +107,6 @@ export const ScrollParallaxCard: React.FC<ParallaxItemProps> = ({
           {title}
         </motion.h2>
         <p className="description-text">{description}</p>
-        
         {benefits && benefits.length > 0 && (
           <motion.ul
             className="benefits-list mt-4 space-y-2 mb-4"

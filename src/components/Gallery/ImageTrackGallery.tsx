@@ -15,6 +15,19 @@ import pedicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
 import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
 import vesselImage from "../../assets/nailwebpimages/nail5.webp";
 
+const IMAGES_DATA = [
+  { src: skinImage, alt: "Skin Care" },
+  { src: makeupImage, alt: "Facial Treatment" },
+  { src: pedicureImage, alt: "Manicure & Pedicure" },
+  { src: spaImage, alt: "Hair Spa" },
+  { src: bridalImage, alt: "Bridal Makeup", vPos: "top" },
+  { src: nailImage, alt: "Nails" },
+  { src: liceImage, alt: "Lice Removal" },
+  { src: hairImage, alt: "Hair Styling" },
+  { src: interiorImage, alt: "Salon Interior" },
+  { src: vesselImage, alt: "Luxury Detail" },
+];
+
 const ImageTrackGallery: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const mouseDownAt = useRef<number>(0);
@@ -53,15 +66,15 @@ const ImageTrackGallery: React.FC = () => {
           { duration: 1200, fill: "forwards", easing: "ease-out" }
         );
 
-        const images = trackRef.current.getElementsByClassName("image-track-img");
-        for (const image of images) {
+        const domImages = trackRef.current.getElementsByClassName("image-track-img");
+        Array.from(domImages).forEach((image, index) => {
           (image as HTMLElement).animate(
             {
-              objectPosition: `${100 + nextPercentage}% ${(images[index] as any).vPos || "center"}`,
+              objectPosition: `${100 + nextPercentage}% ${(IMAGES_DATA[index] as any).vPos || "center"}`,
             },
             { duration: 1200, fill: "forwards", easing: "ease-out" }
           );
-        }
+        });
       }
     };
 
@@ -82,18 +95,6 @@ const ImageTrackGallery: React.FC = () => {
     };
   }, []);
 
-  const images = [
-    { src: skinImage, alt: "Skin Care" },
-    { src: makeupImage, alt: "Facial Treatment" },
-    { src: pedicureImage, alt: "Manicure & Pedicure" },
-    { src: spaImage, alt: "Hair Spa" },
-    { src: bridalImage, alt: "Bridal Makeup", vPos: "top" },
-    { src: nailImage, alt: "Nails" },
-    { src: liceImage, alt: "Lice Removal" },
-    { src: hairImage, alt: "Hair Styling" },
-    { src: interiorImage, alt: "Salon Interior" },
-    { src: vesselImage, alt: "Luxury Detail" },
-  ];
 
   return (
     <section className="image-track-container snap-section overflow-hidden bg-white!">
@@ -123,7 +124,7 @@ const ImageTrackGallery: React.FC = () => {
 
       {/* Image Track slider */}
       <div id="image_track" ref={trackRef} className="image-track">
-        {images.map((img, index) => (
+        {IMAGES_DATA.map((img, index) => (
           <img
             key={index}
             className="image-track-img"

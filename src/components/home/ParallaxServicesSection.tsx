@@ -18,8 +18,8 @@ const parallaxServices = [
     title: "Skin Care",
     description: "Maintain radiant and healthy skin with our personalized skincare solutions.",
     image: skinImage,
-    price: "Rs400",
-    benefits: ["Deep Cleansing", "Fruit Facials", "D-Tan Treatment"],
+    price: "Rs1200",
+    benefits: ["Deep Pore Cleansing", "Fruit & Glow Facials", "D-Tan Treatment", "Skin Type Analysis"],
     color: "#FB7185",
   },
   {
@@ -60,7 +60,7 @@ const parallaxServices = [
     description: "Exquisite nail art and extensions to express your unique style.",
     image: nailImage,
     price: "Rs1500",
-    benefits: ["Acrylic Extensions", "Gel Polish", "Nail Art"],
+    benefits: ["Acrylic Extensions", "Gel Polish & Overlay", "Hand-Painted Designs", "Cuticle Care"],
     color: "#8B5CF6",
   },
   {

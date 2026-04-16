@@ -14,8 +14,6 @@ import {
   MapPin,
   Clock,
   Quote,
-  CreditCard,
-  Award,
 } from "lucide-react";
 
 // Assets

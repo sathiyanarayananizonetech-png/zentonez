@@ -85,14 +85,7 @@ const GalleryChapters: React.FC = () => {
                 className="w-full h-full object-cover"
                 style={{ objectPosition: (chapter as any).objectPosition || "center" }}
               />
-              <div
-                className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, var(--color-primary-container) 1px, transparent 1px), linear-gradient(to bottom, var(--color-primary-container) 1px, transparent 1px)",
-                  backgroundSize: "40px 40px",
-                }}
-              />
+
               <div className="absolute top-6 tb:top-12 left-6 tb:left-12">
                 <div className="inline-flex items-center gap-2 px-3 tb:px-4 py-1.5 tb:py-2 rounded-full bg-primary-container/20 text-primary border border-primary-container/30 shadow-sm">
                   <Sparkles size={12} />
