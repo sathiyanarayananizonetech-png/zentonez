@@ -4,10 +4,6 @@ import {
   MapPin,
   Phone,
   Mail,
-  Instagram,
-  Facebook,
-  Twitter,
-  Clock,
 } from "lucide-react";
 import gsap from "gsap";
 
