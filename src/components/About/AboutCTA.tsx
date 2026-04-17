@@ -15,7 +15,7 @@ const AboutCTA: React.FC = () => {
             className="relative z-10 space-y-4 mb:space-y-6 tb:space-y-8"
           >
 
-            <h2 className="text-2xl mb:text-3xl tb:text-5xl dt:text-6xl italic font-serif leading-[1.1] text-on-surface px-2">
+            <h2 className="text-2xl mb:text-3xl tb:text-5xl dt:text-6xl font-serif leading-[1.1] text-on-surface px-2">
               Begin Your Journey to <br className="hidden mb:block" />
               <span className="text-primary tracking-tight">Unrivaled Radiance</span>
             </h2>

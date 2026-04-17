@@ -34,12 +34,12 @@ export const AboutExpertise: React.FC<{ isMobile?: boolean }> = ({ isMobile }) =
             <span className="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">
               Our Unwavering Standards
             </span>
-            <h2 className={`${isMobile ? "text-3xl" : "text-hero"} italic leading-tight text-on-surface`}>
+            <h2 className={`${isMobile ? "text-3xl" : "text-hero"} leading-tight text-on-surface`}>
               Where Safety <br/> Meets <span className="text-primary underline decoration-primary/20 underline-offset-8">Artistry</span>
             </h2>
           </div>
           {!isMobile && (
-            <p className="text-lg text-on-surface/60 max-w-sm italic lg:text-right font-medium">
+            <p className="text-lg text-on-surface/60 max-w-sm lg:text-right font-medium">
               We go beyond beauty to ensure your peace of mind through rigorous discipline and elite care.
             </p>
           )}
@@ -59,7 +59,7 @@ export const AboutExpertise: React.FC<{ isMobile?: boolean }> = ({ isMobile }) =
                 {item.icon}
               </div>
               <div className="space-y-3">
-                <h3 className="text-xl font-serif italic text-on-surface">{item.title}</h3>
+                <h3 className="text-xl font-serif text-on-surface">{item.title}</h3>
                 <p className="text-on-surface/60 text-sm leading-relaxed font-medium">{item.desc}</p>
               </div>
             </motion.div>

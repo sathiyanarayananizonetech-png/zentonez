@@ -163,7 +163,7 @@ const AboutServicesGrid: React.FC = () => {
           <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px] sm:text-xs mb-6 block">
             Experience Our Expertise
           </span>
-          <h2 className="text-display italic text-on-surface">
+          <h2 className="text-display text-on-surface">
             Our <span className="text-primary">Exclusive Services</span>
           </h2>
           <div className="w-24 h-1 bg-primary/20 mx-auto mt-8 rounded-full" />

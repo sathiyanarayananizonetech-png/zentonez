@@ -57,7 +57,7 @@ const AboutTimeline: React.FC = () => {
           <span className="text-primary font-bold uppercase tracking-[0.4em] text-[9px] sm:text-[10px] mb-4 sm:mb-6 block">
             Experience the difference today
           </span>
-          <h2 className="text-hero italic text-on-surface">
+          <h2 className="text-hero text-on-surface">
             Why We <br className="md:hidden" />
             <span className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-primary underline decoration-primary-container underline-offset-12 block md:inline-block md:mt-4">
               Stand Out

@@ -77,7 +77,7 @@ const ContactInfoCard: React.FC<{ info: ContactInfoData; idx: number }> = ({
           <h4 className="text-slate-900/40 text-[9px] tb:text-[10px] uppercase tracking-[0.2em] mb-1 font-black leading-none">
             {info.title}
           </h4>
-          <p className="text-[#302b27] font-bold text-base tb:text-lg italic tracking-tight leading-tight wrap-break-word">
+          <p className="text-[#302b27] font-bold text-base tb:text-lg tracking-tight leading-tight wrap-break-word">
             {info.content}
           </p>
         </div>
@@ -87,48 +87,6 @@ const ContactInfoCard: React.FC<{ info: ContactInfoData; idx: number }> = ({
 };
 
 const ContactInfo: React.FC = () => {
-
-  const [currentTime, setCurrentTime] = React.useState<string>("");
-
-  React.useEffect(() => {
-    const updateTimeAndStatus = () => {
-      const now = new Date();
-      // Format time in Asia/Kolkata timezone
-      const formatter = new Intl.DateTimeFormat("en-US", {
-        timeZone: "Asia/Kolkata",
-        hour: "numeric",
-        minute: "numeric",
-        second: "2-digit",
-        hour12: true,
-        weekday: "short", // Added for status check
-      });
-
-      const parts = formatter.formatToParts(now);
-
-      let hour12Str = "";
-      let minStr = "";
-      let secStr = "";
-      let ampmStr = "";
-
-      parts.forEach((p) => {
-
-        if (p.type === "hour") hour12Str = p.value;
-        if (p.type === "minute") minStr = p.value;
-        if (p.type === "second") secStr = p.value;
-        if (p.type === "dayPeriod") ampmStr = p.value;
-      });
-
-      // Set Clock String
-      setCurrentTime(`${hour12Str}:${minStr}:${secStr} ${ampmStr}`);
-
-
-    };
-
-    updateTimeAndStatus();
-    const interval = setInterval(updateTimeAndStatus, 1000); // Check every second for live clock
-    return () => clearInterval(interval);
-  }, []);
-
   const contactInfoData = [
     {
       icon: <MapPin size={20} />,
@@ -150,59 +108,6 @@ const ContactInfo: React.FC = () => {
           <ContactInfoCard key={i} info={info} idx={i} />
         ))}
       </div>
-
-      {/* Hours card */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="p-5 tb:p-10 bg-on-surface text-background rounded-3xl tb:rounded-4xl relative overflow-hidden shadow-luxury-deep"
-      >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 tb:mb-8 border-b border-white/10 pb-6">
-          <h4 className="text-lg tb:text-2xl font-black italic uppercase font-h-primary m-0 shrink-0">
-            Opening Hours
-          </h4>
-          <div className="flex flex-col items-start sm:items-end pointer-events-none">
-            <div className="flex items-center gap-1.5 text-primary/40 mb-1">
-              <Clock size={12} />
-              <span className="text-[8px] tb:text-[9px] font-black uppercase tracking-[0.2em]">
-                Live IST
-              </span>
-            </div>
-            <div className="flex items-baseline gap-1 whitespace-nowrap">
-              <span className="text-lg tb:text-3xl font-black italic text-primary font-h-primary tracking-tight drop-shadow-lg tabular-nums">
-                {currentTime.split(" ")[0]}
-              </span>
-              <span className="text-[9px] tb:text-xs font-bold uppercase tracking-widest text-primary/70 font-h-primary">
-                {currentTime.split(" ")[1]}
-              </span>
-            </div>
-          </div>
-        </div>
-        <ul className="space-y-4 tb:space-y-6">
-          <li className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4">
-            <span className="text-primary font-medium tracking-widest uppercase text-[9px] tb:text-[10px] shrink-0">
-              Mon – Sun:
-            </span>
-            <span className="text-green-400 font-bold text-sm tb:text-base whitespace-nowrap">
-              10:00 AM – 08:30 PM
-            </span>
-          </li>
-        </ul>
-        <div className="mt-8 tb:mt-12 flex gap-4 tb:gap-6">
-          {[Instagram, Facebook, Twitter].map((Icon, idx) => (
-            <motion.a
-              key={idx}
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              href="#"
-              aria-label={["Instagram", "Facebook", "Twitter"][idx]}
-              className="p-3 tb:p-4 bg-amber-50/10 rounded-xl tb:rounded-2xl hover:bg-primary transition-colors duration-300 tap-target"
-            >
-              <Icon size={18} />
-            </motion.a>
-          ))}
-        </div>
-      </motion.div>
     </div>
   );
 };

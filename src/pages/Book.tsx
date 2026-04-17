@@ -13,7 +13,7 @@ const Book: React.FC = () => {
           <span className="text-primary font-black tracking-[0.4em] uppercase text-xs mb-4 block">
             Reserve Your Time
           </span>
-          <h1 className="text-5xl md:text-7xl font-black italic text-on-surface font-serif uppercase tracking-tight mb-12">
+          <h1 className="text-5xl md:text-7xl font-black text-on-surface font-serif uppercase tracking-tight mb-12">
             Book Appointment
           </h1>
 
@@ -24,8 +24,8 @@ const Book: React.FC = () => {
               { step: "03", title: "Relax & Prepare", desc: "Well take care of the rest of the journey." }
             ].map((s, idx) => (
               <div key={idx} className="p-8 bg-surface/50 rounded-3xl border border-primary/10 text-left">
-                <span className="text-4xl font-black text-primary/20 block mb-4 font-serif italic">{s.step}</span>
-                <h3 className="text-xl font-black text-on-surface uppercase italic font-serif mb-2">{s.title}</h3>
+                <span className="text-4xl font-black text-primary/20 block mb-4 font-serif">{s.step}</span>
+                <h3 className="text-xl font-black text-on-surface uppercase font-serif mb-2">{s.title}</h3>
                 <p className="text-on-surface/70 text-sm font-medium">{s.desc}</p>
               </div>
             ))}

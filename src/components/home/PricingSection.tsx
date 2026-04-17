@@ -18,7 +18,7 @@ export function PricingSection() {
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-4xl tb:text-5xl font-black text-on-surface mb-6 uppercase tracking-tighter italic font-serif">
+            <h2 className="text-4xl tb:text-5xl font-black text-on-surface mb-6 uppercase tracking-tighter font-serif">
               Our <span className="text-primary">Pricing</span>
             </h2>
             <p className="text-on-surface/70 text-base tb:text-lg max-w-2xl mx-auto font-medium">
@@ -32,7 +32,7 @@ export function PricingSection() {
           {pricingData.map((item, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.1}>
               <div className="flex justify-between items-center p-6 bg-background rounded-2xl border border-primary/10 hover:border-primary/30 transition-all shadow-sm group">
-                <span className="text-lg tb:text-xl font-serif italic font-bold text-on-surface">
+                <span className="text-lg tb:text-xl font-serif font-bold text-on-surface">
                   {item.name}
                 </span>
                 <div className="flex-1 border-b border-dotted border-on-surface/20 mx-4 translate-y-[-4px]" />

@@ -297,8 +297,8 @@ const ServicesShowcase: React.FC = () => {
       {/* Mobile/Tablet Layout (< dt) */}
       <div className="dt:hidden py-8 tb:py-16 px-4 tb:px-8 space-y-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl tb:text-4xl font-black text-on-surface uppercase tracking-tighter italic font-serif">
-            Signature <span className="text-primary italic">Services</span>
+          <h2 className="text-3xl tb:text-4xl font-black text-on-surface uppercase tracking-tighter font-serif">
+            Signature <span className="text-primary">Services</span>
           </h2>
           <p className="text-on-surface/70 mt-4 max-w-md mx-auto font-medium">
             Explore our artisanal collection of beauty rituals designed for your transformation.
@@ -344,7 +344,7 @@ const ServicesShowcase: React.FC = () => {
                   </span>
                 </div>
                 <div className="space-y-3">
-                  <h3 className="text-3xl font-black text-on-surface uppercase italic font-serif">
+                  <h3 className="text-3xl font-black text-on-surface uppercase font-serif">
                     {service.title}
                   </h3>
                   <p className="text-on-surface/80 text-sm leading-relaxed font-medium">
@@ -404,7 +404,7 @@ const ServicesShowcase: React.FC = () => {
 
                 {/* Header & Desc */}
                 <div className="space-y-4">
-                  <h2 className="text-5xl xl:text-6xl font-black text-on-surface leading-none uppercase italic font-serif">
+                  <h2 className="text-5xl xl:text-6xl font-black text-on-surface leading-none uppercase font-serif">
                     {service.title}
                   </h2>
                   <p className="text-on-surface/90 text-lg leading-relaxed font-medium">
@@ -440,7 +440,7 @@ const ServicesShowcase: React.FC = () => {
                     <span className="text-[10px] font-black uppercase tracking-[0.2em] text-on-surface/60 mb-1">
                       Ritual Investment
                     </span>
-                    <span className="text-4xl font-black text-on-surface italic font-serif tracking-tight">
+                    <span className="text-4xl font-black text-on-surface font-serif tracking-tight">
                       {service.price}
                     </span>
                   </div>

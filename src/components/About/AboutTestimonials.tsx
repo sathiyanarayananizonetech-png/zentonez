@@ -68,7 +68,7 @@ const AboutTestimonials: React.FC = () => {
             <span className="text-primary text-xs sm:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
               Voices of Radiance
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black italic font-serif text-on-surface uppercase tracking-tight leading-none mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-serif text-on-surface uppercase tracking-tight leading-none mb-6">
               Client <span className="text-primary">Stories</span>
             </h2>
             <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
@@ -117,7 +117,7 @@ const AboutTestimonials: React.FC = () => {
               </div>
 
               <div className="relative z-10 transition-transform duration-500 group-hover:translate-x-2">
-                <h4 className="text-xl font-serif italic text-on-surface">
+                <h4 className="text-xl font-serif text-on-surface">
                   {t.name}
                 </h4>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-primary mt-1">

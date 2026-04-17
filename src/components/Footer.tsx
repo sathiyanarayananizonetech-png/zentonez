@@ -200,7 +200,7 @@ const Footer: React.FC = () => {
 
         {/* Oversized Background Text - Subtler on mobile */}
         <div className="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none select-none z-0 overflow-hidden opacity-[0.03] tb:opacity-5 translate-y-1/2">
-          <h1 className="text-[14vw] tb:text-[15vw] font-black font-serif italic text-white/5 leading-none tracking-tighter">
+          <h1 className="text-[14vw] tb:text-[15vw] font-black font-serif text-white/5 leading-none tracking-tighter">
             ZENTONEZ
           </h1>
         </div>

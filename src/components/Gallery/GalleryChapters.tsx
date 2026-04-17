@@ -105,15 +105,15 @@ const GalleryChapters: React.FC = () => {
               </div>
             </div>
 
-            <div className="gallery-text-reveal pb-6 tb:pb-10">
-              <h3 className="text-slate-900/40 font-mono text-[9px] tb:text-[10px] uppercase tracking-[0.4em] tb:tracking-[0.5em] mb-1 tb:mb-2 font-black">
+            <div className="gallery-text-reveal pb-4 tb:pb-6">
+              <h3 className="text-slate-900/40 font-mono text-[9px] tb:text-[10px] uppercase tracking-[0.4em] tb:tracking-[0.5em] mb-1 font-black">
                 {chapter.subtitle}
               </h3>
-              <h2 className="text-3xl tb:text-4xl dt:text-5xl xl:text-6xl font-black mb-2 tb:mb-3 leading-[0.9] uppercase italic font-serif text-slate-900">
+              <h2 className="text-3xl tb:text-4xl dt:text-5xl xl:text-6xl font-black mb-1 tb:mb-2 leading-[0.9] uppercase font-serif text-slate-900">
                 {chapter.title}
               </h2>
-              <div className="h-1 w-16 tb:w-20 bg-primary mb-2 tb:mb-3 mx-auto" />
-              <p className="text-base tb:text-xl dt:text-2xl italic opacity-70 leading-relaxed text-slate-900 px-4 mb:px-0 mb-4">
+              <div className="h-1 w-16 tb:w-20 bg-primary mb-1 tb:mb-2 mx-auto" />
+              <p className="text-base tb:text-xl dt:text-2xl opacity-70 leading-relaxed text-slate-900 px-4 mb:px-0 mb-3">
                 {chapter.text}
               </p>
               <div className="flex justify-center">

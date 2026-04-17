@@ -42,17 +42,17 @@ const ContactForm: React.FC = () => {
             <div className="p-5 tb:p-6 bg-primary rounded-2xl tb:rounded-4xl text-white mb-6 tb:mb-8 shadow-xl shadow-primary/20">
               <Sparkles size={40} />
             </div>
-            <h3 className="text-2xl tb:text-4xl font-black italic text-[#302b27] mb-4 font-serif uppercase leading-tight">
+            <h3 className="text-2xl tb:text-4xl font-black text-[#302b27] mb-4 font-serif uppercase leading-tight">
               Message Received!
             </h3>
-            <p className="text-on-surface/80 font-semibold italic max-w-sm text-sm tb:text-base">
+            <p className="text-on-surface/80 font-semibold max-w-sm text-sm tb:text-base">
               Our specialists will reach out to you within the hour for your
               transformation consultation.
             </p>
           </motion.div>
         )}
 
-        <h3 className="text-2xl tb:text-3xl font-black italic mb-8 tb:mb-12 uppercase font-serif tracking-tight">
+        <h3 className="text-2xl tb:text-3xl font-black mb-8 tb:mb-12 uppercase font-serif tracking-tight">
           Send Us a <span className="text-primary">Note</span>
         </h3>
 

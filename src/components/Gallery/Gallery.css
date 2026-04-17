@@ -27,10 +27,10 @@
   z-index: 10;
   width: 100%;
   max-width: 750px;
-  padding: clamp(2rem, 8vh, 6rem) clamp(1rem, 3vw, 2rem);
+  padding: clamp(1rem, 4vh, 3rem) clamp(1rem, 3vw, 2rem);
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 3vh, 2rem);
+  gap: clamp(0.75rem, 2vh, 1.5rem);
   align-items: center;
   margin: 0 auto;
 }
@@ -38,7 +38,7 @@
 .gallery-image-wrapper {
   width: 100%;
   max-width: 650px;
-  height: clamp(280px, 50vh, 60vh);
+  height: clamp(240px, 40vh, 50vh);
   border-radius: clamp(1.5rem, 4vw, 3rem);
   overflow: hidden;
   position: relative;

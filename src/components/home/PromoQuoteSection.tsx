@@ -14,7 +14,7 @@ export function PromoQuoteSection() {
               size={40}
               className="text-primary opacity-20 mx-auto mb-6 tb:mb-10 relative z-10"
             />
-            <h3 className="text-2xl tb:text-4xl dt:text-5xl font-black text-on-surface mb-6 tb:mb-10 uppercase tracking-tighter italic font-serif relative z-10 leading-tight">
+            <h3 className="text-2xl tb:text-4xl dt:text-5xl font-black text-on-surface mb-6 tb:mb-10 uppercase tracking-tighter font-serif relative z-10 leading-tight">
               Ready to Glow? <br className="hidden mb:block" /> Book Your Session Today.
             </h3>
             <p className="text-on-surface/80 text-base tb:text-lg dt:text-xl font-medium max-w-xl tb:max-w-2xl mx-auto mb:mb-10 tb:mb-12 relative z-10 balance">

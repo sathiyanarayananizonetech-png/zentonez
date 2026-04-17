@@ -54,7 +54,7 @@ export const BookingSystem: React.FC = () => {
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-black italic text-on-surface font-serif uppercase">Select Ritual</h2>
+        <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Select Ritual</h2>
         <p className="text-on-surface/60 text-sm mt-2 font-medium">Choose your transformation journey</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -109,7 +109,7 @@ export const BookingSystem: React.FC = () => {
         className="space-y-6"
       >
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-black italic text-on-surface font-serif uppercase">Select Date</h2>
+          <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Select Date</h2>
           <p className="text-on-surface/60 text-sm mt-2 font-medium">When would you like to visit?</p>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
@@ -158,7 +158,7 @@ export const BookingSystem: React.FC = () => {
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-black italic text-on-surface font-serif uppercase">Select Time</h2>
+        <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Select Time</h2>
         <p className="text-on-surface/60 text-sm mt-2 font-medium">Available slots for {data.date?.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}</p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -195,7 +195,7 @@ export const BookingSystem: React.FC = () => {
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-black italic text-on-surface font-serif uppercase">Your Details</h2>
+        <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Your Details</h2>
         <p className="text-on-surface/60 text-sm mt-2 font-medium">Final step to secure your appointment</p>
       </div>
       <div className="space-y-4">
@@ -258,7 +258,7 @@ export const BookingSystem: React.FC = () => {
         <div className="w-16 h-16 bg-primary/20 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle size={32} />
         </div>
-        <h2 className="text-3xl font-black italic text-on-surface font-serif uppercase">Confirm Ritual</h2>
+        <h2 className="text-3xl font-black text-on-surface font-serif uppercase">Confirm Ritual</h2>
         <p className="text-on-surface/60 text-sm mt-2 font-medium">Please review your selections</p>
       </div>
       

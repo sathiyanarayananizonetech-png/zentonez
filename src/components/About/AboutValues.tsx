@@ -11,7 +11,7 @@ const AboutValues: React.FC = () => {
           <span className="text-primary font-bold uppercase tracking-[0.3em] text-[9px] sm:text-xs mb-4 block">
             Our Philosophy
           </span>
-          <h2 className="text-hero italic text-on-surface mb-6">
+          <h2 className="text-hero text-on-surface mb-6">
             The Standards of <span className="text-primary">Excellence</span>
           </h2>
           <div className="w-24 h-1 bg-primary-container mx-auto" />
@@ -46,7 +46,7 @@ const AboutValues: React.FC = () => {
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-500 shadow-sm border border-primary/20">
                 {value.icon}
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif italic text-on-surface mb-3 sm:mb-4">
+              <h3 className="text-xl sm:text-2xl font-serif text-on-surface mb-3 sm:mb-4">
                 {value.title}
               </h3>
               <p className="text-on-surface/80 font-sans leading-relaxed text-sm sm:text-base font-medium">
@@ -61,10 +61,10 @@ const AboutValues: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="space-y-8 sm:space-y-12">
               <div>
-                <h4 className="text-2xl sm:text-3xl font-serif italic text-on-surface mb-4 sm:mb-6 underline decoration-primary-container underline-offset-8">
+                <h4 className="text-2xl sm:text-3xl font-serif text-on-surface mb-4 sm:mb-6 underline decoration-primary-container underline-offset-8">
                   The Zentonez Core
                 </h4>
-                <p className="text-on-surface/80 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base italic font-serif font-medium">
+                <p className="text-on-surface/80 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base font-serif font-medium">
                   "Excellence isn't an act; it's a habit born from consistent quality,
                   unwavering discipline, and a genuine passion for the art of beauty."
                 </p>

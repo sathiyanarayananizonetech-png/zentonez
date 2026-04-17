@@ -15,11 +15,11 @@ const AboutTeam: React.FC = () => {
             <span className="text-primary font-bold uppercase tracking-[0.3em] text-[9px] sm:text-xs mb-4 block">
               The Artisans
             </span>
-            <h2 className="text-hero italic text-on-surface">
+            <h2 className="text-hero text-on-surface">
               Meet Our <span className="text-primary">Master Stylists</span>
             </h2>
           </div>
-          <p className="text-base sm:text-lg text-on-surface/60 font-sans max-w-xl italic">
+          <p className="text-base sm:text-lg text-on-surface/60 font-sans max-w-xl">
             Curated experts committed to translating your inner beauty into an
             outward reality.
           </p>
@@ -71,7 +71,7 @@ const AboutTeam: React.FC = () => {
                 </div>
               </div>
               <div className="text-center text-on-surface">
-                <h4 className="text-xl sm:text-2xl font-serif italic text-on-surface mb-1">
+                <h4 className="text-xl sm:text-2xl font-serif text-on-surface mb-1">
                   {member.name}
                 </h4>
                 <p className="text-[10px] sm:text-sm font-bold opacity-60 uppercase tracking-widest">

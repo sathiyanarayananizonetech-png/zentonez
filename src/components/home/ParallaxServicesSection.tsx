@@ -97,7 +97,7 @@ export function ParallaxServicesSection() {
                 Our Full Portfolio
               </span>
             </div>
-            <h2 className="text-section-title font-black text-on-surface mb-4 tb:mb-6 uppercase tracking-tighter italic font-serif leading-tight">
+            <h2 className="text-section-title font-black text-on-surface mb-4 tb:mb-6 uppercase tracking-tighter font-serif leading-tight">
               Everything You Need to <br className="hidden tb:block" />
               <span className="text-primary">Shine Brighter</span>
             </h2>

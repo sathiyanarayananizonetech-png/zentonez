@@ -47,7 +47,7 @@ const ServicesHero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-on-surface/90 text-lg tb:text-xl dt:text-2xl max-w-xl mb-6 tb:mb-8 leading-relaxed font-medium italic text-center dt:text-left px-4 mb:px-0"
+            className="text-on-surface/90 text-lg tb:text-xl dt:text-2xl max-w-xl mb-6 tb:mb-8 leading-relaxed font-medium text-center dt:text-left px-4 mb:px-0"
           >
             "Experience a symphony of high-performance beauty rituals tailored
             to your unique essence and soul."

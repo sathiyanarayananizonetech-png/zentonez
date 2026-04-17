@@ -20,7 +20,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ title, subtitle, align 
       <span className="text-primary font-medium uppercase tracking-[0.2em] text-sm mb-4 block">
         {subtitle}
       </span>
-      <h2 className={`text-4xl md:text-5xl font-bold italic ${dark ? 'text-surface' : 'text-on-surface'}`}>
+      <h2 className={`text-4xl md:text-5xl font-bold ${dark ? 'text-surface' : 'text-on-surface'}`}>
         {title}
       </h2>
       <div

@@ -67,14 +67,14 @@ export function AboutPreviewSection() {
                 </span>
               </div>
 
-              <h2 className="text-hero font-black text-on-surface leading-[1.1] dt:leading-[0.9] uppercase tracking-tighter italic font-serif">
+              <h2 className="text-hero font-black text-on-surface leading-[1.1] dt:leading-[0.9] uppercase tracking-tighter font-serif">
                 A Dream Built on <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary-container to-tertiary">
                   Beauty & Passion
                 </span>
               </h2>
 
-              <p className="text-base tb:text-lg dt:text-xl text-on-surface/90 font-medium leading-relaxed italic">
+              <p className="text-base tb:text-lg dt:text-xl text-on-surface/90 font-medium leading-relaxed">
                 Founded in March 2025 by a passionate makeup artist with over 6
                 years of expertise, Zentonez Beauty Salon was born from a dream to
                 bring luxury beauty within reach of every woman in Tamil Nadu.
