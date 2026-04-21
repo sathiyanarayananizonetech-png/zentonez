@@ -263,7 +263,7 @@ const ChapterWebGLView: React.FC<ChapterWebGLViewProps> = ({
       meshRef.current?.dispose();
       materialRef.current?.dispose();
     };
-  }, [imageSrc]);
+  }, [imageSrc, objectPosition, yShift]);
 
   return (
     <div

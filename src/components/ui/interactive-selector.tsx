@@ -8,43 +8,43 @@ import manicureImage from "../../assets/pedicurewebpimages/manicure1.webp";
 import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
 import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
 
+const options = [
+  {
+    title: "Bridal Radiance",
+    description: "Ethereal transformation for your biggest day.",
+    image: bridalImage,
+    icon: <Crown size={22} className="text-white" />,
+    position: "top",
+  },
+  {
+    title: "Skin Rejuvenation",
+    description: "Advanced rituals for a timeless, youthful glow.",
+    image: skinImage,
+    icon: <Sparkles size={22} className="text-white" />,
+  },
+  {
+    title: "Luxe Hair Aura",
+    description: "Bespoke artistry for the crown you never take off.",
+    image: hairSpaImage,
+    icon: <Wind size={22} className="text-white" />,
+  },
+  {
+    title: "Artistic Nails",
+    description: "Precision couture for your delicate fingertips.",
+    image: manicureImage,
+    icon: <Gem size={22} className="text-white" />,
+  },
+  {
+    title: "Facial Alchemy",
+    description: "Finding harmony in the heart of artisanal beauty.",
+    image: facialImage,
+    icon: <Leaf size={22} className="text-white" />,
+  },
+];
+
 const InteractiveSelector: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animatedOptions, setAnimatedOptions] = useState<number[]>([]);
-
-  const options = [
-    {
-      title: "Bridal Radiance",
-      description: "Ethereal transformation for your biggest day.",
-      image: bridalImage,
-      icon: <Crown size={22} className="text-white" />,
-      position: "top",
-    },
-    {
-      title: "Skin Rejuvenation",
-      description: "Advanced rituals for a timeless, youthful glow.",
-      image: skinImage,
-      icon: <Sparkles size={22} className="text-white" />,
-    },
-    {
-      title: "Luxe Hair Aura",
-      description: "Bespoke artistry for the crown you never take off.",
-      image: hairSpaImage,
-      icon: <Wind size={22} className="text-white" />,
-    },
-    {
-      title: "Artistic Nails",
-      description: "Precision couture for your delicate fingertips.",
-      image: manicureImage,
-      icon: <Gem size={22} className="text-white" />,
-    },
-    {
-      title: "Facial Alchemy",
-      description: "Finding harmony in the heart of artisanal beauty.",
-      image: facialImage,
-      icon: <Leaf size={22} className="text-white" />,
-    },
-  ];
 
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -148,7 +148,7 @@ const InteractiveSelector: React.FC = () => {
 
             {/* Content Shadow */}
             <div
-              className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none transition-opacity duration-700"
+              className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent pointer-events-none transition-opacity duration-700"
               style={{
                 opacity: activeIndex === index ? 1 : 0.3,
               }}
@@ -159,7 +159,7 @@ const InteractiveSelector: React.FC = () => {
               className={`label absolute left-0 right-0 bottom-8 flex items-center justify-start h-16 z-2 pointer-events-none px-6 gap-4 w-full transition-all duration-500`}
             >
               <div
-                className={`icon min-w-[50px] h-[50px] flex items-center justify-center rounded-full bg-[rgba(15,23,42,0.8)] backdrop-blur-[12px] shadow-xl border border-white/20 flex-shrink-0 transition-all duration-500 ${activeIndex === index ? "scale-110 border-primary/50" : "scale-90"}`}
+                className={`icon min-w-[50px] h-[50px] flex items-center justify-center rounded-full bg-[rgba(15,23,42,0.8)] backdrop-blur-md shadow-xl border border-white/20 shrink-0 transition-all duration-500 ${activeIndex === index ? "scale-110 border-primary/50" : "scale-90"}`}
               >
                 {option.icon}
               </div>
