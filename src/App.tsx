@@ -48,23 +48,6 @@ const ScrollToTop = () => {
 };
 
 const App: React.FC = () => {
-  useEffect(() => {
-    // Sync ScrollTrigger with Lenis
-    const lenis = window.lenisInstance;
-    if (lenis) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
-    }
-    return () => {
-      if (lenis) {
-        lenis.off('scroll', ScrollTrigger.update);
-      }
-    };
-  }, []);
-
   return (
     <Router>
       <SmoothScroll />

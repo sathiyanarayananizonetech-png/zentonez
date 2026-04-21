@@ -1,5 +1,5 @@
 import GalleryBookHero from "../components/Gallery/GalleryBookHero";
-import GalleryChapters from "../components/Gallery/GalleryChapters";
+import InteractiveSelector from "../components/ui/interactive-selector";
 import GalleryFooter from "../components/Gallery/GalleryFooter";
 
 const Gallery: React.FC = () => {
@@ -16,7 +16,7 @@ const Gallery: React.FC = () => {
       />
 
       <GalleryBookHero />
-      <GalleryChapters />
+      <InteractiveSelector />
       <GalleryFooter />
     </div>
   );
