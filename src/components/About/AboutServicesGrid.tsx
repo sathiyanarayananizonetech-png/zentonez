@@ -1,6 +1,5 @@
-import React, { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
+import AnimatedList from "../ui/AnimatedList";
 import {
   SkinCare3D,
   Facial3D,
@@ -10,8 +9,6 @@ import {
   Nails3D,
   LiceRemoval3D,
 } from "../ui/ThreeDIcons";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const SERVICES_DATA = [
   {
@@ -66,48 +63,8 @@ const SERVICES_DATA = [
 ];
 
 const AboutServicesGrid: React.FC = () => {
-  const componentRef = useRef<HTMLDivElement>(null);
-  const accordionsRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    if (!accordionsRef.current || !componentRef.current) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: accordionsRef.current,
-          pin: true,
-          start: "top 10%",
-          end: "+=500%", // More space for 7 services
-          scrub: 1,
-          anticipatePin: 1,
-        },
-        defaults: { ease: "none" }
-      });
-
-      // Collapse content and pull up the next one
-      tl.to(".service-accordion .service-desc", {
-        height: 0,
-        paddingBottom: 0,
-        opacity: 0,
-        stagger: 0.5,
-      });
-
-      tl.to(".service-accordion", {
-        marginBottom: -15, // Tighter stacking
-        scale: 0.95, // Subtle shrinking as they stack
-        stagger: 0.5,
-      }, "<");
-    }, componentRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section 
-      ref={componentRef} 
-      className="py-12 sm:py-20 dt:py-24 bg-surface-dim relative overflow-hidden"
-    >
+    <section className="py-12 sm:py-20 dt:py-24 bg-surface-dim relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-20">
           <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px] sm:text-xs mb-6 block">
@@ -119,46 +76,57 @@ const AboutServicesGrid: React.FC = () => {
           <div className="w-24 h-1 bg-primary/20 mx-auto mt-8 rounded-full" />
         </div>
 
-        <div 
-          ref={accordionsRef} 
-          className="flex flex-col items-center pb-[20vh]"
-        >
-          {SERVICES_DATA.map((service, index) => (
-            <div
-              key={index}
-              className="service-accordion w-full max-w-[600px] mb-10 overflow-hidden rounded-[25px] shadow-luxury-deep transition-all duration-300"
-              style={{ 
-                background: service.gradient,
-                padding: "30px 30px 15px"
-              }}
-            >
-              <div className="flex flex-col h-full">
-                {/* Header: Always Visible */}
-                <div className="flex items-center gap-6 mb-4">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 flex items-center justify-center p-1 bg-white/10 rounded-2xl shadow-inner border border-white/20">
-                    {service.icon}
+        <div className="flex justify-center w-full max-w-4xl mx-auto pt-10">
+          <AnimatedList
+            items={SERVICES_DATA}
+            className="w-full"
+            isSticky={true}
+            showGradients={false}
+            enableArrowNavigation={false}
+            displayScrollbar={false}
+            renderItem={(service, _index, isSelected) => (
+              <div
+                className={`w-full overflow-hidden rounded-[30px] shadow-luxury transition-all duration-500 border border-white/10 ${
+                  isSelected ? "scale-[1.02] shadow-luxury-deep ring-2 ring-primary/20" : "scale-100 opacity-90"
+                }`}
+                style={{ 
+                  background: service.gradient,
+                  padding: "40px"
+                }}
+              >
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center gap-6 mb-4">
+                    <div className="w-14 h-14 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center p-1 bg-white/10 rounded-2xl shadow-inner border border-white/20 backdrop-blur-sm">
+                      {service.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-white drop-shadow-md leading-tight">
+                        {service.title}
+                      </h3>
+                      <motion.p 
+                        initial={false}
+                        animate={{ 
+                          opacity: isSelected ? 1 : 0.7,
+                          height: isSelected ? "auto" : "0px",
+                          marginTop: isSelected ? "12px" : "0px"
+                        }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="text-white/80 text-sm sm:text-base leading-relaxed font-medium border-t border-white/10 pt-4 overflow-hidden"
+                      >
+                        {service.desc}
+                      </motion.p>
+                    </div>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-sm leading-tight">
-                    {service.title}
-                  </h3>
-                </div>
-
-                {/* Animated Body */}
-                <div className="service-desc overflow-hidden">
-                  <p className="text-white/80 text-sm sm:text-base leading-relaxed font-medium pb-5 border-t border-white/10 pt-4">
-                    {service.desc}
-                  </p>
                 </div>
               </div>
-            </div>
-          ))}
+            )}
+          />
         </div>
       </div>
       
-      {/* Bottom Spacer to ensure scroll triggers correctly */}
-      <div className="h-[20vh]" />
     </section>
   );
 };
 
 export default AboutServicesGrid;
+
