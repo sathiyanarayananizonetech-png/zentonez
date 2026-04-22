@@ -7,10 +7,11 @@ import AboutValues from "../components/About/AboutValues";
 import AboutTeam from "../components/About/AboutTeam";
 import AboutTestimonials from "../components/About/AboutTestimonials";
 import AboutCTA from "../components/About/AboutCTA";
+import { SocialSidebar } from "../components/ui/SocialSidebar";
 
 const About: React.FC = () => {
   return (
-    <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container selection:text-on-primary-container">
+    <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container selection:text-on-primary-container relative">
       <AboutHero />
       <AboutStory />
       <AboutServicesGrid />
@@ -19,6 +20,7 @@ const About: React.FC = () => {
       <AboutTeam />
       <AboutTestimonials />
       <AboutCTA />
+      <SocialSidebar />
     </div>
   );
 };

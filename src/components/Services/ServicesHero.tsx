@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 import { SparkleHeading } from "../ui/SparkleHeading";
-import beautyHeroImage from "../../assets/facialwebpimages/facial4.webp";
+import beautyHeroImage from "../../assets/south_indian_hero.png";
 
 const ServicesHero: React.FC = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center bg-background overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center bg-background overflow-hidden pt-16 tb:pt-24 dt:pt-32">
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 py-10 tb:py-16 grid dt:grid-cols-2 gap-8 tb:gap-12 items-center relative z-10">
         {/* Left */}
         <motion.div
@@ -98,8 +98,10 @@ const ServicesHero: React.FC = () => {
             <img
               src={beautyHeroImage}
               alt="Luxury Beauty Treatment"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
               fetchPriority="high"
+              decoding="async"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-linear-to-t from-primary/10 to-transparent pointer-events-none" />
           </div>

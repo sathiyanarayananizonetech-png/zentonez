@@ -1,6 +1,7 @@
 import GalleryBookHero from "../components/Gallery/GalleryBookHero";
 import InteractiveSelector from "../components/ui/interactive-selector";
 import GalleryFooter from "../components/Gallery/GalleryFooter";
+import { SocialSidebar } from "../components/ui/SocialSidebar";
 
 const Gallery: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const Gallery: React.FC = () => {
       <GalleryBookHero />
       <InteractiveSelector />
       <GalleryFooter />
+      <SocialSidebar />
     </div>
   );
 };

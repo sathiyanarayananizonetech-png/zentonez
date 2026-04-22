@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 // Assets
-import bridalImage from "../../assets/hairwebp images/butterfly cut.webp";
+import bridalImage from "../../assets/bridal_offer.png";
 import hairImage from "../../assets/hairwebp images/butterfly cut.webp";
 import skinImage from "../../assets/facialwebpimages/facial1.webp";
 import spaImage from "../../assets/hairspawebpimages/hairspa1.webp";
@@ -217,9 +217,10 @@ const ServicesShowcase: React.FC = () => {
           start: "top top",
           end: "bottom bottom",
           pin: rightColRef.current,
-          scrub: 1,
+          scrub: 0.5,
           anticipatePin: 1,
         },
+        defaults: { force3D: true },
       });
 
       gsap.set(imgs, {
@@ -273,6 +274,7 @@ const ServicesShowcase: React.FC = () => {
                 scale: 1,
                 duration: 2,
                 ease: "none",
+                force3D: true,
               },
               0,
             );
@@ -291,7 +293,7 @@ const ServicesShowcase: React.FC = () => {
 
   return (
     <div
-      className="showcase-container bg-background transition-colors duration-1000 overflow-hidden"
+      className="showcase-container services-arch bg-background transition-colors duration-1000 overflow-hidden"
       ref={containerRef}
     >
       {/* Mobile/Tablet Layout (< dt) */}
@@ -466,8 +468,13 @@ const ServicesShowcase: React.FC = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="showcase-img w-full h-full object-cover object-center"
-                  style={{ objectPosition: service.objectPosition || "center" }}
+                  className="showcase-img w-full h-full object-cover object-center will-change-[clip-path,transform]"
+                  style={{ 
+                    objectPosition: service.objectPosition || "center",
+                    transform: "translateZ(0)"
+                  }}
+                  decoding="async"
+                  loading={service.id === 1 ? "eager" : "lazy"}
                 />
                   <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                   

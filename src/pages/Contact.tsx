@@ -4,6 +4,7 @@ import ContactHero from "../components/Contact/ContactHero";
 import ContactInfo from "../components/Contact/ContactInfo";
 import ContactForm from "../components/Contact/ContactForm";
 import ContactMap from "../components/Contact/ContactMap";
+import { FloatingSocialMenu } from "../components/ui/FloatingSocialMenu";
 
 const Contact: React.FC = () => {
   useEffect(() => {
@@ -27,6 +28,7 @@ const Contact: React.FC = () => {
       </section>
 
       <ContactMap />
+      <FloatingSocialMenu />
     </div>
   );
 };

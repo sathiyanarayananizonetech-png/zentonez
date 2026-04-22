@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ServicesHero from "../components/Services/ServicesHero";
 import ServicesShowcase from "../components/Services/ServicesShowcase";
-
+import BridalOffer from "../components/Services/BridalOffer";
 import ServicesCTA from "../components/Services/ServicesCTA";
+import { SocialSidebar } from "../components/ui/SocialSidebar";
 
 const Services: React.FC = () => {
   useEffect(() => {
@@ -13,16 +14,20 @@ const Services: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container transition-colors duration-1000">
-      <div className="order-1 dt:order-2">
+    <div className="flex flex-col overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container transition-colors duration-1000 relative">
+      <div>
         <ServicesHero />
       </div>
-      <div className="order-2 dt:order-1">
+      <div>
         <ServicesShowcase />
       </div>
-      <div className="order-3">
+      <div>
+        <BridalOffer />
+      </div>
+      <div>
         <ServicesCTA />
       </div>
+      <SocialSidebar />
     </div>
   );
 };

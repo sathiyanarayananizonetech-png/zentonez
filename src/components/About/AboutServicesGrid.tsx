@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   SkinCare3D,
   Facial3D,
@@ -10,156 +11,105 @@ import {
   LiceRemoval3D,
 } from "../ui/ThreeDIcons";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const SERVICES_DATA = [
   {
     title: "Skin Care",
     desc: "Maintain radiant and healthy skin with our personalized skincare solutions.",
     icon: <SkinCare3D />,
     color: "#FB7185", // Rose
-    bgLight: "rgba(251, 113, 133, 0.05)",
+    gradient: "linear-gradient(200deg, #FECDD3 0%, #FB7185 100%)",
   },
   {
     title: "Facial Treatment",
     desc: "Refresh and rejuvenate your skin with our advanced facial therapies.",
     icon: <Facial3D />,
     color: "#38BDF8", // Blue
-    bgLight: "rgba(56, 189, 248, 0.05)",
+    gradient: "linear-gradient(200deg, #BAE6FD 0%, #38BDF8 100%)",
   },
   {
     title: "Manicure & Pedicure",
     desc: "Pamper your hands and feet with our relaxing nail care services.",
     icon: <ManiPedi3D />,
     color: "#FB923C", // Orange
-    bgLight: "rgba(251, 146, 60, 0.05)",
+    gradient: "linear-gradient(200deg, #FED7AA 0%, #FB923C 100%)",
   },
   {
     title: "Hair Spa",
     desc: "Revitalize your hair with nourishing spa treatments designed to repair damage.",
     icon: <HairSpa3D />,
     color: "#0EA5E9", // Sky Blue
-    bgLight: "rgba(14, 165, 233, 0.05)",
+    gradient: "linear-gradient(200deg, #BAE6FD 0%, #0EA5E9 100%)",
   },
   {
     title: "Bridal Makeup",
     desc: "Look stunning on your special day with our professional bridal makeup services.",
     icon: <Bridal3D />,
     color: "#D97706", // Gold
-    bgLight: "rgba(217, 119, 6, 0.05)",
+    gradient: "linear-gradient(200deg, #FDE68A 0%, #D97706 100%)",
   },
   {
     title: "Nails",
     desc: "Exquisite nail art and extensions to express your unique style.",
     icon: <Nails3D />,
     color: "#8B5CF6", // Purple
-    bgLight: "rgba(139, 92, 246, 0.05)",
+    gradient: "linear-gradient(200deg, #DDD6FE 0%, #8B5CF6 100%)",
   },
   {
     title: "Lice Removal",
     desc: "Gentle and effective treatments to ensure a healthy, lice-free scalp.",
     icon: <LiceRemoval3D />,
     color: "#10B981", // Emerald
-    bgLight: "rgba(16, 185, 129, 0.05)",
+    gradient: "linear-gradient(200deg, #A7F3D0 0%, #10B981 100%)",
   },
 ];
 
-const ServiceCard: React.FC<{
-  title: string;
-  desc: string;
-  icon: React.ReactNode;
-  color: string;
-  bgLight: string;
-}> = ({ title, desc, icon, color, bgLight }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  // Motion values for subtle tilt
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  // Limited tilt (max 8 degrees) to keep text visible
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    x.set(mouseX / width - 0.5);
-    y.set(mouseY / height - 0.5);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      className="group relative bg-white border border-primary/10 p-6 sm:p-8 rounded-4xl text-center transition-all duration-500 hover:border-primary/30 flex flex-col h-full shadow-sm hover:shadow-2xl overflow-hidden"
-    >
-      {/* Subtle Hover Background Color */}
-      <div 
-        className="absolute inset-0 rounded-4xl transition-opacity duration-500 opacity-0 group-hover:opacity-100"
-        style={{ backgroundColor: bgLight }}
-      />
-
-      <div className="relative z-10 flex flex-col h-full">
-        {/* Compact Icon Placement */}
-        <div className="mb-6 flex justify-center translate-z-[30px]">
-          <motion.div
-            animate={{ y: [0, -4, 0] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center p-1.5"
-          >
-            {icon}
-          </motion.div>
-        </div>
-
-        <h3 
-          className="text-xl sm:text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-primary leading-tight"
-          style={{ color: "var(--on-surface)" }}
-        >
-          {title}
-        </h3>
-        <p className="text-on-surface/70 text-sm sm:text-base leading-relaxed font-medium">
-          {desc}
-        </p>
-        
-        {/* Professional accent line */}
-        <div className="mt-auto pt-6 flex justify-center">
-          <div 
-            className="h-0.5 w-10 rounded-full transition-all duration-500 opacity-20 group-hover:opacity-100 group-hover:w-16" 
-            style={{ backgroundColor: color }}
-          />
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 const AboutServicesGrid: React.FC = () => {
+  const componentRef = useRef<HTMLDivElement>(null);
+  const accordionsRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (!accordionsRef.current || !componentRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: accordionsRef.current,
+          pin: true,
+          start: "top 10%",
+          end: "+=500%", // More space for 7 services
+          scrub: 1,
+          anticipatePin: 1,
+        },
+        defaults: { ease: "none" }
+      });
+
+      // Collapse content and pull up the next one
+      tl.to(".service-accordion .service-desc", {
+        height: 0,
+        paddingBottom: 0,
+        opacity: 0,
+        stagger: 0.5,
+      });
+
+      tl.to(".service-accordion", {
+        marginBottom: -15, // Tighter stacking
+        scale: 0.95, // Subtle shrinking as they stack
+        stagger: 0.5,
+      }, "<");
+    }, componentRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-12 sm:py-20 dt:py-24 px-4 sm:px-6 bg-surface-dim relative overflow-hidden">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12 sm:mb-16">
+    <section 
+      ref={componentRef} 
+      className="py-12 sm:py-20 dt:py-24 bg-surface-dim relative overflow-hidden"
+    >
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-20">
           <span className="text-primary font-bold uppercase tracking-[0.5em] text-[10px] sm:text-xs mb-6 block">
             Experience Our Expertise
           </span>
@@ -169,26 +119,44 @@ const AboutServicesGrid: React.FC = () => {
           <div className="w-24 h-1 bg-primary/20 mx-auto mt-8 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-x-8 gap-y-16 sm:gap-y-20">
-          {SERVICES_DATA.map((service, index) => {
-            const isLastItem = index === SERVICES_DATA.length - 1;
-            return (
-              <div
-                key={index}
-                className={`${isLastItem ? "sm:col-span-2 lg:col-span-1 lg:col-start-2 sm:max-w-md sm:mx-auto lg:max-w-none" : ""}`}
-              >
-                <ServiceCard
-                  title={service.title}
-                  desc={service.desc}
-                  icon={service.icon}
-                  color={service.color}
-                  bgLight={service.bgLight}
-                />
+        <div 
+          ref={accordionsRef} 
+          className="flex flex-col items-center pb-[20vh]"
+        >
+          {SERVICES_DATA.map((service, index) => (
+            <div
+              key={index}
+              className="service-accordion w-full max-w-[600px] mb-10 overflow-hidden rounded-[25px] shadow-luxury-deep transition-all duration-300"
+              style={{ 
+                background: service.gradient,
+                padding: "30px 30px 15px"
+              }}
+            >
+              <div className="flex flex-col h-full">
+                {/* Header: Always Visible */}
+                <div className="flex items-center gap-6 mb-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 flex items-center justify-center p-1 bg-white/10 rounded-2xl shadow-inner border border-white/20">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-sm leading-tight">
+                    {service.title}
+                  </h3>
+                </div>
+
+                {/* Animated Body */}
+                <div className="service-desc overflow-hidden">
+                  <p className="text-white/80 text-sm sm:text-base leading-relaxed font-medium pb-5 border-t border-white/10 pt-4">
+                    {service.desc}
+                  </p>
+                </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
+      
+      {/* Bottom Spacer to ensure scroll triggers correctly */}
+      <div className="h-[20vh]" />
     </section>
   );
 };
