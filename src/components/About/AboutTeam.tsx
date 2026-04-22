@@ -37,7 +37,7 @@ const AboutTeam: React.FC = () => {
               name: "Ananya Sharma",
               role: "Senior Hair Stylist",
               img: team2,
-              bio: "With 5 years of experience, Ananya is the architect of avant-garde hair design.",
+              bio: "With 5+ years of experience, Ananya is the architect of avant-garde hair design.",
             },
             {
               name: "Sanam Kapoor",

@@ -29,10 +29,10 @@ const AboutStory: React.FC = () => {
               <span className="text-primary">Passion</span> <br /> Since 2025
             </h2>
             <p className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed">
-              Founded in March 2025 by a passionate makeup artist with over 6
-              years of expertise, Zentonez Beauty Salon was born from a dream to
-              bring luxury beauty within reach of every woman in Tamil Nadu.
-              What started as a freelance journey in 2020 has blossomed into a
+              Founded in March 2025 by a seasoned makeup artist with over five
+              years of expertise, Zentonez Beauty Salon was envisioned to bring
+              refined luxury beauty within reach of every woman in Tamil Nadu,
+              evolving seamlessly from a bespoke freelance journey into a
               full-service premium salon.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 py-2">

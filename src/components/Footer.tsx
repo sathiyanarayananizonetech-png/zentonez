@@ -65,8 +65,8 @@ const Footer: React.FC = () => {
               />
             </Link>
             <p className="text-on-surface/70 leading-relaxed font-medium text-[11px] tb:text-[13px] text-center mb:text-left italic dt:max-w-xs px-4 mb:px-0">
-              Where Beauty Meets Luxury. Elevating the art of beauty through
-              performance and soul.
+              Where Beauty Meets Luxury. Zentonez is an exclusive women salon
+              elevating the art of beauty through performance and soul.
             </p>
             <div className="flex space-x-2.5 pt-1 justify-center mb:justify-start">
               {[Instagram, Facebook, Twitter].map((Icon, i) => (

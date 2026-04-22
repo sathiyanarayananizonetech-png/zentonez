@@ -67,7 +67,7 @@ export function HeroSection() {
           className="text-center dt:text-left pt-12 dt:pt-0"
         >
             <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-primary mb-4 block font-bold">
-              Zentonez Beauty Salon
+              Zentonez - Exclusive Women Salon
             </span>
             <h1 className="text-display font-pacifico text-on-surface mb-4 tb:mb-6 mt-2 filter drop-shadow-xl normal-case">
               <SparkleHeading

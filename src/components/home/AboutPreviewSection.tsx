@@ -6,8 +6,8 @@ import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
 import { ScrollReveal } from "./ScrollReveal";
 
 const heritagePoints = [
-  "6+ Years of Experience",
-  "Exclusive Women's Salon",
+  "5+ Years of Experience",
+  "Exclusive Women Salon",
   "Premium Products Only",
   "Hygienic & Professional Standards",
   "Personalized Service",
@@ -46,7 +46,7 @@ export function AboutPreviewSection() {
                     </div>
                     <div>
                       <div className="text-lg tb:text-2xl font-bold text-on-surface">
-                        6+ Years
+                        5+ Years
                       </div>
                       <div className="text-[10px] text-on-surface/60 font-bold tracking-widest uppercase">
                         Expertise
@@ -75,10 +75,10 @@ export function AboutPreviewSection() {
               </h2>
 
               <p className="text-base tb:text-lg dt:text-xl text-on-surface/90 font-medium leading-relaxed">
-                Founded in March 2025 by a passionate makeup artist with over 6
-                years of expertise, Zentonez Beauty Salon was born from a dream to
-                bring luxury beauty within reach of every woman in Tamil Nadu.
-                What started as a freelance journey has blossomed into a
+                Founded in March 2025 by a seasoned makeup artist with over five
+                years of expertise, Zentonez Beauty Salon was envisioned to bring
+                refined luxury beauty within reach of every woman in Tamil Nadu,
+                evolving seamlessly from a bespoke freelance journey into a
                 full-service premium salon.
               </p>
 

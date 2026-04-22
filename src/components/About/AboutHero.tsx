@@ -48,7 +48,7 @@ const AboutHero: React.FC = () => {
 
               <p className="text-sm mb:text-base tb:text-lg dt:text-xl text-on-surface/90 leading-relaxed max-w-xl mx-auto dt:mx-0 mb-6 font-medium px-4 mb:px-0">
                 Beauty is confidence, self-love, and feeling truly seen. Zentonez
-                Beauty Salon is a sanctuary for every woman, where luxury meets
+                is an exclusive women salon, a sanctuary where luxury meets
                 personal care.
               </p>
 

@@ -16,8 +16,8 @@ const TIMELINE_DATA = [
   },
   {
     year: "2022",
-    title: "Influencer Recognition",
-    desc: "Gained recognition as a beauty influencer, sharing trends and techniques with a wider audience.",
+    title: "Lifestyle Influencer",
+    desc: "Gained recognition as a lifestyle and beauty influencer, sharing trends and techniques with a wider audience.",
     icon: <BookOpen size={22} />,
   },
   {
