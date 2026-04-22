@@ -5,6 +5,11 @@
   --breakpoint-mb: 320px;
   --breakpoint-tb: 481px;
   --breakpoint-dt: 769px;
+
+  --shadow-luxury: var(--shadow-luxury-soft);
+  --shadow-luxury-soft: var(--shadow-luxury-soft);
+  --shadow-luxury-deep: var(--shadow-luxury-deep);
+  --shadow-luxury-gold: var(--shadow-luxury-gold);
 }
 
 /* ─── Standard CSS Custom Properties ─── */
@@ -49,6 +54,7 @@
 
   --shadow-luxury-soft: 0 10px 30px -10px rgba(43, 43, 43, 0.08);
   --shadow-luxury-deep: 0 20px 50px -12px rgba(43, 43, 43, 0.12);
+  --shadow-luxury-gold: 0 10px 25px -5px rgba(201, 162, 74, 0.3), 0 8px 10px -6px rgba(201, 162, 74, 0.3);
 
   /* System Colors */
   --color-error: #BA1A1A;

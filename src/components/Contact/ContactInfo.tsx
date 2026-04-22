@@ -1,10 +1,6 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  MapPin,
-  Phone,
-  Mail,
-} from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import gsap from "gsap";
 
 interface ContactInfoData {
@@ -89,7 +85,11 @@ const ContactInfo: React.FC = () => {
       title: "Our Address",
       content: "Zentonez Beauty Salon, Thillai Nagar, Trichy, Tamil Nadu",
     },
-    { icon: <Phone size={20} />, title: "Call Us", content: "9751231239 / 9344621878" },
+    {
+      icon: <Phone size={20} />,
+      title: "Call Us",
+      content: "9751231239 / 9344621878",
+    },
     {
       icon: <Mail size={20} />,
       title: "Email Us",

@@ -81,7 +81,7 @@ const InteractiveSelector: React.FC = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, options.length]);
+  }, [isAutoPlaying]);
 
   return (
     <div

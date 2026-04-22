@@ -74,7 +74,7 @@ export const SocialSidebar: React.FC = () => {
           start: "top top",
           end: "bottom bottom",
           scrub: 1,
-          onUpdate: (self) => {
+          onUpdate: () => {
             // Optional: Hide/Show main container based on some scroll if needed
           }
         }

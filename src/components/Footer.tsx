@@ -8,12 +8,12 @@ import {
   Mail,
   Instagram,
   Facebook,
-  Twitter,
+  Youtube,
+  MessageCircle,
 } from "lucide-react";
 import logo from "../assets/zentonez-logo.png";
 
 const Footer: React.FC = () => {
-
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -27,20 +27,19 @@ const Footer: React.FC = () => {
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        duration: 0.6, 
-        ease: "easeOut" 
-      } 
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
     },
   };
 
   return (
     <footer className="bg-background relative overflow-hidden pt-6 tb:pt-12 border-t border-secondary/20">
       <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
-        
         {/* ── Navigation Tier ── */}
         <motion.div
           variants={containerVariants}
@@ -50,8 +49,8 @@ const Footer: React.FC = () => {
           className="grid grid-cols-2 dt:grid-cols-12 gap-x-4 gap-y-10 tb:gap-12 pb-6 tb:pb-12"
         >
           {/* Brand Info - Full width on smallest mobile, then grid */}
-          <motion.div 
-            variants={itemVariants} 
+          <motion.div
+            variants={itemVariants}
             className="col-span-2 dt:col-span-4 space-y-3 tb:space-y-4 dt:pr-12"
           >
             <Link
@@ -68,15 +67,40 @@ const Footer: React.FC = () => {
               Where Beauty Meets Luxury. Zentonez is an exclusive women salon
               elevating the art of beauty through performance and soul.
             </p>
-            <div className="flex space-x-2.5 pt-1 justify-center mb:justify-start">
-              {[Instagram, Facebook, Twitter].map((Icon, i) => (
+            <div className="flex space-x-3 pt-2 justify-center mb:justify-start">
+              {[
+                {
+                  Icon: Instagram,
+                  href: "https://instagram.com/zentonez",
+                  label: "Instagram",
+                },
+                {
+                  Icon: Facebook,
+                  href: "https://facebook.com/zentonez",
+                  label: "Facebook",
+                },
+                {
+                  Icon: Youtube,
+                  href: "https://youtube.com/@zentonez",
+                  label: "YouTube",
+                },
+                {
+                  Icon: MessageCircle,
+                  href: "https://wa.me/919751231239",
+                  label: "WhatsApp",
+                },
+              ].map(({ Icon, href, label }, i) => (
                 <motion.a
-                  whileHover={{ y: -2, scale: 1.1 }}
+                  whileHover={{ y: -4, scale: 1.15 }}
+                  whileTap={{ scale: 0.95 }}
                   key={i}
-                  href="#"
-                  className="p-1.5 bg-secondary/10 text-[#C9A24A] rounded-full hover:bg-[#C9A24A] hover:text-[#2B2B2B] transition-all duration-300 border border-[#C9A24A]/20"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="p-2.5 bg-secondary/5 text-[#C9A24A] rounded-xl hover:bg-[#C9A24A] hover:text-[#1A1A1A] transition-all duration-500 border border-[#C9A24A]/10 hover:border-[#C9A24A]/40 shadow-sm hover:shadow-luxury-gold"
                 >
-                  <Icon size={12} className="tb:w-4 tb:h-4" />
+                  <Icon size={16} className="tb:w-5 tb:h-5" />
                 </motion.a>
               ))}
             </div>

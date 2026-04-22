@@ -32,14 +32,14 @@ export function DesktopNav() {
     <motion.nav
       className="desktop-nav-wrapper hidden lg:block"
       initial={{ y: 0, x: "-50%" }}
-      animate={{ 
+      animate={{
         y: isVisible ? 0 : -100,
         opacity: isVisible ? 1 : 0,
-        x: "-50%" 
+        x: "-50%",
       }}
-      transition={{ 
+      transition={{
         duration: 0.3,
-        ease: "easeInOut"
+        ease: "easeInOut",
       }}
     >
       <div className="desktop-nav-content glass-effect">

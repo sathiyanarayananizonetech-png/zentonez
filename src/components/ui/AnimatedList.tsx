@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect, useCallback, ReactNode, MouseEventHandler, UIEvent } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
+import type { ReactNode, MouseEventHandler, UIEvent } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 interface AnimatedItemProps {
@@ -28,10 +29,10 @@ const AnimatedItem: React.FC<AnimatedItemProps> = ({ children, delay = 0, index,
   );
 };
 
-interface AnimatedListProps {
-  items?: any[];
-  onItemSelect?: (item: any, index: number) => void;
-  renderItem?: (item: any, index: number, isSelected: boolean) => ReactNode;
+interface AnimatedListProps<T> {
+  items?: T[];
+  onItemSelect?: (item: T, index: number) => void;
+  renderItem?: (item: T, index: number, isSelected: boolean) => ReactNode;
   showGradients?: boolean;
   enableArrowNavigation?: boolean;
   className?: string;
@@ -41,7 +42,7 @@ interface AnimatedListProps {
   isSticky?: boolean; // New prop for sticky stacking mode
 }
 
-const AnimatedList: React.FC<AnimatedListProps> = ({
+function AnimatedList<T>({
   items = [],
   onItemSelect,
   renderItem,
@@ -52,7 +53,7 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
   displayScrollbar = true,
   initialSelectedIndex = -1,
   isSticky = false
-}) => {
+}: AnimatedListProps<T>) {
   const listRef = useRef<HTMLDivElement>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(initialSelectedIndex);
   const [keyboardNav, setKeyboardNav] = useState<boolean>(false);
@@ -64,7 +65,7 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
   }, []);
 
   const handleItemClick = useCallback(
-    (item: any, index: number) => {
+    (item: T, index: number) => {
       setSelectedIndex(index);
       if (onItemSelect) {
         onItemSelect(item, index);
@@ -125,13 +126,17 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
         });
       }
     }
-    setKeyboardNav(false);
+    // Using requestAnimationFrame to avoid cascading renders warning
+    const handle = requestAnimationFrame(() => {
+      setKeyboardNav(false);
+    });
+    return () => cancelAnimationFrame(handle);
   }, [selectedIndex, keyboardNav, isSticky]);
 
   useEffect(() => {
     if (!isSticky || !listRef.current) return;
     
-    const handleScroll = () => {
+    const onWindowScroll = () => {
       const itemsElements = listRef.current?.querySelectorAll('[data-index]');
       if (!itemsElements) return;
       
@@ -146,9 +151,9 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
       setSelectedIndex(currentIdx);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onWindowScroll);
+    onWindowScroll(); // Initial check
+    return () => window.removeEventListener('scroll', onWindowScroll);
   }, [isSticky]);
 
   return (
@@ -196,17 +201,17 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
       {showGradients && !isSticky && (
         <>
           <div
-            className="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b from-surface-dim to-transparent pointer-events-none transition-opacity duration-300 ease"
+            className="absolute top-0 left-0 right-0 h-[50px] bg-linear-to-b from-surface-dim to-transparent pointer-events-none transition-opacity duration-300 ease"
             style={{ opacity: topGradientOpacity }}
           ></div>
           <div
-            className="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-surface-dim to-transparent pointer-events-none transition-opacity duration-300 ease"
+            className="absolute bottom-0 left-0 right-0 h-[100px] bg-linear-to-t from-surface-dim to-transparent pointer-events-none transition-opacity duration-300 ease"
             style={{ opacity: bottomGradientOpacity }}
           ></div>
         </>
       )}
     </div>
   );
-};
+}
 
 export default AnimatedList;

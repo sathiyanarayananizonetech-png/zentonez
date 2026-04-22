@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Clock, Instagram, Facebook, Twitter } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import ThreeDClock from "./ThreeDClock";
 
 const ContactHero: React.FC = () => {
