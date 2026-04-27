@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import type { ReactNode, MouseEventHandler, UIEvent, FC } from 'react';
 import { motion, useInView } from 'framer-motion';
 

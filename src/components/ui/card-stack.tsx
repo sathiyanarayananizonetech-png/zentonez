@@ -1,5 +1,3 @@
-// src/components/ui/card-stack.tsx
-import React from 'react';
 import { motion } from 'framer-motion';
 
 export type CardItem = {
@@ -29,10 +27,6 @@ const CardStack: React.FC<CardStackProps> = ({ items, className, activeIndex }) 
           // 1. Future cards: Hidden below/side
           // 2. Current card: Focused in center
           // 3. Past cards: Scaled down and pushed back
-          
-          const isActive = Math.round(activeIndex) === i;
-          const isPast = i < Math.floor(activeIndex);
-          const isFuture = i > Math.ceil(activeIndex);
 
           // Staggered horizontal entry for future cards
           const entryX = i % 2 === 0 ? -120 : 120;

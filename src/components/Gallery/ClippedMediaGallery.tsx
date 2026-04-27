@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import InteractiveBentoGallery from '../ui/interactive-bento-gallery';
 import type { MediaItemType } from '../ui/interactive-bento-gallery';

@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Extend Window interface for Lenis global access
 declare global {
   interface Window {
-    lenisInstance: Lenis | null;
+    lenisInstance?: Lenis | null;
   }
 }
 
