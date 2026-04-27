@@ -1,5 +1,5 @@
 import { cloneElement } from "react";
-import type { ReactElement } from "react";
+import type { ReactElement, SVGProps } from "react";
 import { motion } from "framer-motion";
 import { Award, ShieldCheck, Clock } from "lucide-react";
 import interiorImage from "../../assets/hairspawebpimages/hairspa2.webp";
@@ -70,13 +70,13 @@ const AboutValues: React.FC = () => {
               className="group p-8 sm:p-10 bg-surface-dim rounded-3xl sm:rounded-4xl border border-primary-container/20 text-center hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 perspective-1000"
               style={{ transformStyle: "preserve-3d" }}
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-surface-dim to-background rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-[inset_0_0_15px_rgba(0,0,0,0.1),5px_5px_15px_rgba(0,0,0,0.1)] border border-white/5 group-hover:border-primary/30 transition-all duration-500">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-linear-to-br from-surface-dim to-background rounded-2xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-[inset_0_0_15px_rgba(0,0,0,0.1),5px_5px_15px_rgba(0,0,0,0.1)] border border-white/5 group-hover:border-primary/30 transition-all duration-500">
                 <div className="relative transform-gpu group-hover:scale-110 transition-transform duration-500" style={{ filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.2)) drop-shadow(0 10px 15px rgba(191,149,63,0.15))" }}>
                   {cloneElement(value.icon as ReactElement, {
                     stroke: "url(#gold-gradient-3d)",
                     className: "drop-shadow-[1px_1px_0px_rgba(0,0,0,0.2)]",
                     style: { filter: "url(#3d-depth)" }
-                  } as any)}
+                  } as SVGProps<SVGSVGElement>)}
                 </div>
               </div>
               <h3 className="text-xl sm:text-2xl font-serif text-on-surface mb-3 sm:mb-4 group-hover:text-primary transition-colors duration-300">
