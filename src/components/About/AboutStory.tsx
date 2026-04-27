@@ -4,11 +4,70 @@ import { Link } from "react-router-dom";
 import ownerImage from "../../assets/owner image /image.png";
 
 const AboutStory: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4 },
+    },
+  };
+
+  const renderWritingText = (text: string, highlight?: string) => {
+    return (
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="flex flex-wrap"
+      >
+        {text.split(" ").map((word, i) => (
+          <div key={i} className="flex mr-[0.3em] overflow-hidden">
+            {word.split("").map((char, j) => (
+              <motion.span
+                key={j}
+                variants={letterVariants}
+                className={word === highlight ? "text-[#B87333]" : ""}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </div>
+        ))}
+      </motion.div>
+    );
+  };
+
   return (
     <section className="py-6 mb:py-8 tb:py-12 dt:py-16 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 mb:px-6 tb:px-8 dt:px-12">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-10%" }}
+        className="max-w-7xl mx-auto px-4 mb:px-6 tb:px-8 dt:px-12"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb:gap-8 tb:gap-10 dt:gap-12 items-center">
-          <div className="relative">
+          <motion.div variants={itemVariants} className="relative">
             <div className="relative z-10 rounded-3xl sm:rounded-4xl overflow-hidden shadow-luxury-deep aspect-4/5 max-w-sm tb:max-w-md mx-auto">
               <img
                 src={ownerImage}
@@ -16,26 +75,58 @@ const AboutStory: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-secondary/20 rounded-full blur-3xl opacity-60" />
-            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-[#B87333]/10 rounded-full blur-3xl opacity-60" />
-          </div>
+            <motion.div 
+              animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute -top-8 -left-8 w-32 h-32 bg-secondary/20 rounded-full blur-3xl opacity-60" 
+            />
+            <motion.div 
+              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+              className="absolute -bottom-8 -right-8 w-40 h-40 bg-[#B87333]/10 rounded-full blur-3xl opacity-60" 
+            />
+          </motion.div>
 
           <div className="space-y-4 sm:space-y-6">
-            <div className="inline-block px-4 py-2 bg-[#B87333]/10 text-[#B87333] rounded-full text-xs font-bold uppercase tracking-widest border border-[#B87333]/20">
+            <motion.div 
+              variants={itemVariants}
+              className="inline-block px-4 py-2 bg-[#B87333]/10 text-[#B87333] rounded-full text-xs font-bold uppercase tracking-widest border border-[#B87333]/20"
+            >
               Our Journey
-            </div>
-            <h2 className="text-hero text-on-surface leading-none">
-              A Dream Built on <br />
-              <span className="text-[#B87333]">Passion</span> <br /> Since 2025
+            </motion.div>
+            
+            <h2 className="text-hero text-on-surface leading-none overflow-hidden">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  visible: { transition: { staggerChildren: 0.05 } }
+                }}
+              >
+                {"A Dream Built on ".split("").map((char, i) => (
+                  <motion.span key={i} variants={letterVariants}>{char}</motion.span>
+                ))}
+                <br />
+                {"Passion".split("").map((char, i) => (
+                  <motion.span key={i} variants={letterVariants} className="text-[#B87333]">{char}</motion.span>
+                ))}
+                <br />
+                {"Since 2025".split("").map((char, i) => (
+                  <motion.span key={i} variants={letterVariants}>{char}</motion.span>
+                ))}
+              </motion.div>
             </h2>
-            <p className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed">
+
+            <motion.p variants={itemVariants} className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed">
               Founded in March 2025 by a seasoned makeup artist with over five
               years of expertise, Zentonez Beauty Salon was envisioned to bring
               refined luxury beauty within reach of every woman in Tamil Nadu,
               evolving seamlessly from a bespoke freelance journey into a
               full-service premium salon.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 py-2">
+            </motion.p>
+
+            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 py-2">
               <div>
                 <h4 className="text-lg sm:text-xl font-serif text-on-surface mb-2">
                   Our Vision
@@ -55,19 +146,22 @@ const AboutStory: React.FC = () => {
                   own performance-driven product line.
                 </p>
               </div>
-            </div>
-            <Link to="/services">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-premium-gold px-8 py-3.5"
-              >
-                Discover Our Services
-              </motion.button>
-            </Link>
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <Link to="/services">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-premium-gold px-8 py-3.5"
+                >
+                  Discover Our Services
+                </motion.button>
+              </Link>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -8,7 +8,6 @@ import {
   Mail,
   Instagram,
   Facebook,
-  Youtube,
   MessageCircle,
 } from "lucide-react";
 import logo from "../assets/zentonez-logo.png";
@@ -67,47 +66,7 @@ const Footer: React.FC = () => {
               Where Beauty Meets Luxury. Zentonez is an exclusive women salon
               elevating the art of beauty through performance and soul.
             </p>
-            <div className="flex space-x-3 pt-2 justify-center mb:justify-start">
-              {[
-                {
-                  Icon: Instagram,
-                  href: "https://instagram.com/zentonez",
-                  label: "Instagram",
-                  color: "hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F]/50",
-                },
-                {
-                  Icon: Facebook,
-                  href: "https://facebook.com/zentonez",
-                  label: "Facebook",
-                  color: "hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]/50",
-                },
-                {
-                  Icon: Youtube,
-                  href: "https://youtube.com/@zentonez",
-                  label: "YouTube",
-                  color: "hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000]/50",
-                },
-                {
-                  Icon: MessageCircle,
-                  href: "https://wa.me/919751231239",
-                  label: "WhatsApp",
-                  color: "hover:bg-[#25D366] hover:text-white hover:border-[#25D366]/50",
-                },
-              ].map(({ Icon, href, label, color }, i) => (
-                <motion.a
-                  whileHover={{ y: -4, scale: 1.15 }}
-                  whileTap={{ scale: 0.95 }}
-                  key={i}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className={`p-2.5 bg-secondary/5 text-[#C9A24A] rounded-xl transition-all duration-500 border border-[#C9A24A]/10 shadow-sm hover:shadow-lg ${color}`}
-                >
-                  <Icon size={16} className="tb:w-5 tb:h-5" />
-                </motion.a>
-              ))}
-            </div>
+
 
           </motion.div>
 
@@ -124,6 +83,7 @@ const Footer: React.FC = () => {
                 { label: "Home", path: "/" },
                 { label: "About", path: "/about" },
                 { label: "Services", path: "/services" },
+                { label: "Membership", path: "/membership" },
                 { label: "Gallery", path: "/gallery" },
                 { label: "Contact", path: "/contact" },
               ].map((item) => (
@@ -154,11 +114,11 @@ const Footer: React.FC = () => {
               {[
                 "Skin Care",
                 "Facial Treatment",
-                "Manicure & Pedicure",
-                "Hair Spa",
+                "Hair Spa & Therapy",
                 "Bridal Makeup",
-                "Nails",
+                "Nail Artistry",
                 "Lice Removal",
+                "Threading & Waxing",
               ].map((s) => (
                 <li
                   key={s}
@@ -205,6 +165,53 @@ const Footer: React.FC = () => {
                   </a>
                 </li>
               </div>
+              
+              {/* Social Media Icons - Moved under Visit Us with Brand Colors and Larger Size */}
+              <div className="flex space-x-3 pt-6 justify-center mb:justify-start">
+                {[
+                  {
+                    Icon: Instagram,
+                    href: "https://www.instagram.com/zentonezsalon/?hl=en",
+                    label: "Instagram",
+                    brandColor: "bg-[#E4405F]",
+                    borderColor: "border-[#E4405F]/30",
+                  },
+                  {
+                    Icon: Facebook,
+                    href: "https://www.facebook.com/profile.php?id=61576338394684",
+                    label: "Facebook",
+                    brandColor: "bg-[#1877F2]",
+                    borderColor: "border-[#1877F2]/30",
+                  },
+                  {
+                    Icon: MessageCircle,
+                    href: "https://wa.me/919751231239",
+                    label: "WhatsApp",
+                    brandColor: "bg-[#25D366]",
+                    borderColor: "border-[#25D366]/30",
+                  },
+                  {
+                    Icon: Phone,
+                    href: "tel:9751231239",
+                    label: "Call Us",
+                    brandColor: "bg-[#0EA5E9]",
+                    borderColor: "border-[#0EA5E9]/30",
+                  },
+                ].map(({ Icon, href, label, brandColor, borderColor }, i) => (
+                  <motion.a
+                    whileHover={{ y: -6, scale: 1.2, filter: "brightness(1.1)", boxShadow: "0 10px 20px -5px rgba(0,0,0,0.3)" }}
+                    whileTap={{ scale: 0.9 }}
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className={`p-2.5 ${brandColor} text-white rounded-xl transition-all duration-500 border ${borderColor} shadow-lg hover:shadow-2xl`}
+                  >
+                    <Icon size={18} className="tb:w-5 tb:h-5" />
+                  </motion.a>
+                ))}
+              </div>
             </ul>
           </motion.div>
         </motion.div>
@@ -225,6 +232,7 @@ const Footer: React.FC = () => {
               Terms
             </span>
           </div>
+
         </div>
 
         {/* Oversized Background Text - Subtler on mobile */}

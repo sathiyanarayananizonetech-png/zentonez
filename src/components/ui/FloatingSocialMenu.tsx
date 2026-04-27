@@ -26,14 +26,14 @@ const socialLinks: SocialItem[] = [
   { 
     icon: Instagram, 
     label: "Instagram", 
-    href: "https://instagram.com", 
+    href: "https://www.instagram.com/zentonezsalon/?hl=en", 
     color: "bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]",
     shadow: "shadow-[0_8px_20px_-4px_rgba(230,104,60,0.4)]"
   },
   { 
     icon: Facebook, 
     label: "Facebook", 
-    href: "https://facebook.com", 
+    href: "https://www.facebook.com/profile.php?id=61576338394684", 
     color: "bg-[#1877F2]",
     shadow: "shadow-[0_8px_20px_-4px_rgba(24,119,242,0.4)]"
   },
@@ -54,7 +54,7 @@ export const FloatingSocialMenu: React.FC = () => {
   const radius = 110; 
 
   return (
-    <div className="fixed bottom-24 right-6 lg:bottom-10 lg:right-10 z-[100] w-14 h-14">
+    <div className="fixed bottom-24 right-6 lg:bottom-10 lg:right-10 z-100 w-14 h-14">
       {/* Social Items */}
       <AnimatePresence>
         {isOpen && socialLinks.map((item, index) => {

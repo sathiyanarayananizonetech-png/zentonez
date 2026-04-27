@@ -4,6 +4,7 @@ import { ParallaxServicesSection } from "../components/home/ParallaxServicesSect
 import { PromoQuoteSection } from "../components/home/PromoQuoteSection";
 import { ServicesSection } from "../components/home/ServicesSection";
 import { PricingSection } from "../components/home/PricingSection";
+import MembershipSection from "../components/home/MembershipSection";
 import { SocialSidebar } from "../components/ui/SocialSidebar";
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
       <ServicesSection />
       <CommunityStatsSection />
       <PricingSection />
+      <MembershipSection />
       <ParallaxServicesSection />
       <PromoQuoteSection />
       <SocialSidebar />

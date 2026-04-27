@@ -6,6 +6,7 @@ const ContactForm: React.FC = () => {
   const [formState, setFormState] = useState({
     name: "",
     phone: "",
+    address: "",
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -21,7 +22,7 @@ const ContactForm: React.FC = () => {
       initial={{ opacity: 0, x: 30 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      className="lg:col-span-2 relative group"
+      className="relative group w-full"
     >
       {/* Rotating Border Beam (Framer Motion) */}
       <div className="absolute inset-0 p-[2px] rounded-3xl tb:rounded-[3.5rem] overflow-hidden">
@@ -88,6 +89,22 @@ const ContactForm: React.FC = () => {
                 }
               />
             </div>
+          </div>
+
+          <div className="space-y-2 tb:space-y-3">
+            <label className="text-[9px] tb:text-[10px] uppercase tracking-[0.3em] font-black text-on-surface/60 block px-3 tb:px-4">
+              Your Address
+            </label>
+            <input
+              type="text"
+              required
+              className="w-full px-5 tb:px-8 py-4 tb:py-5 bg-white/50 border border-on-surface/10 rounded-2xl tb:rounded-3xl focus:ring-4 focus:ring-primary/10 focus:border-primary/30 outline-none transition-all placeholder:text-on-surface/40 font-bold text-sm tb:text-base text-on-surface"
+              placeholder="Your Area / City"
+              value={formState.address}
+              onChange={(e) =>
+                setFormState({ ...formState, address: e.target.value })
+              }
+            />
           </div>
 
           <div className="space-y-2 tb:space-y-3">

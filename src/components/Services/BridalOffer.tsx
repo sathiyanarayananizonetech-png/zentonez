@@ -104,18 +104,6 @@ const BridalOffer: React.FC = () => {
                 className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-primary/30 to-transparent pointer-events-none" />
-              
-              {/* Floating Badge */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] }}
-                className="absolute top-10 right-10 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-luxury border border-primary/20 rotate-6"
-              >
-                <p className="text-primary font-black text-2xl leading-none">20%</p>
-                <p className="text-on-surface font-bold text-[8px] uppercase tracking-widest mt-1">
-                  Bridal Reward
-                </p>
-              </motion.div>
             </div>
           </motion.div>
 

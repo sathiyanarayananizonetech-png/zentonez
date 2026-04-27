@@ -29,7 +29,7 @@ const socialLinks: SocialLink[] = [
   {
     id: "instagram",
     label: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/zentonezsalon/?hl=en",
     social: "instagram",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
@@ -40,7 +40,7 @@ const socialLinks: SocialLink[] = [
   {
     id: "facebook",
     label: "Facebook",
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/profile.php?id=61576338394684",
     social: "facebook",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor">
