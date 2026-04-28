@@ -15,9 +15,9 @@ export function MobileBottomNav() {
   const navItems = [
     { name: "Home", path: "/", icon: LayoutGrid },
     { name: "About", path: "/about", icon: Flower2 },
-    { name: "Membership", path: "/membership", icon: Star },
     { name: "Services", path: "/services", icon: Scissors },
     { name: "Gallery", path: "/gallery", icon: Camera },
+    { name: "Membership", path: "/membership", icon: Star },
     { name: "Contact", path: "/contact", icon: MessageSquare },
   ];
 

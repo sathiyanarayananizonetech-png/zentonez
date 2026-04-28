@@ -1,10 +1,10 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import ownerImage from "../../assets/owner image /image.png";
 
 const AboutStory: React.FC = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -14,7 +14,7 @@ const AboutStory: React.FC = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -23,38 +23,13 @@ const AboutStory: React.FC = () => {
     },
   };
 
-  const letterVariants = {
+  const letterVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.4 },
     },
-  };
-
-  const renderWritingText = (text: string, highlight?: string) => {
-    return (
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="flex flex-wrap"
-      >
-        {text.split(" ").map((word, i) => (
-          <div key={i} className="flex mr-[0.3em] overflow-hidden">
-            {word.split("").map((char, j) => (
-              <motion.span
-                key={j}
-                variants={letterVariants}
-                className={word === highlight ? "text-[#B87333]" : ""}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </div>
-        ))}
-      </motion.div>
-    );
   };
 
   return (

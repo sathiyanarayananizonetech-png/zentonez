@@ -31,7 +31,12 @@ const Membership: React.FC = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container relative min-h-screen pb-20">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container relative min-h-screen pb-20"
+    >
       {/* ─── HERO SECTION ─── */}
       <section 
         ref={containerRef}
@@ -57,7 +62,7 @@ const Membership: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-8 text-center lg:text-left"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/30 text-white border border-primary/40 backdrop-blur-md shadow-sm mb-4">
@@ -90,9 +95,9 @@ const Membership: React.FC = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, type: "spring" }}
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, type: "spring", bounce: 0.4, delay: 0.4 }}
               className="relative"
             >
               <div className="absolute -inset-10 bg-primary/20 blur-[100px] rounded-full animate-pulse" />
@@ -100,9 +105,9 @@ const Membership: React.FC = () => {
 
               {/* Floating Badges */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
+                animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
                 transition={{
-                  duration: 4,
+                  duration: 5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -128,8 +133,14 @@ const Membership: React.FC = () => {
       </section>
 
       {/* ─── DETAILED BENEFITS ─── */}
-      <section className="py-20 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8">
+      <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
+        {/* Decorative Parallax Element */}
+        <motion.div 
+          style={{ y: backgroundY }}
+          className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none"
+        />
+        
+        <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
           <ScrollReveal>
             <div className="text-center mb-16 lg:mb-24">
               <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 uppercase tracking-tighter font-serif">
@@ -175,36 +186,58 @@ const Membership: React.FC = () => {
                 desc: "Invites to exclusive beauty workshops, masterclasses, and transformation sessions.",
               },
             ].map((benefit, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:scale-110 transition-transform">
-                    <benefit.icon size={28} />
-                  </div>
-                  <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight mb-3 font-serif">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed font-medium">
-                    {benefit.desc}
-                  </p>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:rotate-12 transition-transform">
+                  <benefit.icon size={28} />
                 </div>
-              </ScrollReveal>
+                <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight mb-3 font-serif">
+                  {benefit.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                  {benefit.desc}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* ─── COMPARISON SECTION ─── */}
-      <section className="py-20 lg:py-32 bg-slate-50 overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 tb:px-6 dt:px-8">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter font-serif">
-                Comparison <span className="text-primary">Guide</span>
-              </h2>
-            </div>
-          </ScrollReveal>
+      <section className="py-20 lg:py-32 bg-slate-50 overflow-hidden relative">
+        <motion.div 
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 0.1 }}
+          className="absolute -left-20 top-1/2 -translate-y-1/2 text-[20vw] font-black text-primary pointer-events-none select-none whitespace-nowrap uppercase tracking-tighter"
+        >
+          Compare
+        </motion.div>
 
-          <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter font-serif">
+              Comparison <span className="text-primary">Guide</span>
+            </h2>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-200"
+          >
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-900 text-white">
@@ -269,10 +302,15 @@ const Membership: React.FC = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+          </motion.div>
 
           <div className="grid sm:grid-cols-2 gap-8 mt-16">
-            <div className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm"
+            >
               <h4 className="text-lg font-black text-slate-900 uppercase mb-4 flex items-center gap-2">
                 <Star size={20} className="text-primary" /> Pros of Membership
               </h4>
@@ -292,8 +330,13 @@ const Membership: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm"
+            >
               <h4 className="text-lg font-black text-slate-900 uppercase mb-4 flex items-center gap-2">
                 <Star size={20} className="text-slate-400" /> Things to Consider
               </h4>
@@ -313,16 +356,21 @@ const Membership: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* ─── ELIGIBLE SERVICES ─── */}
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-20 lg:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
               <h2 className="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tighter font-serif leading-none">
                 Services <span className="text-primary">Covered</span>
               </h2>
@@ -343,24 +391,34 @@ const Membership: React.FC = () => {
                   "Lice Removal",
                   "Hair Styling",
                 ].map((s, i) => (
-                  <div
+                  <motion.div
                     key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
                     className="flex items-center gap-3 py-3 border-b border-slate-100"
                   >
                     <Check size={16} className="text-primary" />
                     <span className="text-sm font-bold text-slate-800">
                       {s}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative">
-              <div className="bg-slate-900 rounded-[3rem] p-12 lg:p-16 text-white space-y-8 relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, x: 50 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="bg-slate-900 rounded-[3rem] p-12 lg:p-16 text-white space-y-8 relative overflow-hidden group">
                 <Sparkles
                   size={150}
-                  className="absolute -bottom-10 -right-10 text-white/5"
+                  className="absolute -bottom-10 -right-10 text-white/5 group-hover:text-white/10 transition-colors duration-700"
                 />
                 <h3 className="text-3xl font-serif font-black uppercase italic leading-none">
                   Ready to join the inner circle?
@@ -370,37 +428,31 @@ const Membership: React.FC = () => {
                   Membership experience. It's time to reward yourself.
                 </p>
                 <div className="space-y-4 pt-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-black">
-                      1
-                    </div>
-                    <p className="text-sm font-bold">
-                      Visit our salon in Trichy
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-black">
-                      2
-                    </div>
-                    <p className="text-sm font-bold">
-                      Ask for the Membership Card
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-black">
-                      3
-                    </div>
-                    <p className="text-sm font-bold">
-                      Unlock 15% OFF instantly
-                    </p>
-                  </div>
+                  {[
+                    "Visit our salon in Trichy",
+                    "Ask for the Membership Card",
+                    "Unlock 15% OFF instantly"
+                  ].map((step, i) => (
+                    <motion.div 
+                      key={i}
+                      whileHover={{ x: 10 }}
+                      className="flex items-center gap-4 cursor-default"
+                    >
+                      <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-black shadow-lg">
+                        {i + 1}
+                      </div>
+                      <p className="text-sm font-bold">
+                        {step}
+                      </p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

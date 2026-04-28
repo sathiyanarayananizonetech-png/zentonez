@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { MapPin } from "lucide-react";
 import { useInView } from "framer-motion";
 
