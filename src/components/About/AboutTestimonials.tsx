@@ -12,463 +12,158 @@ interface Testimonial {
 }
 
 const TESTIMONIALS: Testimonial[] = [
-  // Bridal Makeup (10)
   {
     id: 1,
-    name: "Priya Sharma",
-    service: "Bridal Makeup",
-    quote:
-      "My bridal look was exactly what I dreamed of. Subtle, elegant, and lasted all day! Truly the best salon in Tamil Nadu.",
+    name: "Kowsalya Shinchan",
+    service: "Layer Cut & Hair Botox",
+    quote: "I’m Kousi from Kulithalai. I had always wanted to try a haircut and treatment for years. I visited Zentonez Salon for the first time and got a layer cut and hair botox treatment. The service was very good, the team was friendly and engaging, and I loved the final result.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Kowsalya",
   },
   {
     id: 2,
-    name: "Anjali Nair",
-    service: "Bridal Makeup",
-    quote:
-      "Zentonez made me feel like a queen on my wedding day. Their attention to detail is unmatched.",
+    name: "Manoj Jeevagan",
+    service: "Layer Cut & Styling",
+    quote: "Visited Zentonez Salon with my wife and was truly impressed. The layer cutting and hairstyling were perfect. Stylist Yogapriya is skilled, friendly, and understands exactly what you want. Highly recommend for a stylish look in Trichy.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Anjali",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Priya",
   },
   {
     id: 3,
-    name: "Meera Iyer",
-    service: "Bridal Makeup",
-    quote:
-      "Exquisite makeup that felt like a second skin. Thank you for making my special day perfect.",
+    name: "Meenakshi Janakiram",
+    service: "Layer Cut",
+    quote: "I wanted a layer cut and Yogapriya did exactly what I wanted. Good ambience with a warm gesture. She is really talented.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Meera",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Meenakshi",
   },
   {
     id: 4,
-    name: "Deepika R.",
-    service: "Bridal Makeup",
-    quote:
-      "Professional, punctual, and highly skilled. My makeup was flawless under the lights.",
+    name: "Joe Anjali",
+    service: "Facial & Threading",
+    quote: "Facial service from Yoga was amazing. She explained each step clearly and the massage was very relaxing. My skin felt fresh and glowing. Eyebrow threading was done perfectly with a natural shape.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Deepika",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Anjali",
   },
   {
     id: 5,
-    name: "Sneha Kapoor",
-    service: "Bridal Makeup",
-    quote:
-      "They understood my style instantly. The heavy bridal look was handled with such grace.",
+    name: "Dharshini Malavika",
+    service: "Facial & Haircut",
+    quote: "Sarthaj did a great job. I went for facial, haircut, and eyebrows — everything was very good. Neat and clean services. Excellent experience.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sneha",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Dharshini",
   },
   {
     id: 6,
-    name: "Kavitha V.",
-    service: "Bridal Makeup",
-    quote:
-      "Simply magical. My husband couldn't take his eyes off me! Highly recommended for brides.",
+    name: "Jenifer LD",
+    service: "Threading",
+    quote: "Very satisfied! Eyebrow threading was done very well and almost pain-free. I was never satisfied with other salons before, but here the result was perfect.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kavitha",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Jenifer",
   },
   {
     id: 7,
-    name: "Rohini Singh",
-    service: "Bridal Makeup",
-    quote:
-      "The airbrush finish was incredible. No smudging despite the humidity.",
+    name: "Vicky Sachithanantham",
+    service: "Hair Spa & Cut",
+    quote: "Layer haircut, hair spa, and eyebrow services were excellent. Very good service.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rohini",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Vidhya",
   },
   {
     id: 8,
-    name: "Shalini M.",
-    service: "Bridal Makeup",
-    quote:
-      "A true artist. The colors matched my saree perfectly. I felt so confident.",
+    name: "Sowmi Selvam",
+    service: "Threading",
+    quote: "I had an amazing experience. Threading was done neatly and painlessly. Ms. Sarthaj is polite, professional, and made me feel very comfortable.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Shalini",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Sowmi",
   },
   {
     id: 9,
-    name: "Janani K.",
-    service: "Bridal Makeup",
-    quote:
-      "Best bridal experience ever. The pre-bridal sessions really made a difference.",
+    name: "Shyamaladevi Shyamala",
+    service: "Facial & Threading",
+    quote: "Facial and threading services were very good. Yogapriya’s service was excellent.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Janani",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Shyamaladevi",
   },
   {
     id: 10,
-    name: "Divya Balan",
-    service: "Bridal Makeup",
-    quote:
-      "Thank you Zentonez for being part of my journey. The makeup was breathtaking.",
+    name: "Priyabanthavi Sivasubramanian",
+    service: "Hair Spa",
+    quote: "I visited this salon and had a wonderful experience. The hair spa was exactly as I wanted. Jerlin was polite and efficient.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Divya",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Priyabanthavi",
   },
-
-  // Hair Spa (8)
   {
     id: 11,
-    name: "Aishwarya L.",
-    service: "Hair Spa",
-    quote:
-      "The most relaxing hair spa I've ever had. My hair feels so soft and manageable now.",
+    name: "Gopi Harini",
+    service: "Salon Service",
+    quote: "Jerlin did wonderful work. She is very friendly and skillful. Great service!",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aishwarya",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Harini",
   },
   {
     id: 12,
-    name: "Lakshmi P.",
-    service: "Hair Spa",
-    quote:
-      "Deep conditioning ritual at Zentonez is a must-try. Fixed my dry ends completely.",
+    name: "Malathi Vinoth",
+    service: "Salon Service",
+    quote: "Excellent service by Revathi team. The staff are experienced and the salon atmosphere is very good.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lakshmi",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Malathi",
   },
   {
     id: 13,
-    name: "Saritha G.",
-    service: "Hair Spa",
-    quote:
-      "Premium products and amazing head massage. Totally worth the price.",
+    name: "Thulasi Anand",
+    service: "Salon Service",
+    quote: "The service was fantastic. Everyone was welcoming and kind. They truly care about their clients.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Saritha",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Thulasi",
   },
   {
     id: 14,
-    name: "Nandini J.",
+    name: "Manesa Manesa",
     service: "Hair Spa",
-    quote: "My scalp feels rejuvenated. The aromatic oils used were heavenly.",
+    quote: "Yoga gave me a very nice hair spa session. Her service was very good.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nandini",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Manesa",
   },
   {
     id: 15,
-    name: "Gayathri S.",
-    service: "Hair Spa",
-    quote:
-      "Expert staff who know exactly what your hair needs. Transformed my frizzy hair.",
+    name: "Sharmi Kalai",
+    service: "Haircut & Facial",
+    quote: "I visited Zentonez Salon for haircut and facial. Sarthaj handled everything with care and suggested the right services for my skin and hair. Overall, the service was excellent and I highly recommend it.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Gayathri",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Sharmi",
   },
   {
     id: 16,
-    name: "Pavithra R.",
-    service: "Hair Spa",
-    quote:
-      "A luxury experience from start to finish. My hair has never looked this shiny.",
+    name: "Swarnanjali Nagarajan",
+    service: "Layer Cut",
+    quote: "I got a layer haircut from Yogapriya. The service was very good. The staff are polite and handle customers very nicely.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pavithra",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Swarnanjali",
   },
   {
     id: 17,
-    name: "Shanthi K.",
-    service: "Hair Spa",
-    quote:
-      "The ambiance alone is so soothing. The spa treatment was the cherry on top.",
+    name: "Senthil Nathan",
+    service: "Layer Cut & Treatment",
+    quote: "Yasmin did dandruff treatment and a bouncy layer cut. She explained everything well and took great care. Very satisfying service.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Shanthi",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Yasmin",
   },
   {
     id: 18,
-    name: "Vidhya M.",
-    service: "Hair Spa",
-    quote:
-      "Gentle handling and effective results. Will definitely come back for another session.",
+    name: "Iswarya Sundaresan",
+    service: "Anti-Dandruff Treatment",
+    quote: "Anti-dandruff treatment by Yoga was very good.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Vidhya",
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Iswarya",
   },
-
-  // Skin Care (8)
   {
     id: 19,
-    name: "Swathi B.",
-    service: "Skin Care",
-    quote:
-      "My skin is glowing after the session! The customized facial was exactly what I needed.",
+    name: "Divya Sri",
+    service: "Salon Service",
+    quote: "I was confused about choosing a salon, but this was the best decision. Thank you Yoga Akka for the amazing care and excellent service.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Swathi",
-  },
-  {
-    id: 20,
-    name: "Madhu V.",
-    service: "Skin Care",
-    quote:
-      "High-quality products and professional dermatological advice. Best skin care salon.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Madhu",
-  },
-  {
-    id: 21,
-    name: "Rekha S.",
-    service: "Skin Care",
-    quote:
-      "Visible results in just one sitting. My acne marks have significantly faded.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rekha",
-  },
-  {
-    id: 22,
-    name: "Keerthi N.",
-    service: "Skin Care",
-    quote:
-      "I love the organic masks they use. My sensitive skin felt so calm and refreshed.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Keerthi",
-  },
-  {
-    id: 23,
-    name: "Bhavana T.",
-    service: "Skin Care",
-    quote:
-      "Clean environment and expert estheticians. My go-to place for monthly maintenance.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bhavana",
-  },
-  {
-    id: 24,
-    name: "Sandhya W.",
-    service: "Skin Care",
-    quote:
-      "The hydration facial is a lifesaver for dry skin. Felt like a total reset.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sandhya",
-  },
-  {
-    id: 25,
-    name: "Amrutha Q.",
-    service: "Skin Care",
-    quote:
-      "The detan service worked wonders after my vacation. Highly effective.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amrutha",
-  },
-  {
-    id: 26,
-    name: "Latha P.",
-    service: "Skin Care",
-    quote:
-      "Always professional and polite. My skin texture has improved so much.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Latha",
-  },
-
-  // Facial Treatment (8)
-  {
-    id: 27,
-    name: "Maya D.",
-    service: "Facial Treatment",
-    quote:
-      "The gold facial gave me an instant radiance. Perfect for festive seasons.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maya",
-  },
-  {
-    id: 28,
-    name: "Indira K.",
-    service: "Facial Treatment",
-    quote:
-      "Hydra-facial at Zentonez is world-class. My skin feels plump and youthful.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Indira",
-  },
-  {
-    id: 29,
-    name: "Varsha S.",
-    service: "Facial Treatment",
-    quote:
-      "They took the time to analyze my skin type before starting. Very thorough.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Varsha",
-  },
-  {
-    id: 30,
-    name: "Sindhu M.",
-    service: "Facial Treatment",
-    quote:
-      "No redness or irritation. Just pure glow. The massage technique is excellent.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sindhu",
-  },
-  {
-    id: 31,
-    name: "Tanvi J.",
-    service: "Facial Treatment",
-    quote:
-      "Brightening treatment that actually works. My face looks much more even-toned.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tanvi",
-  },
-  {
-    id: 32,
-    name: "Rithika P.",
-    service: "Facial Treatment",
-    quote:
-      "Relaxing vibes and visible results. The anti-aging facial is phenomenal.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rithika",
-  },
-  {
-    id: 33,
-    name: "Kajal A.",
-    service: "Facial Treatment",
-    quote:
-      "Premium service at reasonable prices. The fruit facial felt so natural.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kajal",
-  },
-  {
-    id: 34,
-    name: "Nisha L.",
-    service: "Facial Treatment",
-    quote: "Total rejuvenation. I walked out feeling 10 years younger!",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nisha",
-  },
-
-  // Nails (8)
-  {
-    id: 35,
-    name: "Sarah G.",
-    service: "Nails",
-    quote:
-      "Best nail art in the city. The extensions are sturdy and look so natural.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
-  },
-  {
-    id: 36,
-    name: "Uma R.",
-    service: "Nails",
-    quote:
-      "Gel polish that doesn't chip for weeks! Huge variety of colors to choose from.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Uma",
-  },
-  {
-    id: 37,
-    name: "Hema V.",
-    service: "Nails",
-    quote:
-      "Precision and creativity at its best. My festive nail art was a hit.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Hema",
-  },
-  {
-    id: 38,
-    name: "Monica D.",
-    service: "Nails",
-    quote:
-      "Very hygienic and patient with intricate designs. Love my new nails.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Monica",
-  },
-  {
-    id: 39,
-    name: "Pooja C.",
-    service: "Nails",
-    quote: "Quick and efficient. The matte finish I got is simply stunning.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pooja",
-  },
-  {
-    id: 40,
-    name: "Ananya B.",
-    service: "Nails",
-    quote:
-      "Luxury nail care. The hand massage after the manicure was so relaxing.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ananya",
-  },
-  {
-    id: 41,
-    name: "Swetha F.",
-    service: "Nails",
-    quote:
-      "Perfect French tip! Very classy and clean work. Highly recommended.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Swetha",
-  },
-  {
-    id: 42,
-    name: "Aruna K.",
-    service: "Nails",
-    quote: "They use high-quality tools and polishes. My nails feel healthy.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aruna",
-  },
-
-  // Manicure Pedicure (4)
-  {
-    id: 43,
-    name: "Geetha S.",
-    service: "Manicure Pedicure",
-    quote: "The pedicure felt like a mini-vacation for my feet. So smooth!",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Geetha",
-  },
-  {
-    id: 44,
-    name: "Preethi H.",
-    service: "Manicure Pedicure",
-    quote:
-      "Clean tools and relaxing soak. My hands and feet look groomed and pretty.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Preethi",
-  },
-  {
-    id: 45,
-    name: "Sumathi J.",
-    service: "Manicure Pedicure",
-    quote:
-      "Excellent service. The paraffin wax treatment made my skin so soft.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sumathi",
-  },
-  {
-    id: 46,
-    name: "Bindu M.",
-    service: "Manicure Pedicure",
-    quote:
-      "Professional and thorough. Every bit of dead skin was gone. Amazing.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bindu",
-  },
-
-  // Lice Removal (4)
-  {
-    id: 47,
-    name: "Chitra R.",
-    service: "Lice Removal",
-    quote:
-      "Safe and effective for my daughter. Very patient and child-friendly staff.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Chitra",
-  },
-  {
-    id: 48,
-    name: "Mala V.",
-    service: "Lice Removal",
-    quote:
-      "The only salon that handles this professionally. 100% results in one sitting.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mala",
-  },
-  {
-    id: 49,
-    name: "Bala S.",
-    service: "Lice Removal",
-    quote:
-      "Stress-free and painless. Thank you for solving this issue so quickly.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bala",
-  },
-  {
-    id: 50,
-    name: "Usha K.",
-    service: "Lice Removal",
-    quote: "Highly recommended for kids. Discreet and professional service.",
-    rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Usha",
-  },
+    image: "https://api.dicebear.com/7.x/lorelei/svg?seed=Divya",
+  }
 ];
 
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
@@ -488,7 +183,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
           />
         </div>
         <div>
-          <h4 className="text-white font-bold text-sm sm:text-base leading-none mb-1">
+          <h4 className="text-black font-bold text-sm sm:text-base leading-none mb-1">
             {testimonial.name}
           </h4>
           <p className="text-[#B87333] text-[10px] uppercase font-bold tracking-widest">
@@ -525,8 +220,8 @@ const AboutTestimonials: React.FC = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const row1 = TESTIMONIALS.slice(0, 12);
-  const row2 = TESTIMONIALS.slice(12, 24);
+  const row1 = TESTIMONIALS.slice(0, 10);
+  const row2 = TESTIMONIALS.slice(10, 19);
 
   return (
     <section className="py-20 sm:py-32 bg-surface-dim relative overflow-hidden">
