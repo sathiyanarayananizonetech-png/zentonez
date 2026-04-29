@@ -18,8 +18,22 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
   const [isPulsing, setIsPulsing] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+  const [isExemptPage, setIsExemptPage] = useState(false);
+
   useEffect(() => {
-    if (!canvasRef.current) return;
+    const checkStatus = () => {
+      setIsMobile(window.innerWidth < 768);
+      const path = window.location.pathname;
+      setIsExemptPage(path.includes("/services") || path.includes("/gallery"));
+    };
+    checkStatus();
+    window.addEventListener("resize", checkStatus);
+    return () => window.removeEventListener("resize", checkStatus);
+  }, []);
+
+  useEffect(() => {
+    if (!canvasRef.current || isMobile || !isExemptPage) return;
 
     // Initialize DotLottie from the ESM URL
     playerRef.current = new DotLottie({
@@ -36,7 +50,7 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
     return () => {
       playerRef.current?.destroy();
     };
-  }, []);
+  }, [isMobile, isExemptPage]);
 
   const [isInView, setIsInView] = useState(false);
 
@@ -52,7 +66,7 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
 
   // ─── Auto-Pulse Heartbeat ───
   useEffect(() => {
-    if (!isInView) {
+    if (!isInView || isMobile || !isExemptPage) {
       playerRef.current?.pause();
       return;
     }
@@ -79,7 +93,7 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
       clearInterval(interval);
       clearTimeout(initialDelay);
     };
-  }, [isHovered, isInView]);
+  }, [isHovered, isInView, isMobile, isExemptPage]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -100,11 +114,11 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
       ref={containerRef}
       className={cn(
         "spark-text-container group select-none", 
-        isPulsing && "spark-force-animate",
+        (isPulsing && !isMobile) && "spark-force-animate",
         className
       )}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={!isMobile ? handleMouseEnter : undefined}
+      onMouseLeave={!isMobile ? handleMouseLeave : undefined}
     >
       {/* Lottie Canvas Wrapper */}
       <div 
@@ -122,7 +136,7 @@ export const SparkleHeading: React.FC<SparkleHeadingProps> = ({ text, className,
       {/* Characters */}
       <div className="relative inline-flex flex-wrap justify-center lg:justify-start gap-x-[0.05em] leading-[0.9] max-w-full">
         {words.map((word, wordIdx) => (
-          <span key={wordIdx} className="inline-flex flex-wrap whitespace-normal break-words mr-[0.3em] last:mr-0">
+          <span key={wordIdx} className="inline-flex flex-wrap whitespace-normal wrap-break-word mr-[0.3em] last:mr-0">
             {word.split("").map((char, charIdx) => (
               <span 
                 key={charIdx} 

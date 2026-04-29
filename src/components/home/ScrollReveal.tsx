@@ -24,11 +24,11 @@ export function ScrollReveal({
     <motion.div
       ref={ref}
       variants={{
-        hidden: { opacity: 0, y: 40 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.5, delay, ease: "easeOut" },
+          transition: { duration: 0.3, delay, ease: "easeOut" },
         },
       }}
       initial="hidden"

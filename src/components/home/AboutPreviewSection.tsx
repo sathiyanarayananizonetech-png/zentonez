@@ -37,7 +37,7 @@ export function AboutPreviewSection() {
                 <motion.div
                   initial={{ x: 50, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
+                  transition={{ delay: 0.2, duration: 0.4 }}
                   className="absolute bottom-6 -right-2 tb:bottom-10 tb:-right-6 bg-surface/90 backdrop-blur-xl p-4 tb:p-6 rounded-xl tb:rounded-2xl shadow-2xl border border-white"
                 >
                   <div className="flex items-center gap-3 tb:gap-4">
@@ -88,7 +88,7 @@ export function AboutPreviewSection() {
                     key={item}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
+                    transition={{ delay: 0.2 + index * 0.05 }}
                     className="flex items-center gap-3 text-on-surface/80 font-bold text-[10px] tb:text-sm uppercase tracking-widest"
                   >
                     <div className="w-4 h-4 tb:w-5 tb:h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">

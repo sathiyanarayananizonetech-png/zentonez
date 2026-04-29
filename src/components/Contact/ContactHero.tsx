@@ -26,8 +26,8 @@ const ContactHero: React.FC = () => {
               <span className="text-primary">Transformation</span>
             </h1>
             <p className="text-base tb:text-lg dt:text-xl text-on-surface/90 leading-relaxed max-w-xl tb:max-w-2xl mx-auto dt:mx-0 font-medium px-4 mb:px-0">
-              "Reach out to reserve your personalized ritual or to discover more about
-              our high-performance beauty philosophy."
+              "Reach out to reserve your personalized ritual or to discover more
+              about our high-performance beauty philosophy."
             </p>
           </motion.div>
 

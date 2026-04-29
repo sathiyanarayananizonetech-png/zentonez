@@ -101,7 +101,7 @@ const ClippedMediaGallery: React.FC = () => {
   return (
     <section 
       id="gallery-section" 
-      className="py-20 sm:py-32 bg-surface-dim overflow-hidden relative z-10"
+      className="py-10 sm:py-16 bg-surface-dim overflow-hidden relative z-10"
     >
       <div className="container mx-auto px-4 sm:px-6">
         <InteractiveBentoGallery 
@@ -115,13 +115,13 @@ const ClippedMediaGallery: React.FC = () => {
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 0.1, x: 0 }}
-          className="absolute top-20 -left-20 w-96 h-96 bg-[#B87333]/20 blur-[120px] rounded-full"
+          whileInView={{ opacity: 0.05, x: 0 }}
+          className="absolute top-20 -left-20 w-96 h-96 bg-[#B87333]/15 blur-[96px] rounded-full"
         />
         <motion.div 
           initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 0.1, x: 0 }}
-          className="absolute bottom-20 -right-20 w-96 h-96 bg-[#B87333]/20 blur-[120px] rounded-full"
+          whileInView={{ opacity: 0.05, x: 0 }}
+          className="absolute bottom-20 -right-20 w-96 h-96 bg-[#B87333]/15 blur-[96px] rounded-full"
         />
       </div>
     </section>

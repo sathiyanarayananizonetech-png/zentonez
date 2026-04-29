@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Crown, Sparkles } from "lucide-react";
-import goldenSwirl from "../../assets/zentonez retoching.png";
+
 import zentonezLogo from "../../assets/zentonez-logo.png";
 
 const compliments = [
@@ -18,6 +18,15 @@ const compliments = [
 ];
 
 export const InteractiveMembershipCard: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const [compliment, setCompliment] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -58,38 +67,14 @@ export const InteractiveMembershipCard: React.FC = () => {
           setMousePosition({ x: 0, y: 0 });
         }}
         onClick={showCompliment}
-        animate={{
+        animate={!isMobile ? {
           rotateX: mousePosition.y * 20,
           rotateY: mousePosition.x * -20,
-        }}
+        } : {}}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         {/* Card Body */}
         <div className="absolute inset-0 rounded-[2.5rem] bg-linear-to-br from-[#1a1a1a] via-[#2a2a2a] to-[#111111] border border-white/20 shadow-2xl overflow-hidden shadow-primary/20">
-          {/* Dynamic Golden Swirls */}
-          <motion.img
-            src={goldenSwirl}
-            alt="Golden Swirl"
-            className="absolute -top-10 -left-10 w-64 opacity-40 blur-[2px] pointer-events-none select-none"
-            animate={{
-              x: mousePosition.x * 30,
-              y: mousePosition.y * 30,
-              rotate: [0, 5, 0],
-            }}
-            transition={{ duration: 0.5 }}
-          />
-          <motion.img
-            src={goldenSwirl}
-            alt="Golden Swirl"
-            className="absolute -bottom-20 -right-10 w-80 opacity-30 blur-[1px] rotate-180 pointer-events-none select-none"
-            animate={{
-              x: mousePosition.x * -40,
-              y: mousePosition.y * -40,
-              rotate: [180, 175, 180],
-            }}
-            transition={{ duration: 0.5 }}
-          />
-
           {/* Premium Glow Overlay */}
           <div className="absolute inset-0 bg-linear-to-tr from-primary/10 to-transparent pointer-events-none" />
 
@@ -139,7 +124,7 @@ export const InteractiveMembershipCard: React.FC = () => {
 
           {/* Interactive Sparkles on Hover */}
           <AnimatePresence>
-            {isHovered && (
+            {(isHovered && !isMobile) && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

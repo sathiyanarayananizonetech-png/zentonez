@@ -122,11 +122,15 @@ const BookGallery: React.FC = () => {
                 } as React.CSSProperties
               }
             >
-              <img src={page.front} alt={`Front ${index + 1}`} />
+              <img 
+                src={page.front} 
+                alt={`Front ${index + 1}`} 
+                className={page.front === logoImg ? "is-logo" : "object-cover"} 
+              />
               <img 
                 src={page.back} 
                 alt={`Back ${index + 1}`} 
-                className={page.back === logoImg ? "is-logo" : ""} 
+                className={page.back === logoImg ? "is-logo" : "object-cover"} 
               />
             </div>
           ))}

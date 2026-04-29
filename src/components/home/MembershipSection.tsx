@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Check, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollReveal } from "./ScrollReveal";
-import goldenSwirl from "../../assets/zentonez retoching.png";
+
 
 const compliments = [
   "You look stunning today! ✨",
@@ -130,18 +130,6 @@ const MembershipCard: React.FC = () => {
       <div className="absolute inset-0 bg-primary/20 blur-3xl group-hover:bg-primary/40 transition-all duration-500 rounded-[2.5rem]" />
 
       <div className="relative h-full bg-linear-to-br from-[#B87333] via-[#C9A24A] to-[#8B5E34] rounded-[2.5rem] p-8 lg:p-12 shadow-2xl border border-white/20 flex flex-col justify-between overflow-hidden">
-        {/* Golden Swirl Background */}
-        <img
-          src={goldenSwirl}
-          alt=""
-          className="absolute -top-10 -right-10 w-64 opacity-20 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
-        />
-        <img
-          src={goldenSwirl}
-          alt=""
-          className="absolute -bottom-10 -left-10 w-48 opacity-10 group-hover:opacity-30 transition-opacity duration-500 rotate-180 pointer-events-none"
-        />
-
         <div className="space-y-8 relative z-10">
           <div className="flex justify-between items-start">
             <div className="space-y-2">

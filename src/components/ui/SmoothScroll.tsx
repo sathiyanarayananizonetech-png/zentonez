@@ -14,13 +14,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const SmoothScroll = () => {
   useEffect(() => {
-    // Advanced Lenis optimization for premium feel
+    // Premium Lenis optimization
     const lenis = new Lenis({
-      lerp: 0.08, // Faster, more responsive feel
+      duration: 1.5, // Slightly longer duration for "weight"
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for smooth stop
+      lerp: 0.05, // Lower lerp for silkier motion
       smoothWheel: true,
-      wheelMultiplier: 1.2, // Stronger response to scroll
+      wheelMultiplier: 1.1,
       touchMultiplier: 1.5,
-      syncTouch: false, // Prevents occasional lag on touch devices
+      syncTouch: false,
     });
 
     // Synchronize ScrollTrigger with Lenis
@@ -32,8 +34,7 @@ export const SmoothScroll = () => {
     };
 
     gsap.ticker.add(tickerUpdate);
-    // Remove lagSmoothing or set to a standard value to prevent stutter
-    gsap.ticker.lagSmoothing(500, 33);
+    gsap.ticker.lagSmoothing(0); // Better for high-refresh rate displays
 
     // Store lenis on window for global access
     window.lenisInstance = lenis;
@@ -43,10 +44,13 @@ export const SmoothScroll = () => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a');
       if (anchor && anchor.hash && anchor.origin === window.location.origin) {
+        // Skip if it's just a hash with no actual target on page
+        if (anchor.hash === '#') return;
+        
         e.preventDefault();
         const element = document.querySelector(anchor.hash);
         if (element instanceof HTMLElement) {
-          lenis.scrollTo(element, { offset: -80 });
+          lenis.scrollTo(element, { offset: -80, duration: 2 });
         }
       }
     };

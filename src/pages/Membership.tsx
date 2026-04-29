@@ -15,6 +15,8 @@ import {
 import membershipCard from "../assets/membership_card.png";
 import { ScrollReveal } from "../components/home/ScrollReveal";
 import { InteractiveMembershipCard } from "../components/ui/InteractiveMembershipCard";
+import { Reveal } from "../components/ui/Reveal";
+import { Scene3D } from "../components/ui/Scene3D";
 
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -37,6 +39,8 @@ const Membership: React.FC = () => {
       exit={{ opacity: 0 }}
       className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container relative min-h-screen pb-20"
     >
+      <Scene3D />
+      
       {/* ─── HERO SECTION ─── */}
       <section 
         ref={containerRef}
@@ -141,7 +145,7 @@ const Membership: React.FC = () => {
         />
         
         <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
-          <ScrollReveal>
+          <Reveal width="100%" direction="up">
             <div className="text-center mb-16 lg:mb-24">
               <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 uppercase tracking-tighter font-serif">
                 Unrivaled <span className="text-primary">Privileges</span>
@@ -151,7 +155,7 @@ const Membership: React.FC = () => {
                 commitment to your long-term beauty journey.
               </p>
             </div>
-          </ScrollReveal>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {[
@@ -186,24 +190,26 @@ const Membership: React.FC = () => {
                 desc: "Invites to exclusive beauty workshops, masterclasses, and transformation sessions.",
               },
             ].map((benefit, i) => (
-              <motion.div
+              <Reveal
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
+                delay={i * 0.1}
+                direction="up"
+                width="100%"
               >
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:rotate-12 transition-transform">
-                  <benefit.icon size={28} />
+                <div
+                  className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6 group-hover:rotate-12 transition-transform">
+                    <benefit.icon size={28} />
+                  </div>
+                  <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight mb-3 font-serif">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                    {benefit.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight mb-3 font-serif">
-                  {benefit.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium">
-                  {benefit.desc}
-                </p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -220,143 +226,137 @@ const Membership: React.FC = () => {
         </motion.div>
 
         <div className="max-w-5xl mx-auto px-4 tb:px-6 dt:px-8 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter font-serif">
-              Comparison <span className="text-primary">Guide</span>
-            </h2>
-          </motion.div>
+          <Reveal width="100%" direction="up">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter font-serif">
+                Comparison <span className="text-primary">Guide</span>
+              </h2>
+            </div>
+          </Reveal>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-200"
-          >
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-slate-900 text-white">
-                  <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest">
-                    Benefit
-                  </th>
-                  <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest text-center bg-slate-800">
-                    Guest
-                  </th>
-                  <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest text-center text-primary bg-slate-900">
-                    Zentonez Member
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {[
-                  {
-                    feature: "Service Pricing",
-                    guest: "Standard",
-                    member: "15% Discount",
-                  },
-                  { feature: "Yearly Fee", guest: "₹0", member: "₹200" },
-                  {
-                    feature: "Booking Priority",
-                    guest: "Standard",
-                    member: "Priority Lane",
-                  },
-                  {
-                    feature: "Birthday Gift",
-                    guest: "None",
-                    member: "Included",
-                  },
-                  {
-                    feature: "Product Early Access",
-                    guest: "No",
-                    member: "Yes",
-                  },
-                  { feature: "Usage Limit", guest: "N/A", member: "Unlimited" },
-                ].map((row, i) => (
-                  <tr
-                    key={i}
-                    className="hover:bg-slate-50/50 transition-colors"
-                  >
-                    <td className="p-6 lg:p-10 text-sm font-bold text-slate-700">
-                      {row.feature}
-                    </td>
-                    <td className="p-6 lg:p-10 text-sm font-medium text-slate-500 text-center">
-                      {row.guest === "No" ? (
-                        <X className="mx-auto text-slate-300" size={20} />
-                      ) : (
-                        row.guest
-                      )}
-                    </td>
-                    <td className="p-6 lg:p-10 text-sm font-black text-slate-900 text-center bg-primary/5">
-                      {row.member === "Yes" ? (
-                        <Check className="mx-auto text-primary" size={20} />
-                      ) : (
-                        row.member
-                      )}
-                    </td>
+          <Reveal width="100%" direction="up">
+            <div 
+              className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-200"
+            >
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-slate-900 text-white">
+                    <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest">
+                      Benefit
+                    </th>
+                    <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest text-center bg-slate-800">
+                      Guest
+                    </th>
+                    <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest text-center text-primary bg-slate-900">
+                      Zentonez Member
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </motion.div>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {[
+                    {
+                      feature: "Service Pricing",
+                      guest: "Standard",
+                      member: "15% Discount",
+                    },
+                    { feature: "Yearly Fee", guest: "₹0", member: "₹200" },
+                    {
+                      feature: "Booking Priority",
+                      guest: "Standard",
+                      member: "Priority Lane",
+                    },
+                    {
+                      feature: "Birthday Gift",
+                      guest: "None",
+                      member: "Included",
+                    },
+                    {
+                      feature: "Product Early Access",
+                      guest: "No",
+                      member: "Yes",
+                    },
+                    { feature: "Usage Limit", guest: "N/A", member: "Unlimited" },
+                  ].map((row, i) => (
+                    <tr
+                      key={i}
+                      className="hover:bg-slate-50/50 transition-colors"
+                    >
+                      <td className="p-6 lg:p-10 text-sm font-bold text-slate-700">
+                        {row.feature}
+                      </td>
+                      <td className="p-6 lg:p-10 text-sm font-medium text-slate-500 text-center">
+                        {row.guest === "No" ? (
+                          <X className="mx-auto text-slate-300" size={20} />
+                        ) : (
+                          row.guest
+                        )}
+                      </td>
+                      <td className="p-6 lg:p-10 text-sm font-black text-slate-900 text-center bg-primary/5">
+                        {row.member === "Yes" ? (
+                          <Check className="mx-auto text-primary" size={20} />
+                        ) : (
+                          row.member
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Reveal>
 
           <div className="grid sm:grid-cols-2 gap-8 mt-16">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm"
-            >
-              <h4 className="text-lg font-black text-slate-900 uppercase mb-4 flex items-center gap-2">
-                <Star size={20} className="text-primary" /> Pros of Membership
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  "Unbeatable ROI: Pays for itself in 1-2 visits",
-                  "Consistent savings on all beauty routines",
-                  "Feeling valued as a long-term partner",
-                  "No hidden costs or complex tiers",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="text-sm font-medium text-slate-600 flex items-start gap-2"
-                  >
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm"
-            >
-              <h4 className="text-lg font-black text-slate-900 uppercase mb-4 flex items-center gap-2">
-                <Star size={20} className="text-slate-400" /> Things to Consider
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  "One-time upfront fee of ₹200",
-                  "Discount doesn't stack with other promos",
-                  "Non-transferable to other individuals",
-                  "Valid only at our signature locations",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="text-sm font-medium text-slate-600 flex items-start gap-2"
-                  >
-                    <div className="w-1.5 h-1.5 bg-slate-300 rounded-full mt-1.5 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            <Reveal width="100%" direction="left">
+              <div 
+                className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm h-full"
+              >
+                <h4 className="text-lg font-black text-slate-900 uppercase mb-4 flex items-center gap-2">
+                  <Star size={20} className="text-primary" /> Pros of Membership
+                </h4>
+                <ul className="space-y-3">
+                  {[
+                    "Unbeatable ROI: Pays for itself in 1-2 visits",
+                    "Consistent savings on all beauty routines",
+                    "Feeling valued as a long-term partner",
+                    "No hidden costs or complex tiers",
+                  ].map((item, i) => (
+                    <li
+                      key={i}
+                      className="text-sm font-medium text-slate-600 flex items-start gap-2"
+                    >
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+            
+            <Reveal width="100%" direction="right">
+              <div 
+                className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm h-full"
+              >
+                <h4 className="text-lg font-black text-slate-900 uppercase mb-4 flex items-center gap-2">
+                  <Star size={20} className="text-slate-400" /> Things to Consider
+                </h4>
+                <ul className="space-y-3">
+                  {[
+                    "One-time upfront fee of ₹200",
+                    "Discount doesn't stack with other promos",
+                    "Non-transferable to other individuals",
+                    "Valid only at our signature locations",
+                  ].map((item, i) => (
+                    <li
+                      key={i}
+                      className="text-sm font-medium text-slate-600 flex items-start gap-2"
+                    >
+                      <div className="w-1.5 h-1.5 bg-slate-300 rounded-full mt-1.5 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -365,56 +365,47 @@ const Membership: React.FC = () => {
       <section className="py-20 lg:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 tb:px-6 dt:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tighter font-serif leading-none">
-                Services <span className="text-primary">Covered</span>
-              </h2>
-              <p className="text-slate-600 text-lg font-medium leading-relaxed">
-                Your membership discount applies to almost our entire service
-                catalog. Whether it's a monthly refresh or a once-in-a-lifetime
-                transformation.
-              </p>
+            <Reveal width="100%" direction="left">
+              <div className="space-y-8">
+                <h2 className="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tighter font-serif leading-none">
+                  Services <span className="text-primary">Covered</span>
+                </h2>
+                <p className="text-slate-600 text-lg font-medium leading-relaxed">
+                  Your membership discount applies to almost our entire service
+                  catalog. Whether it's a monthly refresh or a once-in-a-lifetime
+                  transformation.
+                </p>
 
-              <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-                {[
-                  "Skin Care",
-                  "Facial Treatment",
-                  "Manicure & Pedicure",
-                  "Hair Spa & Therapy",
-                  "Bridal Makeup",
-                  "Nail Artistry",
-                  "Lice Removal",
-                  "Hair Styling",
-                ].map((s, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="flex items-center gap-3 py-3 border-b border-slate-100"
-                  >
-                    <Check size={16} className="text-primary" />
-                    <span className="text-sm font-bold text-slate-800">
-                      {s}
-                    </span>
-                  </motion.div>
-                ))}
+                <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+                  {[
+                    "Skin Care",
+                    "Facial Treatment",
+                    "Manicure & Pedicure",
+                    "Hair Spa & Therapy",
+                    "Bridal Makeup",
+                    "Nail Artistry",
+                    "Lice Removal",
+                    "Hair Styling",
+                  ].map((s, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      className="flex items-center gap-3 py-3 border-b border-slate-100"
+                    >
+                      <Check size={16} className="text-primary" />
+                      <span className="text-sm font-bold text-slate-800">
+                        {s}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </motion.div>
+            </Reveal>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, x: 50 }}
-              whileInView={{ opacity: 1, scale: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
+            <Reveal width="100%" direction="right">
               <div className="bg-slate-900 rounded-[3rem] p-12 lg:p-16 text-white space-y-8 relative overflow-hidden group">
                 <Sparkles
                   size={150}
@@ -448,7 +439,7 @@ const Membership: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>

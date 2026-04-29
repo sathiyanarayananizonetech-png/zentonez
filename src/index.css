@@ -505,44 +505,7 @@
     }
   }
 
-  /* ─── Glow Animations (Silver) ─── */
-  @keyframes glow-pulse {
 
-    0%,
-    100% {
-      text-shadow: 0 0 10px rgba(200, 200, 200, 0.2), 0 0 20px rgba(255, 255, 255, 0.1);
-    }
-
-    50% {
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 35px rgba(200, 200, 200, 0.3);
-    }
-  }
-
-  .animate-slow-spin {
-    animation: spin 12s linear infinite;
-  }
-
-  @keyframes luxury-float {
-
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0) rotate(6deg);
-    }
-
-    50% {
-      transform: translate3d(0, -8px, 0) rotate(8deg);
-    }
-  }
-
-  /* Optimized Floating Animation (Alternative to JS loops) */
-  .luxury-float {
-    animation: luxury-float 6s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  .glow-text {
-    animation: glow-pulse 4s ease-in-out infinite;
-  }
 
   /* ─── Sparkle Typography ─── */
   .spark-text-container {
@@ -563,31 +526,33 @@
     will-change: transform, text-shadow;
   }
 
-  /* 3D Kinetic Hover effect for characters */
-  .spark-text-container:hover .ch,
-  .spark-text-container.spark-force-animate .ch {
-    transform: translateY(-8px) scale(1.1);
-    text-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(201, 162, 74, 0.3);
-    color: var(--primary);
-  }
+  /* 3D Kinetic Hover effect for characters (Desktop only) */
+  @media (min-width: 1024px) {
+    .spark-text-container:hover .ch,
+    .spark-text-container.spark-force-animate .ch {
+      transform: translateY(-8px) scale(1.1);
+      text-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(201, 162, 74, 0.3);
+      color: var(--primary);
+    }
 
-  /* Character staggering & randomization */
-  .spark-text-container:hover .ch:nth-child(3n+1),
-  .spark-text-container.spark-force-animate .ch:nth-child(3n+1) {
-    transform: translateY(-6px) rotate(-2deg) scale(1.1);
-    transition-delay: 0.05s;
-  }
+    /* Character staggering & randomization */
+    .spark-text-container:hover .ch:nth-child(3n+1),
+    .spark-text-container.spark-force-animate .ch:nth-child(3n+1) {
+      transform: translateY(-6px) rotate(-2deg) scale(1.1);
+      transition-delay: 0.05s;
+    }
 
-  .spark-text-container:hover .ch:nth-child(3n+2),
-  .spark-text-container.spark-force-animate .ch:nth-child(3n+2) {
-    transform: translateY(-3px) rotate(1.5deg) scale(1.08);
-    transition-delay: 0.1s;
-  }
+    .spark-text-container:hover .ch:nth-child(3n+2),
+    .spark-text-container.spark-force-animate .ch:nth-child(3n+2) {
+      transform: translateY(-3px) rotate(1.5deg) scale(1.08);
+      transition-delay: 0.1s;
+    }
 
-  .spark-text-container:hover .ch:nth-child(3n),
-  .spark-text-container.spark-force-animate .ch:nth-child(3n) {
-    transform: translateY(-5px) rotate(-1deg) scale(1.12);
-    transition-delay: 0.15s;
+    .spark-text-container:hover .ch:nth-child(3n),
+    .spark-text-container.spark-force-animate .ch:nth-child(3n) {
+      transform: translateY(-5px) rotate(-1deg) scale(1.12);
+      transition-delay: 0.15s;
+    }
   }
 
   /* Sparkle Canvas Layers */

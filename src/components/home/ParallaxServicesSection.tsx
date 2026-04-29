@@ -12,6 +12,8 @@ import liceImage from "../../assets/licewebpimages/lice1.webp";
 import { ParallaxArrow } from "../ScrollParallaxCard/ParallaxArrow";
 import { ScrollParallaxCard } from "../ScrollParallaxCard/ScrollParallaxCard";
 import { ScrollReveal } from "./ScrollReveal";
+import { Lightbox } from "../ui/Lightbox";
+import React from "react";
 
 interface ParallaxService {
   title: string;
@@ -69,7 +71,7 @@ const parallaxServices: ParallaxService[] = [
     description: "Look stunning on your special day with our professional bridal makeup services.",
     image: bridalImage,
     price: "Rs15000",
-    backgroundPosition: "top",
+    backgroundPosition: "top center",
     benefits: ["HD Airbrushing", "Saree Draping", "Bridal Glow"],
     color: "#D97706",
   },
@@ -92,6 +94,7 @@ const parallaxServices: ParallaxService[] = [
 ];
 
 export function ParallaxServicesSection() {
+  const [selectedImage, setSelectedImage] = React.useState<{ url: string; title: string } | null>(null);
   return (
     <section className="py-6 tb:py-8 dt:py-10 relative bg-background overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none" />
@@ -131,6 +134,7 @@ export function ParallaxServicesSection() {
                 benefits={service.benefits}
                 color={service.color}
                 backgroundPosition={service.backgroundPosition}
+                onImageClick={() => setSelectedImage({ url: service.image, title: service.title })}
               />
             ))}
           </div>
@@ -150,6 +154,13 @@ export function ParallaxServicesSection() {
           </div>
         </ScrollReveal>
       </div>
+
+      <Lightbox 
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
+        image={selectedImage?.url || ""}
+        title={selectedImage?.title || ""}
+      />
     </section>
   );
 }

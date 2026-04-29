@@ -4,6 +4,8 @@ import ContactHero from "../components/Contact/ContactHero";
 import ContactForm from "../components/Contact/ContactForm";
 import ContactMap from "../components/Contact/ContactMap";
 import { FloatingSocialMenu } from "../components/ui/FloatingSocialMenu";
+import { Reveal } from "../components/ui/Reveal";
+import { Scene3D } from "../components/ui/Scene3D";
 
 const Contact: React.FC = () => {
   useEffect(() => {
@@ -14,16 +16,23 @@ const Contact: React.FC = () => {
 
   return (
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container relative min-h-screen">
+      <Scene3D />
+      
       <ContactHero />
 
       {/* ─── CONTENT ─── */}
-      <section className="py-8 tb:py-12 px-4 tb:px-6 dt:px-8">
-        <div className="max-w-4xl mx-auto">
-          <ContactForm />
-        </div>
-      </section>
+      <Reveal width="100%" direction="up" distance={50}>
+        <section className="py-8 tb:py-12 px-4 tb:px-6 dt:px-8">
+          <div className="max-w-4xl mx-auto">
+            <ContactForm />
+          </div>
+        </section>
+      </Reveal>
 
-      <ContactMap />
+      <Reveal width="100%" direction="up">
+        <ContactMap />
+      </Reveal>
+      
       <FloatingSocialMenu />
     </div>
   );

@@ -66,8 +66,6 @@ const Footer: React.FC = () => {
               Where Beauty Meets Luxury. Zentonez is an exclusive women salon
               elevating the art of beauty through performance and soul.
             </p>
-
-
           </motion.div>
 
           {/* Quick Links - Side-by-side on mobile */}
@@ -165,7 +163,7 @@ const Footer: React.FC = () => {
                   </a>
                 </li>
               </div>
-              
+
               {/* Social Media Icons - Moved under Visit Us with Brand Colors and Larger Size */}
               <div className="flex space-x-3 pt-6 justify-center mb:justify-start">
                 {[
@@ -199,7 +197,12 @@ const Footer: React.FC = () => {
                   },
                 ].map(({ Icon, href, label, brandColor, borderColor }, i) => (
                   <motion.a
-                    whileHover={{ y: -6, scale: 1.2, filter: "brightness(1.1)", boxShadow: "0 10px 20px -5px rgba(0,0,0,0.3)" }}
+                    whileHover={{
+                      y: -6,
+                      scale: 1.2,
+                      filter: "brightness(1.1)",
+                      boxShadow: "0 10px 20px -5px rgba(0,0,0,0.3)",
+                    }}
                     whileTap={{ scale: 0.9 }}
                     key={i}
                     href={href}
@@ -232,7 +235,6 @@ const Footer: React.FC = () => {
               Terms
             </span>
           </div>
-
         </div>
 
         {/* Oversized Background Text - Subtler on mobile */}

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Clock } from "lucide-react";
+import { Clock, Maximize2 } from "lucide-react";
+import { Lightbox } from "../ui/Lightbox";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import skinCare from "../../assets/facialwebpimages/facial1.webp";
@@ -117,6 +118,7 @@ const services: Service[] = [
     clientName: "Priya R.",
     highlights: ["HD Makeup", "Hairstyling", "Saree Draping"],
     image: bridalMakeup,
+    objectPosition: "top",
     color: "#D97706",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
@@ -181,6 +183,8 @@ const services: Service[] = [
 ];
 
 const ServicesShowcase: React.FC = () => {
+  const [selectedImage, setSelectedImage] = React.useState<{ url: string; title: string } | null>(null);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const rightColRef = useRef<HTMLDivElement>(null);
 
@@ -252,13 +256,20 @@ const ServicesShowcase: React.FC = () => {
             key={service.id}
             className="group relative bg-white rounded-[3rem] overflow-hidden shadow-luxury border border-on-surface/10"
           >
-            <div className="aspect-video relative overflow-hidden">
+            <div 
+              className="aspect-video relative overflow-hidden cursor-zoom-in group"
+              onClick={() => setSelectedImage({ url: service.image, title: service.title })}
+            >
               <img 
                 src={service.image} 
                 alt={service.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 style={{ objectPosition: service.objectPosition || "center" }}
               />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+                <Maximize2 className="text-white w-8 h-8 animate-pulse" />
+                <span className="text-white text-[10px] font-black uppercase tracking-[0.2em]">Click to View</span>
+              </div>
             </div>
             
             <div className="p-8 space-y-6">
@@ -382,9 +393,13 @@ const ServicesShowcase: React.FC = () => {
           className="h-screen flex items-center justify-center overflow-hidden"
           ref={rightColRef}
         >
-          <div className="relative w-full max-w-[380px] xl:max-w-[420px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-4 border-white bg-white">
+          <div className="relative w-full max-w-[380px] xl:max-w-[420px] aspect-4/5 rounded-[3rem] overflow-hidden shadow-luxury-deep border-4 border-white bg-white group cursor-zoom-in">
             {services.map((service) => (
-              <div key={service.id} className="absolute inset-0 z-0">
+              <div 
+                key={service.id} 
+                className="absolute inset-0 z-0"
+                onClick={() => setSelectedImage({ url: service.image, title: service.title })}
+              >
                 <img 
                   src={service.image} 
                   alt={service.title}
@@ -392,11 +407,22 @@ const ServicesShowcase: React.FC = () => {
                   style={{ objectPosition: service.objectPosition || "center" }}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3">
+                  <Maximize2 className="text-white w-10 h-10 animate-pulse" />
+                  <span className="text-white text-xs font-black uppercase tracking-[0.3em] bg-black/20 px-4 py-1 rounded-full backdrop-blur-md">Click to View</span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      <Lightbox 
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
+        image={selectedImage?.url || ""}
+        title={selectedImage?.title || ""}
+      />
     </div>
   );
 };

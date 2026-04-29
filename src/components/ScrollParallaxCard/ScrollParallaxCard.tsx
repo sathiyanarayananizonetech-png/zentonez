@@ -12,6 +12,7 @@ interface ParallaxItemProps {
   backgroundPosition?: string;
   benefits?: string[];
   color?: string;
+  onImageClick?: () => void;
 }
 
 export const ScrollParallaxCard: React.FC<ParallaxItemProps> = ({
@@ -23,6 +24,7 @@ export const ScrollParallaxCard: React.FC<ParallaxItemProps> = ({
   backgroundPosition,
   benefits,
   color,
+  onImageClick,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -37,16 +39,16 @@ export const ScrollParallaxCard: React.FC<ParallaxItemProps> = ({
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
+    stiffness: 200,
+    damping: 25,
+    restDelta: 0.001,
   });
 
   const imageTranslateY = useTransform(smoothProgress, [0, 1], [-20, 20]);
   const cardRotation = useTransform(
-    smoothProgress, 
-    [0, 1], 
-    [randomParams.rotationAmount, -randomParams.rotationAmount]
+    smoothProgress,
+    [0, 1],
+    [randomParams.rotationAmount, -randomParams.rotationAmount],
   );
 
   const benefitsVariants = {
@@ -54,7 +56,7 @@ export const ScrollParallaxCard: React.FC<ParallaxItemProps> = ({
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.05,
       },
     },
   };
@@ -65,23 +67,24 @@ export const ScrollParallaxCard: React.FC<ParallaxItemProps> = ({
   };
 
   return (
-    <div 
+    <div
       ref={containerRef}
       style={{ position: "relative", transformStyle: "preserve-3d" }}
       className={`relative parallax-content__item parallax-content__item--expand ${
         index % 2 === 1 ? "even" : "odd"
       }`}
     >
-      <motion.div 
-        className="parallax-content__item-imgwrap"
+      <motion.div
+        className="parallax-content__item-imgwrap group cursor-zoom-in"
         style={{
           rotateX: 0,
           rotateY: cardRotation,
           rotateZ: randomParams.rz,
           transformStyle: "preserve-3d",
         }}
+        onClick={onImageClick}
       >
-        <motion.div 
+        <motion.div
           className="parallax-content__item-img"
           style={{
             backgroundImage: `url(${image})`,
@@ -89,16 +92,24 @@ export const ScrollParallaxCard: React.FC<ParallaxItemProps> = ({
             backgroundPosition: backgroundPosition || "center",
           }}
         />
+        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+          <div className="bg-white/20 backdrop-blur-md p-3 rounded-full border border-white/30 animate-pulse">
+            <Star className="text-white fill-white" size={24} />
+          </div>
+          <span className="text-white text-[10px] font-black uppercase tracking-[0.2em] bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">Click to View</span>
+        </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="parallax-content__item-description"
-        style={{
-          translateZ: "100px",
-          "--item-color": color || "#D97706"
-        } as React.CSSProperties}
+        style={
+          {
+            translateZ: "100px",
+            "--item-color": color || "#D97706",
+          } as React.CSSProperties
+        }
       >
-        <motion.h2 
+        <motion.h2
           className="parallax-content__item-title"
           initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
           whileInView={{ opacity: 1, x: 0 }}

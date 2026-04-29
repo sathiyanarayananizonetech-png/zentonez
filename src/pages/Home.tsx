@@ -6,17 +6,38 @@ import { ServicesSection } from "../components/home/ServicesSection";
 import { PricingSection } from "../components/home/PricingSection";
 import MembershipSection from "../components/home/MembershipSection";
 import { SocialSidebar } from "../components/ui/SocialSidebar";
+import { Reveal } from "../components/ui/Reveal";
+import { Scene3D } from "../components/ui/Scene3D";
 
 function Home() {
   return (
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container selection:text-on-primary-container relative">
+      <Scene3D />
+      
       <HeroSection />
-      <ServicesSection />
-      <CommunityStatsSection />
-      <PricingSection />
-      <MembershipSection />
+      
+      <Reveal width="100%" direction="up" distance={100}>
+        <ServicesSection />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <CommunityStatsSection />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <PricingSection />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <MembershipSection />
+      </Reveal>
+      
       <ParallaxServicesSection />
-      <PromoQuoteSection />
+      
+      <Reveal width="100%" direction="up">
+        <PromoQuoteSection />
+      </Reveal>
+      
       <SocialSidebar />
     </div>
   );

@@ -8,18 +8,44 @@ import AboutTeam from "../components/About/AboutTeam";
 import AboutTestimonials from "../components/About/AboutTestimonials";
 import AboutCTA from "../components/About/AboutCTA";
 import { SocialSidebar } from "../components/ui/SocialSidebar";
+import { Reveal } from "../components/ui/Reveal";
+import { Scene3D } from "../components/ui/Scene3D";
 
 const About: React.FC = () => {
   return (
     <div className="overflow-x-hidden bg-background text-on-surface font-sans selection:bg-primary-container selection:text-on-primary-container relative">
+      <Scene3D />
+      
       <AboutHero />
-      <AboutStory />
-      <AboutServicesGrid />
-      <AboutTimeline />
-      <AboutValues />
-      <AboutTeam />
-      <AboutTestimonials />
-      <AboutCTA />
+      
+      <Reveal width="100%" direction="up" distance={80}>
+        <AboutStory />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <AboutServicesGrid />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <AboutTimeline />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <AboutValues />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <AboutTeam />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <AboutTestimonials />
+      </Reveal>
+      
+      <Reveal width="100%" direction="up">
+        <AboutCTA />
+      </Reveal>
+      
       <SocialSidebar />
     </div>
   );

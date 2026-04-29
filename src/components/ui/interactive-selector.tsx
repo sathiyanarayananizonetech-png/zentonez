@@ -110,7 +110,7 @@ const InteractiveSelector: React.FC = () => {
       </div>
 
       {/* Options Container */}
-      <div className="options flex w-[95%] max-w-[1200px] h-[500px] md:h-[600px] mx-auto items-stretch overflow-hidden relative z-10 rounded-2xl border border-white/10 shadow-2xl">
+      <div className="options flex flex-row w-[95%] max-w-[1200px] h-[400px] mb:h-[450px] tb:h-[500px] dt:h-[600px] mx-auto items-stretch overflow-hidden relative z-10 rounded-2xl border border-white/10 shadow-2xl">
         {options.map((option, index) => (
           <div
             key={index}
@@ -138,6 +138,8 @@ const InteractiveSelector: React.FC = () => {
               justifyContent: "flex-end",
               position: "relative",
               willChange: "flex-grow, background-size",
+              // Mobile specific overrides
+              minWidth: activeIndex === index ? "70%" : "40px",
             }}
             onClick={() => handleOptionClick(index)}
           >

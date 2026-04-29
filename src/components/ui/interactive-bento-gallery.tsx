@@ -161,45 +161,63 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                     stiffness: 400,
                     damping: 30
                 }}
-                className="fixed inset-0 w-full h-full backdrop-blur-lg bg-black/60 z-999 overflow-hidden flex items-center justify-center"
-
+                className="fixed inset-0 w-full h-full backdrop-blur-lg bg-black/60 z-999 overflow-hidden flex items-center justify-center cursor-zoom-out"
+                onClick={onClose}
             >
                 {/* Main Content */}
-                <div className="h-full w-full flex flex-col items-center justify-center">
+                <div className="h-full w-full flex flex-col items-center justify-center cursor-default" onClick={(e) => e.stopPropagation()}>
                     <div className="relative w-full aspect-video max-w-[95%] sm:max-w-[85%] md:max-w-4xl 
                                      h-auto max-h-[80vh] rounded-2xl overflow-hidden shadow-2xl bg-gray-900/40">
-                        <AnimatePresence mode="wait">
+                        <AnimatePresence mode="wait" initial={false}>
                             <motion.div
                                 key={selectedItem.id}
-                                className="w-full h-full"
-                                initial={{ y: 20, scale: 0.97, opacity: 0 }}
-                                animate={{
-                                    y: 0,
-                                    scale: 1,
-                                    opacity: 1,
-                                    transition: {
-                                        type: "spring",
-                                        stiffness: 500,
-                                        damping: 30,
-                                        mass: 0.5
+                                className="w-full h-full cursor-grab active:cursor-grabbing"
+                                initial={{ x: 300, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: -300, opacity: 0 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 30
+                                }}
+                                drag="x"
+                                dragConstraints={{ left: 0, right: 0 }}
+                                dragElastic={0.2}
+                                onDragEnd={(_, info) => {
+                                    const swipeThreshold = 50;
+                                    const verticalThreshold = 100;
+                                    const currentIndex = mediaItems.findIndex(item => item.id === selectedItem.id);
+                                    
+                                    // Handle horizontal swipe for navigation
+                                    if (Math.abs(info.offset.x) > Math.abs(info.offset.y)) {
+                                        if (info.offset.x < -swipeThreshold) {
+                                            const nextIndex = (currentIndex + 1) % mediaItems.length;
+                                            setSelectedItem(mediaItems[nextIndex]);
+                                        } else if (info.offset.x > swipeThreshold) {
+                                            const prevIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
+                                            setSelectedItem(mediaItems[prevIndex]);
+                                        }
+                                    }
+                                    // Handle vertical swipe for closing
+                                    else if (info.offset.y > verticalThreshold) {
+                                        onClose();
                                     }
                                 }}
-                                exit={{
-                                    y: 20,
-                                    scale: 0.97,
-                                    opacity: 0,
-                                    transition: { duration: 0.15 }
-                                }}
                             >
-                                <MediaItem item={selectedItem} className="w-full h-full object-contain" onClick={onClose} />
+                                <MediaItem item={selectedItem} className="w-full h-full object-contain pointer-events-none" />
                                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 
-                                              bg-linear-to-t from-black/80 via-black/40 to-transparent">
+                                               bg-linear-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
                                     <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold font-serif">
                                         {selectedItem.title}
                                     </h3>
                                     <p className="text-white/80 text-sm sm:text-base mt-2 font-medium">
                                         {selectedItem.desc}
                                     </p>
+                                    
+                                    {/* Mobile Swipe Hint */}
+                                    <div className="flex justify-center mt-4 opacity-40 tb:hidden">
+                                        <div className="w-8 h-1 bg-white rounded-full animate-pulse" />
+                                    </div>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
@@ -208,13 +226,16 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
 
                 {/* Close Button */}
                 <motion.button
-                    className="absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 
-                              backdrop-blur-md transition-colors"
-                    onClick={onClose}
+                    className="fixed top-24 right-8 tb:top-32 tb:right-32 p-3 tb:p-4 rounded-full bg-black/40 text-white hover:bg-black/60 
+                              backdrop-blur-xl transition-colors z-1001 shadow-2xl border border-white/10"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onClose();
+                    }}
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     whileTap={{ scale: 0.9 }}
                 >
-                    <X className='w-6 h-6' />
+                    <X className='w-6 h-6 tb:w-8 tb:h-8' />
                 </motion.button>
 
             </motion.div>
@@ -307,7 +328,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
     const [isDragging, setIsDragging] = useState(false);
 
     return (
-        <div className="container mx-auto px-4 py-12 max-w-6xl">
+        <div className="container mx-auto px-4 py-8 max-w-6xl">
             <div className="mb-12 text-center">
                 <motion.h1
                     className="text-4xl sm:text-5xl md:text-6xl font-black font-serif uppercase italic leading-none
@@ -331,7 +352,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
             </div>
             
             <motion.div
-                className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 auto-rows-[120px] sm:auto-rows-[160px] md:auto-rows-[180px] grid-flow-dense"
+                className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-2 auto-rows-[120px] sm:auto-rows-[160px] md:auto-rows-[180px] grid-flow-dense"
                 initial="hidden"
                 animate="visible"
                 variants={{

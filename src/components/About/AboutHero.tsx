@@ -13,6 +13,14 @@ const archImages = [interiorImage, hairImage, skinImage, spaImage];
 
 const AboutHero: React.FC = () => {
   const [currentArchIndex, setCurrentArchIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,9 +35,9 @@ const AboutHero: React.FC = () => {
         <div className="grid grid-cols-1 dt:grid-cols-2 gap-8 tb:gap-12 dt:gap-16 items-center">
           {/* Left Column: Narrative */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={!isMobile ? { opacity: 0, x: -30 } : { opacity: 1 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: !isMobile ? 0.8 : 0.4 }}
             className="space-y-4 tb:space-y-6 text-center dt:text-left pt-6 dt:pt-0"
           >
             <div>
@@ -80,9 +88,9 @@ const AboutHero: React.FC = () => {
 
           {/* Right Column: Visual Arch */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={!isMobile ? { opacity: 0, x: 30 } : { opacity: 1 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: !isMobile ? 0.8 : 0.4, delay: !isMobile ? 0.2 : 0 }}
             className="relative flex items-center justify-center dt:justify-end mt-4 dt:mt-0"
           >
             {/* The Arch Shape */}
