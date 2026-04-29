@@ -4,11 +4,12 @@ import {
   Instagram, 
   Facebook, 
   Phone, 
-  MessageCircle
+  MessageCircle,
+  type LucideIcon
 } from "lucide-react";
 
 interface SocialItem {
-  icon: React.ElementType;
+  icon: LucideIcon;
   label: string;
   href: string;
   color: string;

@@ -13,7 +13,6 @@ import {
   Zap,
 } from "lucide-react";
 import membershipCard from "../assets/membership_card.png";
-import { ScrollReveal } from "../components/home/ScrollReveal";
 import { InteractiveMembershipCard } from "../components/ui/InteractiveMembershipCard";
 import { Reveal } from "../components/ui/Reveal";
 import { Scene3D } from "../components/ui/Scene3D";
