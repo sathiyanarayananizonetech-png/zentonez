@@ -168,11 +168,8 @@ const InteractiveSelector: React.FC = () => {
                 <div
                   className="main font-pacifico text-2xl md:text-3xl text-primary whitespace-nowrap transition-all duration-700 ease-in-out"
                   style={{
-                    opacity: activeIndex === index ? 1 : 0,
-                    transform:
-                      activeIndex === index
-                        ? "translateY(0)"
-                        : "translateY(20px)",
+                    opacity: 1,
+                    transform: "translateY(0)",
                   }}
                 >
                   {option.title}
@@ -180,11 +177,8 @@ const InteractiveSelector: React.FC = () => {
                 <div
                   className="sub text-sm md:text-base text-slate-300 font-medium whitespace-nowrap transition-all duration-700 ease-in-out"
                   style={{
-                    opacity: activeIndex === index ? 1 : 0,
-                    transform:
-                      activeIndex === index
-                        ? "translateY(0)"
-                        : "translateY(20px)",
+                    opacity: 1,
+                    transform: "translateY(0)",
                     transitionDelay: "0.1s",
                   }}
                 >

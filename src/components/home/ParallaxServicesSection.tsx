@@ -9,6 +9,7 @@ import hairSpaImage from "../../assets/hairspawebpimages/hairspa1.webp";
 import bridalImage from "../../assets/bridalwebpimages/bridal1.webp";
 import nailImage from "../../assets/nailwebpimages/nail1.webp";
 import liceImage from "../../assets/licewebpimages/lice1.webp";
+import hairStyleImage from "../../assets/hairwebp images/caramelhaircolor.webp";
 import { ParallaxArrow } from "../ScrollParallaxCard/ParallaxArrow";
 import { ScrollParallaxCard } from "../ScrollParallaxCard/ScrollParallaxCard";
 import { ScrollReveal } from "./ScrollReveal";
@@ -61,7 +62,7 @@ const parallaxServices: ParallaxService[] = [
   {
     title: "Hair Styling",
     description: "Expert hair styling for every occasion, from elegant updos to modern trends.",
-    image: hairSpaImage,
+    image: hairStyleImage,
     price: "Rs1500",
     benefits: ["Elegant Updos", "Modern Braids", "Event Styling"],
     color: "#EC4899",

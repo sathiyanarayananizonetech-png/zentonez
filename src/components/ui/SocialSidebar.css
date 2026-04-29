@@ -124,10 +124,7 @@ ul.social-list {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .social-sidebar-container {
-    right: 12px;
-    bottom: 80px; /* Above mobile nav */
-    top: auto;
-    transform: none;
+    display: none;
   }
   
   .social-list .icon-content a {

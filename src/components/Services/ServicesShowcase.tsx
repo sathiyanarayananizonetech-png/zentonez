@@ -11,6 +11,7 @@ import hairSpa from "../../assets/hairspawebpimages/hairspa1.webp";
 import bridalMakeup from "../../assets/bridalwebpimages/bridal1.webp";
 import nails from "../../assets/nailwebpimages/nail1.webp";
 import liceRemoval from "../../assets/licewebpimages/lice1.webp";
+import hairStyle from "../../assets/hairwebp images/caramelhaircolor.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -172,7 +173,7 @@ const services: Service[] = [
     review: "Loved my hair for the party! It stayed perfectly in place all night.",
     clientName: "Ritu G.",
     highlights: ["Elegant Updos", "Modern Braids", "Event Styling"],
-    image: hairSpa, // Using hairSpa image as fallback
+    image: hairStyle,
     color: "#EC4899",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg">

@@ -72,7 +72,6 @@ const ThreeDClock: React.FC = () => {
         {/* Main Clock Layer - Solo for maximum performance */}
         <div className="metty-clock-main">
           <ClockDigits {...time} />
-          <div className="metty-ampm">{time.p}</div>
         </div>
       </div>
     </div>

@@ -233,18 +233,18 @@ export function HeroSection() {
 
         {/* Right Column: Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, x: 20 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           style={{
             y: !isMobile ? y2 : 0,
             rotate: !isMobile ? rotate : 0,
             perspective: 1000,
-            x: springX,
-            rotateY: springX,
-            rotateX: springY,
+            x: !isMobile ? springX : 0,
+            rotateY: !isMobile ? springX : 0,
+            rotateX: !isMobile ? springY : 0,
           }}
-          className="relative block"
+          className="relative flex justify-center w-full"
         >
           <div className="relative z-10 w-full aspect-square max-w-[280px] mb:max-w-sm tb:max-w-md dt:max-w-lg mx-auto rounded-3xl tb:rounded-4xl overflow-hidden shadow-luxury-deep border-4 border-white bg-surface">
             <AnimatePresence initial={false} mode="wait">
