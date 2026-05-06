@@ -100,7 +100,7 @@ const InteractiveSelector: React.FC = () => {
         <h3 className="text-primary font-mono text-sm uppercase tracking-[0.4em] mb-4 animate-fadeInTop">
           The Lookbook
         </h3>
-        <h1 className="text-5xl md:text-7xl font-pacifico text-white mb-6 tracking-tight drop-shadow-lg animate-fadeInTop delay-300">
+        <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-tight drop-shadow-lg animate-fadeInTop delay-300">
           Signature Chapters
         </h1>
         <p className="text-lg md:text-xl text-slate-400 font-medium max-w-2xl mx-auto animate-fadeInTop delay-600">
@@ -166,7 +166,7 @@ const InteractiveSelector: React.FC = () => {
               </div>
               <div className="info text-white overflow-hidden">
                 <div
-                  className="main font-pacifico text-2xl md:text-3xl text-primary whitespace-nowrap transition-all duration-700 ease-in-out"
+                  className="main text-2xl md:text-3xl text-primary whitespace-nowrap transition-all duration-700 ease-in-out"
                   style={{
                     opacity: 1,
                     transform: "translateY(0)",

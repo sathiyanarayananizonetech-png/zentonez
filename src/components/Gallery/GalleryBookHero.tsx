@@ -156,7 +156,7 @@ const GalleryBookHero: React.FC = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="glow-text"
         >
-          <h1 className="text-display font-pacifico text-white sm:text-slate-900 mb-4 tb:mb-6 normal-case glow-text mt-8 tb:mt-12">
+          <h1 className="text-display text-white sm:text-slate-900 mb-4 tb:mb-6 normal-case glow-text mt-8 tb:mt-12">
             <SparkleHeading text="The Artisanal" className="text-white sm:text-slate-900" />
             <br className="dt:block hidden" />
             <SparkleHeading

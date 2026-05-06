@@ -109,7 +109,7 @@ const ClippedShapeGallery = React.forwardRef<HTMLElement, ClippedShapeGalleryPro
               {/* Text Overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 pointer-events-none">
                 <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                  <h3 className="text-white font-pacifico text-3xl mb-2 drop-shadow-lg">
+                  <h3 className="text-white text-3xl mb-2 drop-shadow-lg">
                     {item.alt}
                   </h3>
                   <p className="text-primary text-[11px] tracking-[0.4em] uppercase font-black drop-shadow-md">

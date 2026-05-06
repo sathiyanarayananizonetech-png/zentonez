@@ -112,7 +112,7 @@ const ImageTrackGallery: React.FC = () => {
           transition={{ duration: 1.5, delay: 0.2 }}
           className="glow-text bg-white/40 backdrop-blur-sm p-4 tb:p-8 rounded-3xl"
         >
-          <h1 className="text-display font-pacifico text-slate-900 mb-4 tb:mb-6 normal-case glow-text">
+          <h1 className="text-display text-slate-900 mb-4 tb:mb-6 normal-case glow-text">
             <SparkleHeading text="The Signature" className="text-slate-900" />
             <br className="dt:block hidden" />
             <SparkleHeading

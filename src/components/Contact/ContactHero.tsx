@@ -21,7 +21,7 @@ const ContactHero: React.FC = () => {
                 Connect With The Atelier
               </span>
             </div>
-            <h1 className="text-display font-pacifico text-on-surface mb-6 tb:mb-10 normal-case leading-tight">
+            <h1 className="text-display text-on-surface mb-6 tb:mb-10 normal-case leading-tight">
               Begin Your <br className="tb:block hidden" />
               <span className="text-primary">Transformation</span>
             </h1>

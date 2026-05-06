@@ -157,7 +157,7 @@ export function HeroSection() {
           </motion.span>
 
           <div className="relative">
-            <h1 className="text-display font-pacifico text-on-surface mb-4 tb:mb-6 mt-2 filter drop-shadow-xl normal-case relative z-10 font-bold">
+            <h1 className="text-display text-on-surface mb-4 tb:mb-6 mt-2 normal-case relative z-10 font-bold">
               <div className="overflow-hidden">
                 <motion.div
                   initial={{ y: "100%" }}
@@ -166,11 +166,10 @@ export function HeroSection() {
                 >
                   <SparkleHeading
                     text="Where Beauty"
-                    className="text-on-surface/90"
+                    className="text-black hover:text-[#ff8531] transition-colors duration-300"
                   />
                 </motion.div>
               </div>
-              <div className="h-4 tb:h-6" />
               <div className="overflow-hidden">
                 <motion.div
                   initial={{ y: "100%" }}
@@ -183,7 +182,7 @@ export function HeroSection() {
                 >
                   <SparkleHeading
                     text="Meets Luxury"
-                    className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary-container to-primary"
+                    className="text-black hover:text-[#ff8531] transition-colors duration-300"
                     sparkleScale={1.8}
                   />
                 </motion.div>
