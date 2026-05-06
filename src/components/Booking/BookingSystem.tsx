@@ -12,7 +12,7 @@ type ServiceType = {
 
 const SERVICES: ServiceType[] = [
   { id: 'hair-spa', name: 'Artisan Hair Spa', duration: '60 Min', price: '₹899', icon: <Droplets size={24} /> },
-  { id: 'facial', name: 'Premium Facial', duration: '90 Min', price: '₹999', icon: <Sparkles size={24} /> },
+  { id: 'facial', name: 'Premium Facial', duration: '90 Min', price: '₹1,150', icon: <Sparkles size={24} /> },
   { id: 'skincare', name: 'Skin Care Ritual', duration: '45 Min', price: '₹400', icon: <Droplets size={24} /> },
   { id: 'hair-styling', name: 'Master Hair Styling', duration: '60 Min', price: '₹1500', icon: <Scissors size={24} /> },
   { id: 'nails', name: 'Designer Nails', duration: '60 Min', price: '₹1500', icon: <Sparkles size={24} /> },

@@ -37,6 +37,7 @@ const MembershipSection: React.FC = () => {
             </h2>
             <p className="text-on-surface/70 text-base lg:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
               Save more on every salon visit with our exclusive membership card.
+              <br className="hidden lg:block" />
               Elevate your beauty routine with premium rewards.
             </p>
           </div>
@@ -137,7 +138,7 @@ const MembershipCard: React.FC = () => {
                 Membership Card
               </h3>
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-black text-white">₹200</span>
+                <span className="text-4xl font-black text-white">₹199</span>
                 <span className="text-white/80 font-bold text-sm uppercase tracking-widest">
                   / Year
                 </span>

@@ -58,12 +58,12 @@ const Footer: React.FC = () => {
             >
               <img
                 src={logo}
-                alt="Zentonez"
+                alt="Zen Tonez"
                 className="h-7 tb:h-9 w-auto drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
             <p className="text-on-surface/70 leading-relaxed font-medium text-[11px] tb:text-[13px] text-center mb:text-left italic dt:max-w-xs px-4 mb:px-0">
-              Where Beauty Meets Luxury. Zentonez is an exclusive women salon
+              Where Beauty Meets Luxury. Zen Tonez is an exclusive women salon
               elevating the art of beauty through performance and soul.
             </p>
           </motion.div>
@@ -224,7 +224,7 @@ const Footer: React.FC = () => {
       <div className="relative border-t border-white/5 bg-black/20">
         <div className="max-w-7xl mx-auto flex flex-col tb:flex-row justify-between items-center px-6 py-3 tb:py-5 gap-2 relative z-20">
           <p className="text-on-surface/40 text-[7px] tb:text-[9px] font-black uppercase tracking-[0.2em]">
-            © 2025 Zentonez Beauty Salon. All Rights Reserved.
+            © 2025 Zen Tonez Beauty Salon. All Rights Reserved.
           </p>
           <div className="flex items-center gap-2 tb:gap-4 text-[7px] tb:text-[9px] uppercase font-black tracking-[0.2em] text-on-surface/40">
             <span className="hover:text-[#C9A24A] cursor-pointer transition-colors">

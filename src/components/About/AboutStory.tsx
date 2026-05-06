@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
-import ownerImage from "../../assets/owner image /image.png";
+import ownerImage from "../../assets/ownerimage/image.png";
 
 
 const AboutStory: React.FC = () => {
@@ -48,7 +48,7 @@ const AboutStory: React.FC = () => {
             <div className="relative z-10 rounded-3xl sm:rounded-4xl overflow-hidden shadow-luxury-deep aspect-4/5 max-w-sm tb:max-w-md mx-auto">
               <img
                 src={ownerImage}
-                alt="Zentonez Owner"
+                alt="Zen Tonez Owner"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -80,7 +80,7 @@ const AboutStory: React.FC = () => {
               className="text-base sm:text-lg text-on-surface/80 font-sans leading-relaxed"
             >
               Founded in March 2025 by a seasoned makeup artist with over five
-              years of expertise, Zentonez Beauty Salon was envisioned to bring
+              years of expertise, Zen Tonez Beauty Salon was envisioned to bring
               refined luxury beauty within reach of every woman in Tamil Nadu,
               evolving seamlessly from a bespoke freelance journey into a
               full-service premium salon.

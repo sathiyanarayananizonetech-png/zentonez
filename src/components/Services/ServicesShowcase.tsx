@@ -59,7 +59,7 @@ const services: Service[] = [
     title: "Facial Treatment",
     category: "Advanced Therapy",
     description: "Refresh and rejuvenate your skin with our advanced facial therapies.",
-    price: "₹999+",
+    price: "₹1,150+",
     duration: "90 Mins",
     review: "Results were visible after just one session. The therapist was so professional and knowledgeable.",
     clientName: "Ananya K.",

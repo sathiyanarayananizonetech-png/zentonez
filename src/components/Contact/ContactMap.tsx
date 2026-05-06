@@ -33,7 +33,7 @@ const ContactMap: React.FC = () => {
                 loading="lazy" 
                 onLoad={() => setIsLoaded(true)}
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Zentonez Location"
+                title="Zen Tonez Location"
               />
             )}
           </div>

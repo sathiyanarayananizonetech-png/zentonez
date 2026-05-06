@@ -18,7 +18,7 @@ export function CommunityStatsSection() {
             <h2 className="text-section-title font-black text-on-surface mb-4 tb:mb-6 uppercase tracking-tighter font-serif">
               Why{" "}
               <span className="text-primary underline decoration-secondary/30 underline-offset-8">
-                Choose Us
+                Choose Us ?
               </span>
             </h2>
             <p className="text-base tb:text-lg dt:text-xl text-on-surface/80 max-w-2xl mx-auto font-medium leading-relaxed">

@@ -28,7 +28,7 @@ export function AboutPreviewSection() {
               >
                 <img
                   src={interiorImage}
-                  alt="Zentonez Luxury Interior"
+                  alt="Zen Tonez Luxury Interior"
                   loading="lazy"
                   className="w-full aspect-4/5 object-cover"
                 />
@@ -76,7 +76,7 @@ export function AboutPreviewSection() {
 
               <p className="text-base tb:text-lg dt:text-xl text-on-surface/90 font-medium leading-relaxed">
                 Founded in March 2025 by a seasoned makeup artist with over five
-                years of expertise, Zentonez Beauty Salon was envisioned to bring
+                years of expertise, Zen Tonez Beauty Salon was envisioned to bring
                 refined luxury beauty within reach of every woman in Tamil Nadu,
                 evolving seamlessly from a bespoke freelance journey into a
                 full-service premium salon.

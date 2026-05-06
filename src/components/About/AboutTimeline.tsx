@@ -23,7 +23,7 @@ const TIMELINE_DATA = [
   {
     year: "2025",
     title: "Salon Founded",
-    desc: "Zentonez Beauty Salon opens its doors in March 2025, bringing luxury beauty to life.",
+    desc: "Zen Tonez Beauty Salon opens its doors in March 2025, bringing luxury beauty to life.",
     icon: <Package size={22} />,
   },
   {

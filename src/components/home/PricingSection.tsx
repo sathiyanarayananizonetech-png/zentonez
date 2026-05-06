@@ -4,14 +4,14 @@ import { ScrollReveal } from "./ScrollReveal";
 
 const pricingData = [
   { name: "Skin Care", price: "₹400" },
-  { name: "Facial Treatment", price: "₹999" },
-  { name: "Manicure", price: "₹599" },
+  { name: "Facial Treatment", price: "₹1,150" },
+  { name: "Manicure", price: "₹519" },
   { name: "Pedicure", price: "₹699" },
-  { name: "Hair Spa", price: "₹899" },
-  { name: "Hair Styling", price: "₹1,500" },
+  { name: "Hair Spa", price: "₹1,049" },
+  { name: "Hair Styling", price: "₹399" },
   { name: "Bridal Makeup", price: "₹15,000" },
-  { name: "Nails", price: "₹1,500" },
-  { name: "Lice Removal", price: "₹5,000" },
+  { name: "Nails", price: "₹999" },
+  { name: "Lice Removal", price: "₹4,999" },
 ];
 
 export function PricingSection() {

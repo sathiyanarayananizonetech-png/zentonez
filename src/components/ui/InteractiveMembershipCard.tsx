@@ -84,7 +84,7 @@ export const InteractiveMembershipCard: React.FC = () => {
               <div className="flex flex-col">
                 <img
                   src={zentonezLogo}
-                  alt="Zentonez Logo"
+                  alt="Zen Tonez Logo"
                   className="h-8 object-contain mb-1 filter brightness-0 invert"
                 />
                 <span className="text-[12px] font-black uppercase tracking-[0.3em] text-white">
@@ -109,7 +109,7 @@ export const InteractiveMembershipCard: React.FC = () => {
                     Card Holder
                   </p>
                   <p className="text-sm font-black uppercase tracking-widest text-white">
-                    Zentonez Member
+                    Zen Tonez Member
                   </p>
                 </div>
                 <div className="text-right">

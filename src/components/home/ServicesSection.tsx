@@ -86,7 +86,7 @@ export function ServicesSection() {
               </span>
             </h2>
             <p className="text-base tb:text-lg text-on-surface/80 max-w-xl tb:max-w-2xl mx-auto font-medium leading-relaxed px-4 mb:px-0">
-              From everyday glow to bridal perfection — Zentonez has you covered
+              From everyday glow to bridal perfection — Zen Tonez has got you covered
               with expert treatments and premium products.
             </p>
           </div>

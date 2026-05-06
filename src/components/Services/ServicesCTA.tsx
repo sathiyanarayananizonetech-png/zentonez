@@ -8,7 +8,7 @@ const ServicesCTA: React.FC = () => {
       <div className="max-w-4xl mx-auto relative z-10">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 uppercase tracking-tighter font-serif leading-[0.9]">
           Join the <br />
-          <span className="text-primary">Zentonez Circle</span>
+          <span className="text-primary">Zen Tonez Circle</span>
         </h2>
         <p className="text-base sm:text-lg text-on-surface/80 font-semibold max-w-xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4 sm:px-0">
           Become a member and enjoy priority booking, exclusive offers, and

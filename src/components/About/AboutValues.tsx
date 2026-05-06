@@ -95,7 +95,7 @@ const AboutValues: React.FC = () => {
             <div className="space-y-8 sm:space-y-12">
               <div>
                 <h4 className="text-2xl sm:text-3xl font-serif text-on-surface mb-4 sm:mb-6 underline decoration-primary-container underline-offset-8">
-                  The Zentonez Core
+                  The Zen Tonez Core
                 </h4>
                 <p className="text-on-surface/80 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base font-serif font-medium">
                   "Excellence isn't an act; it's a habit born from consistent quality,

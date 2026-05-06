@@ -77,7 +77,7 @@ const Membership: React.FC = () => {
 
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] font-serif">
-                  Zentonez{" "}
+                  Zen Tonez{" "}
                   <span className="text-primary block">Membership</span>
                 </h1>
                 <p className="text-white/70 text-lg lg:text-xl font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -88,7 +88,7 @@ const Membership: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button className="btn-premium-gold px-12 py-5 text-sm shadow-2xl shadow-primary/20 group">
-                  Join Now — ₹200/Year{" "}
+                  Join Now — ₹199/Year{" "}
                   <ArrowRight
                     size={18}
                     className="inline ml-2 group-hover:translate-x-1 transition-transform"
@@ -150,7 +150,7 @@ const Membership: React.FC = () => {
                 Unrivaled <span className="text-primary">Privileges</span>
               </h2>
               <p className="text-slate-600 text-lg lg:text-xl max-w-2xl mx-auto font-medium">
-                Being a member at Zentonez is more than just a discount—it's a
+                Being a member at Zen Tonez is more than just a discount—it's a
                 commitment to your long-term beauty journey.
               </p>
             </div>
@@ -247,7 +247,7 @@ const Membership: React.FC = () => {
                       Guest
                     </th>
                     <th className="p-6 lg:p-10 text-xs font-black uppercase tracking-widest text-center text-primary bg-slate-900">
-                      Zentonez Member
+                      Zen Tonez Member
                     </th>
                   </tr>
                 </thead>
@@ -258,7 +258,7 @@ const Membership: React.FC = () => {
                       guest: "Standard",
                       member: "15% Discount",
                     },
-                    { feature: "Yearly Fee", guest: "₹0", member: "₹200" },
+                    { feature: "Yearly Fee", guest: "₹0", member: "₹199" },
                     {
                       feature: "Booking Priority",
                       guest: "Standard",
@@ -340,7 +340,7 @@ const Membership: React.FC = () => {
                 </h4>
                 <ul className="space-y-3">
                   {[
-                    "One-time upfront fee of ₹200",
+                    "One-time upfront fee of ₹199",
                     "Discount doesn't stack with other promos",
                     "Non-transferable to other individuals",
                     "Valid only at our signature locations",
@@ -414,7 +414,7 @@ const Membership: React.FC = () => {
                   Ready to join the inner circle?
                 </h3>
                 <p className="text-white/60 font-medium leading-relaxed">
-                  Join thousands of women who have already unlocked the Zentonez
+                  Join thousands of women who have already unlocked the Zen Tonez
                   Membership experience. It's time to reward yourself.
                 </p>
                 <div className="space-y-4 pt-4">

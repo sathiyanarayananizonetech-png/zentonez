@@ -21,7 +21,7 @@ const AboutCTA: React.FC = () => {
             </h2>
             <p className="text-xs mb:text-base tb:text-lg text-on-surface/60 font-sans max-w-xl tb:max-w-2xl mx-auto leading-relaxed px-2 mb:px-0">
               Experience the perfect blend of artisanal skill and modern
-              luxury. Your transformation awaits at Zentonez.
+              luxury. Your transformation awaits at Zen Tonez.
             </p>
             <div className="pt-4 mb:pt-6 tb:pt-8 flex justify-center">
               <Link to="/contact" className="w-full mb:w-auto px-4 mb:px-0">
